@@ -9,8 +9,23 @@
     "dev": "nodemon index.js",
     "test": "jest"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "backend",
+    "nodejs",
+    "express",
+    "mysql",
+    "drizzle",
+    "jwt",
+    "bcrypt"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Akib-Jabed/payroll-backend.git"
+  },
+  "author": {
+    "name": "Akib Jabed",
+    "email": "a.jabed.bd@gmail.com"
+  },
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^6.0.0",

@@ -4,6 +4,7 @@ import express from 'express';
 import helmet from 'helmet';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import routes from './routes/index.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -18,8 +19,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(cors());
 
-app.get('/', (req, res) => {
-    res.send('Hello World');
-});
+app.use('/api/v1', routes);
 
 export default app;

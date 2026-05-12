@@ -9,3 +9,9 @@ Dockerfile*
 .dockerignore
 coverage
 .nyc_output
+src/db/0000_*.sql
+src/db/meta/
+*.log
+.vscode/
+.idea/
+logs/

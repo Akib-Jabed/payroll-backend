@@ -1,43 +1,19 @@
 import { relations } from "drizzle-orm/relations";
-import { companies, accVoucher, projects, accAutoVoucherSetup, costCenter, hrAbsentEntryFileUpload, hrAbsentEntry, hrEmployee, hrAbsentSetup, hrAbsentTemplate, users, accLedgers, hrAccountingSetup, hrAdvancePaymentTemplate, hrAdvance, porAdvance, hrAdvancePaymentHistory, hrAttendance, hrAttendanceCalculationInfo, hrCalendarSetup, hrAttendanceCalendarFileImport, hrAttendanceEntry, hrAttendanceFileImport, hrAttendanceEntryError, hrAttendanceFileImportErrors, hrAttendanceMonthly, hrAttendanceUpdateHistory, hrBankBranchMaster, hrBankMaster, hrEarningHeads, hrBonusSetup, accFiscalYear, hrBonusSetupHistory, hrCompanySetup, hrBusinessUnit, hrCity, hrGroupSetup, hrCompensatoryLeave, hrContactEmployeeDetails, hrDeductionHeads, hrDeductionHeadsHistory, hrDenomination, hrDepartments, hrDesignationMaster, hrEarningHeadsHistory, hrEducation, hrEducationConcentrations, hrEducationLevels, hrEmployeeBonusInfo, hrEmployeeBonusInfoHistory, hrEmployeeBonusInfoIndividualHistory, hrEmployeeCostCenterSetup, hrEmployeeCostCenterSetupDetails, hrEmployeeDescription, hrEmployeeEducationFileImport, hrEmployeeExperienceFileImport, hrEmployeeHistory, hrEmployeeInsertFileImport, hrEmployeeNatureType, hrOrganizationSetup, hrEmployeeSalaryBusinessUnit, hrEmployeeSalaryBusinessUnitHistory, hrEmployeeSalaryInfo, hrPayStructureTemplate, hrPayStructureSetupRecords, hrEmployeeSalaryInfoHistory, hrEmployeeTaxChangesHistory, hrTaxRecalculate, hrEmployeeTaxInfo, hrEmployeeTaxInfoDetails, hrEmployeeTransfer, hrEmployeeUpdateFileImport, hrEmployeeWeekends, hrWeekend, hrEquivalentDesignation, hrExamTitles, hrExperience, hrFarewell, hrFinalSettlement, hrFinalSettlementDetails, hrFinalSettlementHistory, hrFinalSettlementPerformanceStatusProviders, hrFingerPrintMargeFileImport, hrFingerPrintMargeRecord, hrFpMachines, hrFpMachineSyncLog, hrFpMachineUsers, hrFpMachineUserTemplates, hrWorkStation, hrFpPages, hrFpUserPermission, hrGrades, hrHoldingHeads, hrHolidayType, hrHolidays, hrIncrementFileImport, hrIncrementRecords, hrJobDescription, hrJobPerformanceArea, hrLatePresent, hrLeaveApplication, hrLeavePolicy, hrLeaveType, porLeave, hrLeaveApplicationFileImport, hrLeaveBalance, hrLeaveBalanceDetails, hrLeaveBalanceFileImport, hrLeaveCalculation, hrLeaveCalculationDetails, hrLeaveEncashment, hrLeaveEncashmentDetails, hrLeaveEncashmentHistory, hrLeaveEncashmentSetup, hrLeavePolicyTemplate, hrLeavePolicyUpdateHistory, hrLeaveYear, hrLeaveYearHistory, hrLeavingDates, hrManPowerBudget, hrManPowerBudgetFileImport, hrManualOvertime, hrManualOvertimeEntry, hrOvertimeFileImport, hrManualOvertimeHistory, hrMenu, hrMenuSubmenu, hrMobileBankingDetails, hrProfessionType, hrShiftMaster, hrOrganizationSetupChangeRecords, hrOrganizationSetupFileImport, hrOrganizationSetupHistory, hrOverStaySetupFileImport, hrOverstayEntryMonthly, hrOverstayFileImport, hrOverstayEntryMonthlyHistory, hrOverstaySetup, hrOverstayTemplate, hrOverstaySetupHistory, hrOvertime, hrOvertimeTemplate, hrOvertimeHistory, hrOvertimeSetupFileImport, hrPagePermission, hrPaySlipGeneration, hrPaySlipDetailsIndividualHistory, hrPaySlipEmployeeInfo, hrPaySlipGenerationDetails, hrPaySlipGenerationDetailsHistory, hrPaySlipGenerationHistory, hrPaySlipGenerationInfo, hrPayStructureSetup, hrPayStructureAmountUpdateHistory, hrPayStructureRecordsHistory, hrPayStructureTemplateDetails, hrPayStructureSetupFileImport, hrPayStructureSetupHistory, hrPayStructureTemplateDetailsHistory, hrPayStructureTemplateHistory, hrPayStructureVariableInput, hrPayment, hrPortalAccessRecords, hrPrefix, hrPresentCompany, hrPresentOffdayFileImport, hrPresentOffdayMaster, hrPresentOffdayTemplate, hrPresentOffdayMasterHistory, hrPresentOffdayMonthly, hrPresentOffdayMonthlyHistory, hrPresentOffdaySetupFileImport, hrProjectPermission, hrProjectwiseRoleAssign, hrProjectwiseTemplateAssign, hrPromotionInfo, hrProvidentFundSetup, hrProvidentFundDetails, hrProvidentFundTemplate, hrReference, hrSalaryBusinessUnit, banksOriginal, hrTaxTemplate, hrTaxArea, hrTaxAreaType, hrTaxBonusSetup, hrTaxCalculationRange, hrTaxCalculationRangeHistory, hrTaxChallanEntry, hrTaxChallanEmployee, hrTaxChallanEntryFileImport, hrTaxChallanEntryHistory, hrTaxPolicyEarningHeadWise, hrTaxPolicyEarningHeadWiseHistory, hrTaxTemplateHistory, hrInstitutes, hrTrainingCertification, hrTransferredCompany, hrTransferredEmployeesSalary, hrVariableInputFileImport, hrVariableInputHistory, hrisCandidateUsers, hrisCandidateUserAddresses, hrisCandidateUserEducations, hrisCandidateUserExperiences, hrisCandidateUserReferences, hrisCandidateUserTrainings, hrisCiteriaMaster, hrisDepartmentalBudget, hrisDepartmentalBudgetDetails, hrisJobCreateDetails, hrisDocumentMaster, hrisEmployeeSittingArragementDetails, hrisWorkStationFlatRoomDetails, hrisWorkStationFlatDetails, hrisEmployeeStationaryRequisitionDetails, hrisEmployeeStationaryRequisitionItemsDetails, invItems, hrisEvaluationScoreMaster, hrisFileArchiveDocumentType, hrisFileArchiveDocumentFor, hrisFileArchiveEntry, hrisFileArchiveEntryDetails, hrisGuestInterViewerDetails, hrisInterViewBoard, hrisJobRequisitions, hrisInterViewSetupDetails, hrisInterViewTimeScheduleDetails, hrisInterViewerDetails, hrisInterviewAppraise, hrisInterviewAppraisedRatings, hrisInterviewAppraisedCharacteristics, hrisInterviewAppraisedCandidates, hrisInterviewAppraisedReferences, hrisInterviewBoardMaster, hrisInterviewBoardMasterInterviewerDetails, hrisItGoodsDetails, hrisItGoodsItemsDetails, hrisJobAdvertisements, hrisJobAdvertisementBillEntry, vendors, hrisJobAdvertisementMediaMasters, hrisJobApplications, hrisJobApplicationHistory, hrisJobCreate, hrisJobDescription, hrisJobDescriptionDimension, hrisJobDescriptionExperience, hrisJobDescriptionExternalCustomer, hrisJobDescriptionInternalCustomer, hrisJobDescriptionNonPerformingAreas, hrisJobDescriptionPerformingArea, hrisJobDescriptionQualification, hrisJobDescriptionQualityParameter, hrisJobDescriptionSoftSkill, hrisJobDescriptionSpecialRequirement, hrisJobDescriptionTechnicalSkill, hrisJobRequisitionApprovalActivities, hrisJobRequisitionSummery, hrisJobRequisitionSummeryPotentialCandidateCv, hrisJobResponsibilities, hrisManPowerPlanning, hrisManPowerPlanningDetails, hrisMarkingSystemMaster, hrisMediaType, hrisMediaMaster, hrisPerformanceAppraisalSetup, hrisPerformanceAppraisalDateRanges, hrisPmsScoreMaster, hrisRentAgreementDetails, hrisRentAgreementBenificiaryDetails, hrisRentAgreementLessorsDetails, hrisRentAgreementPaymentDetails, hrisRentAgreementRentDetails, hrisRentGenerationDetails, hrisRentGenerationAttachmentsDetails, hrisRentGenerationPaymentDetails, hrisResidentDetails, hrisResidentFloorDetails, hrisResidentFlatDetails, hrisResidentFlatRoomDetails, hrisResponsibilityMatrixFunction, hrisResponsibilityMatrixIncharge, hrisResponsibilityMatrixSubFunction, hrisResponsibilitySubFunctionDetails, hrisSpecialNotes, hrisTalentAcquisitionJoiningDetails, hrisTalentAcquisitionJoiningHandoverDocumentsDetails, hrisTalentAcquisitionJoiningReceiveDocumentsDetails, hrisTraitsMaster, hrisTraitsSetupDetails, hrisUtilityGenerationDetails, hrisUtilityGenerationAttachmentsDetails, hrisUtilityGenerationChargeDetails, hrisUtilityService, hrisUtilityGenerationPaymentDetails, hrisWorkStationDetails, hrisWorkStationFloorDetails, categories, unit, size, color, specifications, models, products, invItemImages, porAppFcmTokens, porAttendance, porCertificateMaster, porCertificateRequest, porCompensatoryLeaves, porEmployee, porEmployeeAppraisalDetails, porEmployeeAppraisalTargetDetails, porEmployeeCarAit, porEmployeeHr, porEmployeeHrDetails, porEmployeeReview, porEmployeeSupervisor, porEmployeeTinInfo, porItGoodsDetails, porItGoodsItemsDetails, porJobDescriptionAdditionalDimensions, porJobDescriptionAdditionalDimensionsHistory, porJobDescriptionAdditionalExperiences, porJobDescriptionAdditionalExperiencesHistory, porJobDescriptionAdditionalExternalCustomers, porJobDescriptionAdditionalExternalCustomersHistory, porJobDescriptionAdditionalInternalCustomers, porJobDescriptionAdditionalInternalCustomersHistory, porJobDescriptionAdditionalPerformingAreas, porJobDescriptionAdditionalPerformingAreasHistory, porJobDescriptionAdditionalQualifications, porJobDescriptionAdditionalQualificationsHistory, porJobDescriptionAdditionalQualityParameters, porJobDescriptionAdditionalQualityParametersHistory, porJobDescriptionAdditionalSoftSkills, porJobDescriptionAdditionalSoftSkillsHistory, porJobDescriptionAdditionalSpecialRequirements, porJobDescriptionAdditionalSpecialRequirementsHistory, porJobDescriptionAdditionalTechSkills, porJobDescriptionAdditionalTechSkillsHistory, porJobRequisitions, porLeaveDetails, porPerformanceAppraise, porPerformanceAppraiseAchievements, porPerformanceAppraiseDetails, porPerformanceAppraiseTraits } from "./schema.js";
+import {
+	accFiscalYear, accLedgers, accVoucher, banksOriginal, companies, costCenter, files, hrAbsentEntry, hrAbsentEntryFileUpload, hrAbsentSetup, hrAbsentTemplate, hrAccountingSetup, hrAdvance, hrAdvancePaymentHistory, hrAdvancePaymentTemplate, hrAttendance, hrAttendanceCalculationInfo, hrAttendanceCalendarFileImport, hrAttendanceEntry, hrAttendanceEntryError, hrAttendanceFileImport, hrAttendanceFileImportErrors, hrAttendanceMonthly, hrAttendanceUpdateHistory, hrBankBranchMaster, hrBankMaster, hrBonusSetup, hrBonusSetupHistory, hrBusinessUnit, hrCalendarSetup, hrCity, hrCompanySetup, hrCompensatoryLeave, hrContactEmployeeDetails, hrDeductionHeads, hrDeductionHeadsHistory, hrDenomination, hrDepartments, hrDesignationMaster, hrEarningHeads, hrEarningHeadsHistory, hrEducation, hrEducationConcentrations, hrEducationLevels, hrEmployee, hrEmployeeBonusInfo, hrEmployeeBonusInfoHistory, hrEmployeeBonusInfoIndividualHistory, hrEmployeeCostCenterSetup, hrEmployeeCostCenterSetupDetails, hrEmployeeDescription, hrEmployeeEducationFileImport, hrEmployeeExperienceFileImport, hrEmployeeHistory, hrEmployeeInsertFileImport, hrEmployeeNatureType, hrEmployeeSalaryBusinessUnit, hrEmployeeSalaryBusinessUnitHistory, hrEmployeeSalaryInfo, hrEmployeeSalaryInfoHistory, hrEmployeeTaxChangesHistory, hrEmployeeTaxInfo, hrEmployeeTaxInfoDetails, hrEmployeeTransfer, hrEmployeeUpdateFileImport, hrEmployeeWeekends, hrEquivalentDesignation, hrExamTitles, hrExperience, hrFarewell, hrFinalSettlement, hrFinalSettlementDetails, hrFinalSettlementHistory, hrFinalSettlementPerformanceStatusProviders, hrFingerPrintMargeFileImport, hrFingerPrintMargeRecord, hrFpMachineSyncLog, hrFpMachineUserTemplates, hrFpMachineUsers, hrFpMachines, hrFpPages, hrFpUserPermission, hrGrades, hrGroupSetup, hrHoldingHeads, hrHolidayType, hrHolidays, hrIncrementFileImport, hrIncrementRecords, hrInstitutes, hrJobDescription, hrJobPerformanceArea, hrLatePresent, hrLeaveApplication, hrLeaveApplicationFileImport, hrLeaveBalance, hrLeaveBalanceDetails, hrLeaveBalanceFileImport, hrLeaveCalculation, hrLeaveCalculationDetails, hrLeaveEncashment, hrLeaveEncashmentDetails, hrLeaveEncashmentHistory, hrLeaveEncashmentSetup, hrLeavePolicy, hrLeavePolicyTemplate, hrLeavePolicyUpdateHistory, hrLeaveType, hrLeaveYear, hrLeaveYearHistory, hrLeavingDates, hrManPowerBudget, hrManPowerBudgetFileImport, hrManualOvertime, hrManualOvertimeEntry, hrManualOvertimeHistory, hrMenu, hrMenuSubmenu, hrMobileBankingDetails, hrOrganizationSetup, hrOrganizationSetupChangeRecords, hrOrganizationSetupFileImport, hrOrganizationSetupHistory, hrOverStaySetupFileImport, hrOverstayEntryMonthly, hrOverstayEntryMonthlyHistory, hrOverstayFileImport, hrOverstaySetup, hrOverstaySetupHistory, hrOverstayTemplate, hrOvertime, hrOvertimeFileImport, hrOvertimeHistory, hrOvertimeSetupFileImport, hrOvertimeTemplate, hrPagePermission, hrPaySlipDetailsIndividualHistory, hrPaySlipEmployeeInfo, hrPaySlipGeneration, hrPaySlipGenerationDetails, hrPaySlipGenerationDetailsHistory, hrPaySlipGenerationHistory, hrPaySlipGenerationInfo, hrPayStructureAmountUpdateHistory, hrPayStructureRecordsHistory, hrPayStructureSetup, hrPayStructureSetupFileImport, hrPayStructureSetupHistory, hrPayStructureSetupRecords, hrPayStructureTemplate, hrPayStructureTemplateDetails, hrPayStructureTemplateDetailsHistory, hrPayStructureTemplateHistory, hrPayStructureVariableInput, hrPayment, hrPortalAccessRecords, hrPrefix, hrPresentCompany, hrPresentOffdayFileImport, hrPresentOffdayMaster, hrPresentOffdayMasterHistory, hrPresentOffdayMonthly, hrPresentOffdayMonthlyHistory, hrPresentOffdaySetupFileImport, hrPresentOffdayTemplate, hrProfessionType, hrProjectPermission, hrProjectwiseRoleAssign, hrProjectwiseTemplateAssign, hrPromotionInfo, hrProvidentFundDetails, hrProvidentFundSetup, hrProvidentFundTemplate, hrReference, hrSalaryBusinessUnit, hrShiftMaster, hrTaxArea, hrTaxAreaType, hrTaxBonusSetup, hrTaxCalculationRange, hrTaxCalculationRangeHistory, hrTaxChallanEmployee, hrTaxChallanEntry, hrTaxChallanEntryFileImport, hrTaxChallanEntryHistory, hrTaxPolicyEarningHeadWise, hrTaxPolicyEarningHeadWiseHistory, hrTaxRecalculate, hrTaxTemplate, hrTaxTemplateHistory, hrTrainingCertification, hrTransferredCompany, hrTransferredEmployeesSalary, hrVariableInputFileImport, hrVariableInputHistory, hrWeekend, hrWorkStation, hrisCandidateUserAddresses, hrisCandidateUserEducations, hrisCandidateUserExperiences, hrisCandidateUserReferences, hrisCandidateUserTrainings, hrisCandidateUsers, hrisCiteriaMaster, hrisDepartmentalBudget, hrisDepartmentalBudgetDetails, hrisDocumentMaster, hrisEmployeeSittingArragementDetails, hrisEmployeeStationaryRequisitionDetails, hrisEvaluationScoreMaster, hrisFileArchiveDocumentFor, hrisFileArchiveDocumentType, hrisFileArchiveEntry, hrisFileArchiveEntryDetails, hrisGuestInterViewerDetails, hrisInterViewBoard, hrisInterViewSetupDetails, hrisInterViewTimeScheduleDetails, hrisInterViewerDetails, hrisInterviewAppraise, hrisInterviewAppraisedCandidates, hrisInterviewAppraisedCharacteristics, hrisInterviewAppraisedRatings, hrisInterviewAppraisedReferences, hrisInterviewBoardMaster, hrisInterviewBoardMasterInterviewerDetails, hrisItGoodsDetails, hrisItGoodsItemsDetails, hrisJobAdvertisementBillEntry, hrisJobAdvertisements, hrisJobApplicationHistory, hrisJobApplications, hrisJobCreate, hrisJobCreateDetails, hrisJobDescription, hrisJobDescriptionDimension, hrisJobDescriptionExperience, hrisJobDescriptionExternalCustomer, hrisJobDescriptionInternalCustomer, hrisJobDescriptionNonPerformingAreas, hrisJobDescriptionPerformingArea, hrisJobDescriptionQualification, hrisJobDescriptionQualityParameter, hrisJobDescriptionSoftSkill, hrisJobDescriptionSpecialRequirement, hrisJobDescriptionTechnicalSkill, hrisJobRequisitionApprovalActivities, hrisJobRequisitionSummery, hrisJobRequisitionSummeryPotentialCandidateCv, hrisJobRequisitions, hrisJobResponsibilities, hrisManPowerPlanning, hrisManPowerPlanningDetails, hrisMarkingSystemMaster, hrisMediaMaster, hrisMediaType, hrisPerformanceAppraisalDateRanges, hrisPerformanceAppraisalSetup, hrisPmsScoreMaster, hrisRentAgreementBenificiaryDetails, hrisRentAgreementDetails, hrisRentAgreementLessorsDetails, hrisRentAgreementPaymentDetails, hrisRentAgreementRentDetails, hrisRentGenerationAttachmentsDetails, hrisRentGenerationDetails, hrisRentGenerationPaymentDetails, hrisResidentDetails, hrisResidentFlatDetails, hrisResidentFlatRoomDetails, hrisResidentFloorDetails, hrisResponsibilityMatrixFunction, hrisResponsibilityMatrixIncharge, hrisResponsibilityMatrixSubFunction, hrisResponsibilitySubFunctionDetails, hrisSpecialNotes, hrisTalentAcquisitionJoiningDetails, hrisTalentAcquisitionJoiningHandoverDocumentsDetails, hrisTalentAcquisitionJoiningReceiveDocumentsDetails, hrisTraitsMaster, hrisTraitsSetupDetails, hrisUtilityGenerationAttachmentsDetails, hrisUtilityGenerationChargeDetails, hrisUtilityGenerationDetails, hrisUtilityGenerationPaymentDetails, hrisUtilityService, hrisWorkStationDetails, hrisWorkStationFlatDetails, hrisWorkStationFlatRoomDetails, hrisWorkStationFloorDetails,
+	personalInfo,
+	porAdvance, porAppFcmTokens, porAttendance, porCertificateMaster, porCertificateRequest, porCompensatoryLeaves, porEmployee, porEmployeeAppraisalDetails, porEmployeeAppraisalTargetDetails, porEmployeeCarAit, porEmployeeHr, porEmployeeHrDetails, porEmployeeReview, porEmployeeSupervisor, porEmployeeTinInfo, porItGoodsDetails, porJobDescriptionAdditionalDimensions, porJobDescriptionAdditionalExperiences, porJobDescriptionAdditionalExternalCustomers, porJobDescriptionAdditionalInternalCustomers, porJobDescriptionAdditionalPerformingAreas, porJobDescriptionAdditionalPerformingAreasHistory, porJobDescriptionAdditionalQualifications, porJobDescriptionAdditionalQualificationsHistory, porJobDescriptionAdditionalQualityParameters, porJobDescriptionAdditionalQualityParametersHistory, porJobDescriptionAdditionalSoftSkills, porJobDescriptionAdditionalSoftSkillsHistory, porJobDescriptionAdditionalSpecialRequirements, porJobDescriptionAdditionalSpecialRequirementsHistory, porJobDescriptionAdditionalTechSkills, porJobDescriptionAdditionalTechSkillsHistory, porJobRequisitions, porLeave, porLeaveDetails, porPerformanceAppraise, porPerformanceAppraiseAchievements, porPerformanceAppraiseDetails, porPerformanceAppraiseTraits, projects, users
+} from "./schema.js";
 
-export const accVoucherRelations = relations(accVoucher, ({one, many}) => ({
-	company: one(companies, {
-		fields: [accVoucher.idCompany],
-		references: [companies.idCompanies]
-	}),
-	project: one(projects, {
-		fields: [accVoucher.idBusinessUnit],
-		references: [projects.idProjects]
-	}),
-	accAutoVoucherSetup: one(accAutoVoucherSetup, {
-		fields: [accVoucher.idTask],
-		references: [accAutoVoucherSetup.idAutoVoucherSetup]
-	}),
-	hrAdvances: many(hrAdvance),
-	hrBonusSetups: many(hrBonusSetup),
-	hrFinalSettlements_idEarningVoucher: many(hrFinalSettlement, {
-		relationName: "hrFinalSettlement_idEarningVoucher_accVoucher_idVoucher"
-	}),
-	hrFinalSettlements_idDeductionVoucher: many(hrFinalSettlement, {
-		relationName: "hrFinalSettlement_idDeductionVoucher_accVoucher_idVoucher"
-	}),
-	hrLeaveEncashments: many(hrLeaveEncashment),
-	hrManualOvertimeEntries: many(hrManualOvertimeEntry),
-	hrOverstayEntryMonthlies: many(hrOverstayEntryMonthly),
-	hrPaySlipGenerations: many(hrPaySlipGeneration),
-	hrisJobAdvertisementBillEntries: many(hrisJobAdvertisementBillEntry),
-	hrisRentAgreementDetails: many(hrisRentAgreementDetails),
-}));
 
-export const companiesRelations = relations(companies, ({many}) => ({
+export const companiesRelations = relations(companies, ({ many }) => ({
 	accVouchers: many(accVoucher),
 	hrOrganizationSetups: many(hrOrganizationSetup),
 	hrPromotionInfos: many(hrPromotionInfo),
 	projects: many(projects),
 }));
 
-export const projectsRelations = relations(projects, ({one, many}) => ({
+export const projectsRelations = relations(projects, ({ one, many }) => ({
 	accVouchers: many(accVoucher),
 	costCenters: many(costCenter),
 	hrAbsentSetups: many(hrAbsentSetup),
@@ -120,7 +96,6 @@ export const projectsRelations = relations(projects, ({one, many}) => ({
 	hrisDocumentMasters: many(hrisDocumentMaster),
 	hrisEmployeeSittingArragementDetails: many(hrisEmployeeSittingArragementDetails),
 	hrisEmployeeStationaryRequisitionDetails: many(hrisEmployeeStationaryRequisitionDetails),
-	hrisEmployeeStationaryRequisitionItemsDetails: many(hrisEmployeeStationaryRequisitionItemsDetails),
 	hrisEvaluationScoreMasters: many(hrisEvaluationScoreMaster),
 	hrisGuestInterViewerDetails: many(hrisGuestInterViewerDetails),
 	hrisInterViewBoards: many(hrisInterViewBoard),
@@ -150,7 +125,6 @@ export const projectsRelations = relations(projects, ({one, many}) => ({
 	porEmployeeAppraisalDetails: many(porEmployeeAppraisalDetails),
 	porEmployeeAppraisalTargetDetails: many(porEmployeeAppraisalTargetDetails),
 	porItGoodsDetails: many(porItGoodsDetails),
-	porItGoodsItemsDetails: many(porItGoodsItemsDetails),
 	porJobRequisitions: many(porJobRequisitions),
 	porLeaves: many(porLeave),
 	company: one(companies, {
@@ -159,11 +133,7 @@ export const projectsRelations = relations(projects, ({one, many}) => ({
 	}),
 }));
 
-export const accAutoVoucherSetupRelations = relations(accAutoVoucherSetup, ({many}) => ({
-	accVouchers: many(accVoucher),
-}));
-
-export const costCenterRelations = relations(costCenter, ({one, many}) => ({
+export const costCenterRelations = relations(costCenter, ({ one, many }) => ({
 	project: one(projects, {
 		fields: [costCenter.idProjects],
 		references: [projects.idProjects]
@@ -172,7 +142,7 @@ export const costCenterRelations = relations(costCenter, ({one, many}) => ({
 	hrisRentAgreementBenificiaryDetails: many(hrisRentAgreementBenificiaryDetails),
 }));
 
-export const hrAbsentEntryRelations = relations(hrAbsentEntry, ({one}) => ({
+export const hrAbsentEntryRelations = relations(hrAbsentEntry, ({ one }) => ({
 	hrAbsentEntryFileUpload: one(hrAbsentEntryFileUpload, {
 		fields: [hrAbsentEntry.idHrAbsentEntryFileUpload],
 		references: [hrAbsentEntryFileUpload.idHrAbsentEntryFileUpload]
@@ -183,11 +153,11 @@ export const hrAbsentEntryRelations = relations(hrAbsentEntry, ({one}) => ({
 	}),
 }));
 
-export const hrAbsentEntryFileUploadRelations = relations(hrAbsentEntryFileUpload, ({many}) => ({
+export const hrAbsentEntryFileUploadRelations = relations(hrAbsentEntryFileUpload, ({ many }) => ({
 	hrAbsentEntries: many(hrAbsentEntry),
 }));
 
-export const hrEmployeeRelations = relations(hrEmployee, ({many}) => ({
+export const hrEmployeeRelations = relations(hrEmployee, ({ many }) => ({
 	hrAbsentEntries: many(hrAbsentEntry),
 	hrAdvances: many(hrAdvance),
 	hrAdvancePaymentHistories: many(hrAdvancePaymentHistory),
@@ -447,7 +417,6 @@ export const hrEmployeeRelations = relations(hrEmployee, ({many}) => ({
 	porItGoodsDetails_concernItPersonId: many(porItGoodsDetails, {
 		relationName: "porItGoodsDetails_concernItPersonId_hrEmployee_employeeId"
 	}),
-	porItGoodsItemsDetails: many(porItGoodsItemsDetails),
 	porJobDescriptionAdditionalDimensions: many(porJobDescriptionAdditionalDimensions),
 	porJobDescriptionAdditionalExperiences: many(porJobDescriptionAdditionalExperiences),
 	porJobDescriptionAdditionalExternalCustomers: many(porJobDescriptionAdditionalExternalCustomers),
@@ -476,7 +445,7 @@ export const hrEmployeeRelations = relations(hrEmployee, ({many}) => ({
 	users: many(users),
 }));
 
-export const hrAbsentSetupRelations = relations(hrAbsentSetup, ({one}) => ({
+export const hrAbsentSetupRelations = relations(hrAbsentSetup, ({ one }) => ({
 	project: one(projects, {
 		fields: [hrAbsentSetup.idBusinessUnit],
 		references: [projects.idProjects]
@@ -497,7 +466,7 @@ export const hrAbsentSetupRelations = relations(hrAbsentSetup, ({one}) => ({
 	}),
 }));
 
-export const hrAbsentTemplateRelations = relations(hrAbsentTemplate, ({one, many}) => ({
+export const hrAbsentTemplateRelations = relations(hrAbsentTemplate, ({ one, many }) => ({
 	hrAbsentSetups: many(hrAbsentSetup),
 	user: one(users, {
 		fields: [hrAbsentTemplate.idUsers],
@@ -505,7 +474,7 @@ export const hrAbsentTemplateRelations = relations(hrAbsentTemplate, ({one, many
 	}),
 }));
 
-export const usersRelations = relations(users, ({one, many}) => ({
+export const usersRelations = relations(users, ({ one, many }) => ({
 	hrAbsentSetups_idUsers: many(hrAbsentSetup, {
 		relationName: "hrAbsentSetup_idUsers_users_idUsers"
 	}),
@@ -768,7 +737,6 @@ export const usersRelations = relations(users, ({one, many}) => ({
 	hrisDocumentMasters: many(hrisDocumentMaster),
 	hrisEmployeeSittingArragementDetails: many(hrisEmployeeSittingArragementDetails),
 	hrisEmployeeStationaryRequisitionDetails: many(hrisEmployeeStationaryRequisitionDetails),
-	hrisEmployeeStationaryRequisitionItemsDetails: many(hrisEmployeeStationaryRequisitionItemsDetails),
 	hrisEvaluationScoreMasters: many(hrisEvaluationScoreMaster),
 	hrisFileArchiveDocumentFors: many(hrisFileArchiveDocumentFor),
 	hrisFileArchiveDocumentTypes: many(hrisFileArchiveDocumentType),
@@ -828,7 +796,7 @@ export const usersRelations = relations(users, ({one, many}) => ({
 	}),
 }));
 
-export const hrAccountingSetupRelations = relations(hrAccountingSetup, ({one}) => ({
+export const hrAccountingSetupRelations = relations(hrAccountingSetup, ({ one }) => ({
 	accLedger: one(accLedgers, {
 		fields: [hrAccountingSetup.idLedger],
 		references: [accLedgers.idLedgers]
@@ -839,7 +807,7 @@ export const hrAccountingSetupRelations = relations(hrAccountingSetup, ({one}) =
 	}),
 }));
 
-export const accLedgersRelations = relations(accLedgers, ({many}) => ({
+export const accLedgersRelations = relations(accLedgers, ({ many }) => ({
 	hrAccountingSetups: many(hrAccountingSetup),
 	hrPayments: many(hrPayment),
 	hrisRentAgreementPaymentDetails: many(hrisRentAgreementPaymentDetails),
@@ -847,7 +815,7 @@ export const accLedgersRelations = relations(accLedgers, ({many}) => ({
 	hrisUtilityGenerationPaymentDetails: many(hrisUtilityGenerationPaymentDetails),
 }));
 
-export const hrAdvanceRelations = relations(hrAdvance, ({one, many}) => ({
+export const hrAdvanceRelations = relations(hrAdvance, ({ one, many }) => ({
 	hrAdvancePaymentTemplate: one(hrAdvancePaymentTemplate, {
 		fields: [hrAdvance.idAdvanceTemplate],
 		references: [hrAdvancePaymentTemplate.idAdvancePaymentTemplate]
@@ -877,7 +845,7 @@ export const hrAdvanceRelations = relations(hrAdvance, ({one, many}) => ({
 	hrAdvancePaymentHistories: many(hrAdvancePaymentHistory),
 }));
 
-export const hrAdvancePaymentTemplateRelations = relations(hrAdvancePaymentTemplate, ({one, many}) => ({
+export const hrAdvancePaymentTemplateRelations = relations(hrAdvancePaymentTemplate, ({ one, many }) => ({
 	hrAdvances: many(hrAdvance),
 	user: one(users, {
 		fields: [hrAdvancePaymentTemplate.idUser],
@@ -885,7 +853,7 @@ export const hrAdvancePaymentTemplateRelations = relations(hrAdvancePaymentTempl
 	}),
 }));
 
-export const porAdvanceRelations = relations(porAdvance, ({one, many}) => ({
+export const porAdvanceRelations = relations(porAdvance, ({ one, many }) => ({
 	hrAdvances: many(hrAdvance),
 	hrEmployee_idEmployee: one(hrEmployee, {
 		fields: [porAdvance.idEmployee],
@@ -908,7 +876,7 @@ export const porAdvanceRelations = relations(porAdvance, ({one, many}) => ({
 	}),
 }));
 
-export const hrAdvancePaymentHistoryRelations = relations(hrAdvancePaymentHistory, ({one}) => ({
+export const hrAdvancePaymentHistoryRelations = relations(hrAdvancePaymentHistory, ({ one }) => ({
 	hrAdvance: one(hrAdvance, {
 		fields: [hrAdvancePaymentHistory.idAdvance],
 		references: [hrAdvance.idAdvance]
@@ -927,7 +895,7 @@ export const hrAdvancePaymentHistoryRelations = relations(hrAdvancePaymentHistor
 	}),
 }));
 
-export const hrAttendanceRelations = relations(hrAttendance, ({one}) => ({
+export const hrAttendanceRelations = relations(hrAttendance, ({ one }) => ({
 	hrEmployee: one(hrEmployee, {
 		fields: [hrAttendance.idEmployee],
 		references: [hrEmployee.employeeId]
@@ -942,7 +910,7 @@ export const hrAttendanceRelations = relations(hrAttendance, ({one}) => ({
 	}),
 }));
 
-export const hrAttendanceCalculationInfoRelations = relations(hrAttendanceCalculationInfo, ({one}) => ({
+export const hrAttendanceCalculationInfoRelations = relations(hrAttendanceCalculationInfo, ({ one }) => ({
 	user: one(users, {
 		fields: [hrAttendanceCalculationInfo.idUser],
 		references: [users.idUsers]
@@ -957,7 +925,7 @@ export const hrAttendanceCalculationInfoRelations = relations(hrAttendanceCalcul
 	}),
 }));
 
-export const hrCalendarSetupRelations = relations(hrCalendarSetup, ({one, many}) => ({
+export const hrCalendarSetupRelations = relations(hrCalendarSetup, ({ one, many }) => ({
 	hrAttendanceCalculationInfos: many(hrAttendanceCalculationInfo),
 	user: one(users, {
 		fields: [hrCalendarSetup.idUser],
@@ -966,7 +934,7 @@ export const hrCalendarSetupRelations = relations(hrCalendarSetup, ({one, many})
 	hrPaySlipGenerations: many(hrPaySlipGeneration),
 }));
 
-export const hrAttendanceCalendarFileImportRelations = relations(hrAttendanceCalendarFileImport, ({one}) => ({
+export const hrAttendanceCalendarFileImportRelations = relations(hrAttendanceCalendarFileImport, ({ one }) => ({
 	user: one(users, {
 		fields: [hrAttendanceCalendarFileImport.idUser],
 		references: [users.idUsers]
@@ -977,7 +945,7 @@ export const hrAttendanceCalendarFileImportRelations = relations(hrAttendanceCal
 	}),
 }));
 
-export const hrAttendanceEntryRelations = relations(hrAttendanceEntry, ({one}) => ({
+export const hrAttendanceEntryRelations = relations(hrAttendanceEntry, ({ one }) => ({
 	project: one(projects, {
 		fields: [hrAttendanceEntry.idProject],
 		references: [projects.idProjects]
@@ -988,7 +956,7 @@ export const hrAttendanceEntryRelations = relations(hrAttendanceEntry, ({one}) =
 	}),
 }));
 
-export const hrAttendanceEntryErrorRelations = relations(hrAttendanceEntryError, ({one}) => ({
+export const hrAttendanceEntryErrorRelations = relations(hrAttendanceEntryError, ({ one }) => ({
 	hrAttendanceFileImport: one(hrAttendanceFileImport, {
 		fields: [hrAttendanceEntryError.idHrAttendanceFileImport],
 		references: [hrAttendanceFileImport.idHrAttendanceFileImport]
@@ -999,7 +967,7 @@ export const hrAttendanceEntryErrorRelations = relations(hrAttendanceEntryError,
 	}),
 }));
 
-export const hrAttendanceFileImportRelations = relations(hrAttendanceFileImport, ({one, many}) => ({
+export const hrAttendanceFileImportRelations = relations(hrAttendanceFileImport, ({ one, many }) => ({
 	hrAttendanceEntryErrors: many(hrAttendanceEntryError),
 	user: one(users, {
 		fields: [hrAttendanceFileImport.idUser],
@@ -1008,7 +976,7 @@ export const hrAttendanceFileImportRelations = relations(hrAttendanceFileImport,
 	hrAttendanceFileImportErrors: many(hrAttendanceFileImportErrors),
 }));
 
-export const hrAttendanceFileImportErrorsRelations = relations(hrAttendanceFileImportErrors, ({one}) => ({
+export const hrAttendanceFileImportErrorsRelations = relations(hrAttendanceFileImportErrors, ({ one }) => ({
 	hrAttendanceFileImport: one(hrAttendanceFileImport, {
 		fields: [hrAttendanceFileImportErrors.hrAttendanceFileImportId],
 		references: [hrAttendanceFileImport.idHrAttendanceFileImport]
@@ -1019,7 +987,7 @@ export const hrAttendanceFileImportErrorsRelations = relations(hrAttendanceFileI
 	}),
 }));
 
-export const hrAttendanceMonthlyRelations = relations(hrAttendanceMonthly, ({one}) => ({
+export const hrAttendanceMonthlyRelations = relations(hrAttendanceMonthly, ({ one }) => ({
 	hrEmployee: one(hrEmployee, {
 		fields: [hrAttendanceMonthly.idEmployee],
 		references: [hrEmployee.employeeId]
@@ -1034,14 +1002,14 @@ export const hrAttendanceMonthlyRelations = relations(hrAttendanceMonthly, ({one
 	}),
 }));
 
-export const hrAttendanceUpdateHistoryRelations = relations(hrAttendanceUpdateHistory, ({one}) => ({
+export const hrAttendanceUpdateHistoryRelations = relations(hrAttendanceUpdateHistory, ({ one }) => ({
 	user: one(users, {
 		fields: [hrAttendanceUpdateHistory.idUser],
 		references: [users.idUsers]
 	}),
 }));
 
-export const hrBankBranchMasterRelations = relations(hrBankBranchMaster, ({one, many}) => ({
+export const hrBankBranchMasterRelations = relations(hrBankBranchMaster, ({ one, many }) => ({
 	user: one(users, {
 		fields: [hrBankBranchMaster.idUsers],
 		references: [users.idUsers]
@@ -1051,14 +1019,14 @@ export const hrBankBranchMasterRelations = relations(hrBankBranchMaster, ({one, 
 	hrisRentAgreementDetails: many(hrisRentAgreementDetails),
 }));
 
-export const hrBankMasterRelations = relations(hrBankMaster, ({one}) => ({
+export const hrBankMasterRelations = relations(hrBankMaster, ({ one }) => ({
 	user: one(users, {
 		fields: [hrBankMaster.idUsers],
 		references: [users.idUsers]
 	}),
 }));
 
-export const hrBonusSetupRelations = relations(hrBonusSetup, ({one, many}) => ({
+export const hrBonusSetupRelations = relations(hrBonusSetup, ({ one, many }) => ({
 	hrEarningHead: one(hrEarningHeads, {
 		fields: [hrBonusSetup.bonusTypeId],
 		references: [hrEarningHeads.earningHeadsId]
@@ -1084,7 +1052,7 @@ export const hrBonusSetupRelations = relations(hrBonusSetup, ({one, many}) => ({
 	hrEmployeeBonusInfoHistories: many(hrEmployeeBonusInfoHistory),
 }));
 
-export const hrEarningHeadsRelations = relations(hrEarningHeads, ({many}) => ({
+export const hrEarningHeadsRelations = relations(hrEarningHeads, ({ many }) => ({
 	hrBonusSetups: many(hrBonusSetup),
 	hrEarningHeadsHistories: many(hrEarningHeadsHistory),
 	hrManPowerBudgets: many(hrManPowerBudget),
@@ -1092,7 +1060,7 @@ export const hrEarningHeadsRelations = relations(hrEarningHeads, ({many}) => ({
 	hrTaxPolicyEarningHeadWises: many(hrTaxPolicyEarningHeadWise),
 }));
 
-export const accFiscalYearRelations = relations(accFiscalYear, ({many}) => ({
+export const accFiscalYearRelations = relations(accFiscalYear, ({ many }) => ({
 	hrBonusSetups: many(hrBonusSetup),
 	hrEmployeeTaxChangesHistories: many(hrEmployeeTaxChangesHistory),
 	hrEmployeeTaxInfos: many(hrEmployeeTaxInfo),
@@ -1108,7 +1076,7 @@ export const accFiscalYearRelations = relations(accFiscalYear, ({many}) => ({
 	porEmployeeCarAits: many(porEmployeeCarAit),
 }));
 
-export const hrBonusSetupHistoryRelations = relations(hrBonusSetupHistory, ({one}) => ({
+export const hrBonusSetupHistoryRelations = relations(hrBonusSetupHistory, ({ one }) => ({
 	hrBonusSetup: one(hrBonusSetup, {
 		fields: [hrBonusSetupHistory.bonusSetupId],
 		references: [hrBonusSetup.bonusSetupId]
@@ -1119,7 +1087,7 @@ export const hrBonusSetupHistoryRelations = relations(hrBonusSetupHistory, ({one
 	}),
 }));
 
-export const hrBusinessUnitRelations = relations(hrBusinessUnit, ({one}) => ({
+export const hrBusinessUnitRelations = relations(hrBusinessUnit, ({ one }) => ({
 	hrCompanySetup: one(hrCompanySetup, {
 		fields: [hrBusinessUnit.idCompany],
 		references: [hrCompanySetup.companySetupId]
@@ -1134,7 +1102,7 @@ export const hrBusinessUnitRelations = relations(hrBusinessUnit, ({one}) => ({
 	}),
 }));
 
-export const hrCompanySetupRelations = relations(hrCompanySetup, ({one, many}) => ({
+export const hrCompanySetupRelations = relations(hrCompanySetup, ({ one, many }) => ({
 	hrBusinessUnits: many(hrBusinessUnit),
 	user: one(users, {
 		fields: [hrCompanySetup.idUsers],
@@ -1146,7 +1114,7 @@ export const hrCompanySetupRelations = relations(hrCompanySetup, ({one, many}) =
 	}),
 }));
 
-export const hrCityRelations = relations(hrCity, ({one, many}) => ({
+export const hrCityRelations = relations(hrCity, ({ one, many }) => ({
 	hrBusinessUnits: many(hrBusinessUnit),
 	user: one(users, {
 		fields: [hrCity.idUser],
@@ -1154,7 +1122,7 @@ export const hrCityRelations = relations(hrCity, ({one, many}) => ({
 	}),
 }));
 
-export const hrGroupSetupRelations = relations(hrGroupSetup, ({one, many}) => ({
+export const hrGroupSetupRelations = relations(hrGroupSetup, ({ one, many }) => ({
 	hrCompanySetups: many(hrCompanySetup),
 	user: one(users, {
 		fields: [hrGroupSetup.idUsers],
@@ -1162,7 +1130,7 @@ export const hrGroupSetupRelations = relations(hrGroupSetup, ({one, many}) => ({
 	}),
 }));
 
-export const hrCompensatoryLeaveRelations = relations(hrCompensatoryLeave, ({one}) => ({
+export const hrCompensatoryLeaveRelations = relations(hrCompensatoryLeave, ({ one }) => ({
 	hrEmployee: one(hrEmployee, {
 		fields: [hrCompensatoryLeave.idEmployee],
 		references: [hrEmployee.employeeId]
@@ -1177,7 +1145,7 @@ export const hrCompensatoryLeaveRelations = relations(hrCompensatoryLeave, ({one
 	}),
 }));
 
-export const hrContactEmployeeDetailsRelations = relations(hrContactEmployeeDetails, ({one}) => ({
+export const hrContactEmployeeDetailsRelations = relations(hrContactEmployeeDetails, ({ one }) => ({
 	hrEmployee: one(hrEmployee, {
 		fields: [hrContactEmployeeDetails.employeeId],
 		references: [hrEmployee.employeeId]
@@ -1192,7 +1160,7 @@ export const hrContactEmployeeDetailsRelations = relations(hrContactEmployeeDeta
 	}),
 }));
 
-export const hrDeductionHeadsRelations = relations(hrDeductionHeads, ({one, many}) => ({
+export const hrDeductionHeadsRelations = relations(hrDeductionHeads, ({ one, many }) => ({
 	user: one(users, {
 		fields: [hrDeductionHeads.idUsers],
 		references: [users.idUsers]
@@ -1200,7 +1168,7 @@ export const hrDeductionHeadsRelations = relations(hrDeductionHeads, ({one, many
 	hrDeductionHeadsHistories: many(hrDeductionHeadsHistory),
 }));
 
-export const hrDeductionHeadsHistoryRelations = relations(hrDeductionHeadsHistory, ({one}) => ({
+export const hrDeductionHeadsHistoryRelations = relations(hrDeductionHeadsHistory, ({ one }) => ({
 	hrDeductionHead: one(hrDeductionHeads, {
 		fields: [hrDeductionHeadsHistory.deductionHeadsId],
 		references: [hrDeductionHeads.deductionHeadsId]
@@ -1211,14 +1179,14 @@ export const hrDeductionHeadsHistoryRelations = relations(hrDeductionHeadsHistor
 	}),
 }));
 
-export const hrDenominationRelations = relations(hrDenomination, ({one}) => ({
+export const hrDenominationRelations = relations(hrDenomination, ({ one }) => ({
 	user: one(users, {
 		fields: [hrDenomination.idUsers],
 		references: [users.idUsers]
 	}),
 }));
 
-export const hrDepartmentsRelations = relations(hrDepartments, ({one, many}) => ({
+export const hrDepartmentsRelations = relations(hrDepartments, ({ one, many }) => ({
 	user: one(users, {
 		fields: [hrDepartments.idUser],
 		references: [users.idUsers]
@@ -1245,7 +1213,7 @@ export const hrDepartmentsRelations = relations(hrDepartments, ({one, many}) => 
 	porItGoodsDetails: many(porItGoodsDetails),
 }));
 
-export const hrDesignationMasterRelations = relations(hrDesignationMaster, ({one, many}) => ({
+export const hrDesignationMasterRelations = relations(hrDesignationMaster, ({ one, many }) => ({
 	user: one(users, {
 		fields: [hrDesignationMaster.idUsers],
 		references: [users.idUsers]
@@ -1281,7 +1249,7 @@ export const hrDesignationMasterRelations = relations(hrDesignationMaster, ({one
 	porItGoodsDetails: many(porItGoodsDetails),
 }));
 
-export const hrEarningHeadsHistoryRelations = relations(hrEarningHeadsHistory, ({one}) => ({
+export const hrEarningHeadsHistoryRelations = relations(hrEarningHeadsHistory, ({ one }) => ({
 	hrEarningHead: one(hrEarningHeads, {
 		fields: [hrEarningHeadsHistory.earningHeadsId],
 		references: [hrEarningHeads.earningHeadsId]
@@ -1292,7 +1260,7 @@ export const hrEarningHeadsHistoryRelations = relations(hrEarningHeadsHistory, (
 	}),
 }));
 
-export const hrEducationRelations = relations(hrEducation, ({one}) => ({
+export const hrEducationRelations = relations(hrEducation, ({ one }) => ({
 	user: one(users, {
 		fields: [hrEducation.idUsers],
 		references: [users.idUsers]
@@ -1303,14 +1271,14 @@ export const hrEducationRelations = relations(hrEducation, ({one}) => ({
 	}),
 }));
 
-export const hrEducationConcentrationsRelations = relations(hrEducationConcentrations, ({one}) => ({
+export const hrEducationConcentrationsRelations = relations(hrEducationConcentrations, ({ one }) => ({
 	user: one(users, {
 		fields: [hrEducationConcentrations.idUsers],
 		references: [users.idUsers]
 	}),
 }));
 
-export const hrEducationLevelsRelations = relations(hrEducationLevels, ({one, many}) => ({
+export const hrEducationLevelsRelations = relations(hrEducationLevels, ({ one, many }) => ({
 	user: one(users, {
 		fields: [hrEducationLevels.idUsers],
 		references: [users.idUsers]
@@ -1318,7 +1286,7 @@ export const hrEducationLevelsRelations = relations(hrEducationLevels, ({one, ma
 	hrExamTitles: many(hrExamTitles),
 }));
 
-export const hrEmployeeBonusInfoRelations = relations(hrEmployeeBonusInfo, ({one, many}) => ({
+export const hrEmployeeBonusInfoRelations = relations(hrEmployeeBonusInfo, ({ one, many }) => ({
 	hrBonusSetup: one(hrBonusSetup, {
 		fields: [hrEmployeeBonusInfo.bonusSetupId],
 		references: [hrBonusSetup.bonusSetupId]
@@ -1334,14 +1302,14 @@ export const hrEmployeeBonusInfoRelations = relations(hrEmployeeBonusInfo, ({one
 	hrEmployeeBonusInfoIndividualHistories: many(hrEmployeeBonusInfoIndividualHistory),
 }));
 
-export const hrEmployeeBonusInfoHistoryRelations = relations(hrEmployeeBonusInfoHistory, ({one}) => ({
+export const hrEmployeeBonusInfoHistoryRelations = relations(hrEmployeeBonusInfoHistory, ({ one }) => ({
 	hrBonusSetup: one(hrBonusSetup, {
 		fields: [hrEmployeeBonusInfoHistory.bonusSetupId],
 		references: [hrBonusSetup.bonusSetupId]
 	}),
 }));
 
-export const hrEmployeeBonusInfoIndividualHistoryRelations = relations(hrEmployeeBonusInfoIndividualHistory, ({one}) => ({
+export const hrEmployeeBonusInfoIndividualHistoryRelations = relations(hrEmployeeBonusInfoIndividualHistory, ({ one }) => ({
 	hrEmployeeBonusInfo: one(hrEmployeeBonusInfo, {
 		fields: [hrEmployeeBonusInfoIndividualHistory.employeeBonusInfoId],
 		references: [hrEmployeeBonusInfo.employeeBonusInfoId]
@@ -1352,7 +1320,7 @@ export const hrEmployeeBonusInfoIndividualHistoryRelations = relations(hrEmploye
 	}),
 }));
 
-export const hrEmployeeCostCenterSetupRelations = relations(hrEmployeeCostCenterSetup, ({one, many}) => ({
+export const hrEmployeeCostCenterSetupRelations = relations(hrEmployeeCostCenterSetup, ({ one, many }) => ({
 	hrEmployee: one(hrEmployee, {
 		fields: [hrEmployeeCostCenterSetup.employeeId],
 		references: [hrEmployee.employeeId]
@@ -1368,7 +1336,7 @@ export const hrEmployeeCostCenterSetupRelations = relations(hrEmployeeCostCenter
 	hrEmployeeCostCenterSetupDetails: many(hrEmployeeCostCenterSetupDetails),
 }));
 
-export const hrEmployeeCostCenterSetupDetailsRelations = relations(hrEmployeeCostCenterSetupDetails, ({one}) => ({
+export const hrEmployeeCostCenterSetupDetailsRelations = relations(hrEmployeeCostCenterSetupDetails, ({ one }) => ({
 	costCenter: one(costCenter, {
 		fields: [hrEmployeeCostCenterSetupDetails.idCostCenter],
 		references: [costCenter.idCostCenter]
@@ -1383,14 +1351,14 @@ export const hrEmployeeCostCenterSetupDetailsRelations = relations(hrEmployeeCos
 	}),
 }));
 
-export const hrEmployeeDescriptionRelations = relations(hrEmployeeDescription, ({one}) => ({
+export const hrEmployeeDescriptionRelations = relations(hrEmployeeDescription, ({ one }) => ({
 	hrEmployee: one(hrEmployee, {
 		fields: [hrEmployeeDescription.employeeId],
 		references: [hrEmployee.employeeId]
 	}),
 }));
 
-export const hrEmployeeEducationFileImportRelations = relations(hrEmployeeEducationFileImport, ({one}) => ({
+export const hrEmployeeEducationFileImportRelations = relations(hrEmployeeEducationFileImport, ({ one }) => ({
 	user: one(users, {
 		fields: [hrEmployeeEducationFileImport.idUser],
 		references: [users.idUsers]
@@ -1401,7 +1369,7 @@ export const hrEmployeeEducationFileImportRelations = relations(hrEmployeeEducat
 	}),
 }));
 
-export const hrEmployeeExperienceFileImportRelations = relations(hrEmployeeExperienceFileImport, ({one}) => ({
+export const hrEmployeeExperienceFileImportRelations = relations(hrEmployeeExperienceFileImport, ({ one }) => ({
 	user: one(users, {
 		fields: [hrEmployeeExperienceFileImport.idUser],
 		references: [users.idUsers]
@@ -1412,7 +1380,7 @@ export const hrEmployeeExperienceFileImportRelations = relations(hrEmployeeExper
 	}),
 }));
 
-export const hrEmployeeHistoryRelations = relations(hrEmployeeHistory, ({one}) => ({
+export const hrEmployeeHistoryRelations = relations(hrEmployeeHistory, ({ one }) => ({
 	user_previousIdUsers: one(users, {
 		fields: [hrEmployeeHistory.previousIdUsers],
 		references: [users.idUsers],
@@ -1429,7 +1397,7 @@ export const hrEmployeeHistoryRelations = relations(hrEmployeeHistory, ({one}) =
 	}),
 }));
 
-export const hrEmployeeInsertFileImportRelations = relations(hrEmployeeInsertFileImport, ({one}) => ({
+export const hrEmployeeInsertFileImportRelations = relations(hrEmployeeInsertFileImport, ({ one }) => ({
 	user: one(users, {
 		fields: [hrEmployeeInsertFileImport.idUser],
 		references: [users.idUsers]
@@ -1440,7 +1408,7 @@ export const hrEmployeeInsertFileImportRelations = relations(hrEmployeeInsertFil
 	}),
 }));
 
-export const hrEmployeeNatureTypeRelations = relations(hrEmployeeNatureType, ({one, many}) => ({
+export const hrEmployeeNatureTypeRelations = relations(hrEmployeeNatureType, ({ one, many }) => ({
 	user: one(users, {
 		fields: [hrEmployeeNatureType.idUsers],
 		references: [users.idUsers]
@@ -1451,7 +1419,7 @@ export const hrEmployeeNatureTypeRelations = relations(hrEmployeeNatureType, ({o
 	hrisJobRequisitions: many(hrisJobRequisitions),
 }));
 
-export const hrEmployeeSalaryBusinessUnitRelations = relations(hrEmployeeSalaryBusinessUnit, ({one}) => ({
+export const hrEmployeeSalaryBusinessUnitRelations = relations(hrEmployeeSalaryBusinessUnit, ({ one }) => ({
 	hrOrganizationSetup: one(hrOrganizationSetup, {
 		fields: [hrEmployeeSalaryBusinessUnit.organizationSetupId],
 		references: [hrOrganizationSetup.organizationSetupId]
@@ -1470,7 +1438,7 @@ export const hrEmployeeSalaryBusinessUnitRelations = relations(hrEmployeeSalaryB
 	}),
 }));
 
-export const hrOrganizationSetupRelations = relations(hrOrganizationSetup, ({one, many}) => ({
+export const hrOrganizationSetupRelations = relations(hrOrganizationSetup, ({ one, many }) => ({
 	hrEmployeeSalaryBusinessUnits: many(hrEmployeeSalaryBusinessUnit),
 	hrEmployeeSalaryBusinessUnitHistories: many(hrEmployeeSalaryBusinessUnitHistory),
 	hrEmployee_employeeId: one(hrEmployee, {
@@ -1556,7 +1524,7 @@ export const hrOrganizationSetupRelations = relations(hrOrganizationSetup, ({one
 	hrOrganizationSetupHistories: many(hrOrganizationSetupHistory),
 }));
 
-export const hrEmployeeSalaryBusinessUnitHistoryRelations = relations(hrEmployeeSalaryBusinessUnitHistory, ({one}) => ({
+export const hrEmployeeSalaryBusinessUnitHistoryRelations = relations(hrEmployeeSalaryBusinessUnitHistory, ({ one }) => ({
 	hrOrganizationSetup: one(hrOrganizationSetup, {
 		fields: [hrEmployeeSalaryBusinessUnitHistory.organizationSetupId],
 		references: [hrOrganizationSetup.organizationSetupId]
@@ -1571,7 +1539,7 @@ export const hrEmployeeSalaryBusinessUnitHistoryRelations = relations(hrEmployee
 	}),
 }));
 
-export const hrEmployeeSalaryInfoRelations = relations(hrEmployeeSalaryInfo, ({one, many}) => ({
+export const hrEmployeeSalaryInfoRelations = relations(hrEmployeeSalaryInfo, ({ one, many }) => ({
 	hrEmployee: one(hrEmployee, {
 		fields: [hrEmployeeSalaryInfo.employeeId],
 		references: [hrEmployee.employeeId]
@@ -1592,7 +1560,7 @@ export const hrEmployeeSalaryInfoRelations = relations(hrEmployeeSalaryInfo, ({o
 	hrOverstayEntryMonthlies: many(hrOverstayEntryMonthly),
 }));
 
-export const hrPayStructureTemplateRelations = relations(hrPayStructureTemplate, ({one, many}) => ({
+export const hrPayStructureTemplateRelations = relations(hrPayStructureTemplate, ({ one, many }) => ({
 	hrEmployeeSalaryInfos: many(hrEmployeeSalaryInfo),
 	hrEarningHead: one(hrEarningHeads, {
 		fields: [hrPayStructureTemplate.primaryEarningsHeadId],
@@ -1608,7 +1576,7 @@ export const hrPayStructureTemplateRelations = relations(hrPayStructureTemplate,
 	hrTransferredEmployeesSalaries: many(hrTransferredEmployeesSalary),
 }));
 
-export const hrPayStructureSetupRecordsRelations = relations(hrPayStructureSetupRecords, ({one, many}) => ({
+export const hrPayStructureSetupRecordsRelations = relations(hrPayStructureSetupRecords, ({ one, many }) => ({
 	hrEmployeeSalaryInfos: many(hrEmployeeSalaryInfo),
 	hrEmployeeSalaryInfoHistories: many(hrEmployeeSalaryInfoHistory),
 	hrEmployeeTaxChangesHistories: many(hrEmployeeTaxChangesHistory),
@@ -1628,7 +1596,7 @@ export const hrPayStructureSetupRecordsRelations = relations(hrPayStructureSetup
 	}),
 }));
 
-export const hrEmployeeSalaryInfoHistoryRelations = relations(hrEmployeeSalaryInfoHistory, ({one}) => ({
+export const hrEmployeeSalaryInfoHistoryRelations = relations(hrEmployeeSalaryInfoHistory, ({ one }) => ({
 	hrPayStructureSetupRecord: one(hrPayStructureSetupRecords, {
 		fields: [hrEmployeeSalaryInfoHistory.payStructureSetupRecordsId],
 		references: [hrPayStructureSetupRecords.payStructureSetupRecordsId]
@@ -1639,7 +1607,7 @@ export const hrEmployeeSalaryInfoHistoryRelations = relations(hrEmployeeSalaryIn
 	}),
 }));
 
-export const hrEmployeeTaxChangesHistoryRelations = relations(hrEmployeeTaxChangesHistory, ({one}) => ({
+export const hrEmployeeTaxChangesHistoryRelations = relations(hrEmployeeTaxChangesHistory, ({ one }) => ({
 	hrEmployee: one(hrEmployee, {
 		fields: [hrEmployeeTaxChangesHistory.employeeId],
 		references: [hrEmployee.employeeId]
@@ -1662,7 +1630,7 @@ export const hrEmployeeTaxChangesHistoryRelations = relations(hrEmployeeTaxChang
 	}),
 }));
 
-export const hrTaxRecalculateRelations = relations(hrTaxRecalculate, ({one, many}) => ({
+export const hrTaxRecalculateRelations = relations(hrTaxRecalculate, ({ one, many }) => ({
 	hrEmployeeTaxChangesHistories: many(hrEmployeeTaxChangesHistory),
 	hrTaxTemplate: one(hrTaxTemplate, {
 		fields: [hrTaxRecalculate.idHrTaxTemplate],
@@ -1678,7 +1646,7 @@ export const hrTaxRecalculateRelations = relations(hrTaxRecalculate, ({one, many
 	}),
 }));
 
-export const hrEmployeeTaxInfoRelations = relations(hrEmployeeTaxInfo, ({one, many}) => ({
+export const hrEmployeeTaxInfoRelations = relations(hrEmployeeTaxInfo, ({ one, many }) => ({
 	hrEmployee: one(hrEmployee, {
 		fields: [hrEmployeeTaxInfo.employeeId],
 		references: [hrEmployee.employeeId]
@@ -1694,7 +1662,7 @@ export const hrEmployeeTaxInfoRelations = relations(hrEmployeeTaxInfo, ({one, ma
 	hrEmployeeTaxInfoDetails: many(hrEmployeeTaxInfoDetails),
 }));
 
-export const hrEmployeeTaxInfoDetailsRelations = relations(hrEmployeeTaxInfoDetails, ({one}) => ({
+export const hrEmployeeTaxInfoDetailsRelations = relations(hrEmployeeTaxInfoDetails, ({ one }) => ({
 	hrEmployeeTaxInfo: one(hrEmployeeTaxInfo, {
 		fields: [hrEmployeeTaxInfoDetails.idHrEmployeeTaxInfo],
 		references: [hrEmployeeTaxInfo.idHrEmployeeTaxInfo]
@@ -1709,7 +1677,7 @@ export const hrEmployeeTaxInfoDetailsRelations = relations(hrEmployeeTaxInfoDeta
 	}),
 }));
 
-export const hrEmployeeTransferRelations = relations(hrEmployeeTransfer, ({one, many}) => ({
+export const hrEmployeeTransferRelations = relations(hrEmployeeTransfer, ({ one, many }) => ({
 	hrEmployee: one(hrEmployee, {
 		fields: [hrEmployeeTransfer.employeeId],
 		references: [hrEmployee.employeeId]
@@ -1731,7 +1699,7 @@ export const hrEmployeeTransferRelations = relations(hrEmployeeTransfer, ({one, 
 	hrTransferredEmployeesSalaries: many(hrTransferredEmployeesSalary),
 }));
 
-export const hrEmployeeUpdateFileImportRelations = relations(hrEmployeeUpdateFileImport, ({one}) => ({
+export const hrEmployeeUpdateFileImportRelations = relations(hrEmployeeUpdateFileImport, ({ one }) => ({
 	user: one(users, {
 		fields: [hrEmployeeUpdateFileImport.idUser],
 		references: [users.idUsers]
@@ -1742,7 +1710,7 @@ export const hrEmployeeUpdateFileImportRelations = relations(hrEmployeeUpdateFil
 	}),
 }));
 
-export const hrEmployeeWeekendsRelations = relations(hrEmployeeWeekends, ({one}) => ({
+export const hrEmployeeWeekendsRelations = relations(hrEmployeeWeekends, ({ one }) => ({
 	hrEmployee: one(hrEmployee, {
 		fields: [hrEmployeeWeekends.employeeId],
 		references: [hrEmployee.employeeId]
@@ -1757,11 +1725,11 @@ export const hrEmployeeWeekendsRelations = relations(hrEmployeeWeekends, ({one})
 	}),
 }));
 
-export const hrWeekendRelations = relations(hrWeekend, ({many}) => ({
+export const hrWeekendRelations = relations(hrWeekend, ({ many }) => ({
 	hrEmployeeWeekends: many(hrEmployeeWeekends),
 }));
 
-export const hrEquivalentDesignationRelations = relations(hrEquivalentDesignation, ({one, many}) => ({
+export const hrEquivalentDesignationRelations = relations(hrEquivalentDesignation, ({ one, many }) => ({
 	user: one(users, {
 		fields: [hrEquivalentDesignation.idUsers],
 		references: [users.idUsers]
@@ -1770,7 +1738,7 @@ export const hrEquivalentDesignationRelations = relations(hrEquivalentDesignatio
 	hrPromotionInfos: many(hrPromotionInfo),
 }));
 
-export const hrExamTitlesRelations = relations(hrExamTitles, ({one}) => ({
+export const hrExamTitlesRelations = relations(hrExamTitles, ({ one }) => ({
 	hrEducationLevel: one(hrEducationLevels, {
 		fields: [hrExamTitles.idHrEducationLevels],
 		references: [hrEducationLevels.idHrEducationLevels]
@@ -1781,7 +1749,7 @@ export const hrExamTitlesRelations = relations(hrExamTitles, ({one}) => ({
 	}),
 }));
 
-export const hrExperienceRelations = relations(hrExperience, ({one}) => ({
+export const hrExperienceRelations = relations(hrExperience, ({ one }) => ({
 	user: one(users, {
 		fields: [hrExperience.idUsers],
 		references: [users.idUsers]
@@ -1792,7 +1760,7 @@ export const hrExperienceRelations = relations(hrExperience, ({one}) => ({
 	}),
 }));
 
-export const hrFarewellRelations = relations(hrFarewell, ({one}) => ({
+export const hrFarewellRelations = relations(hrFarewell, ({ one }) => ({
 	hrEmployee: one(hrEmployee, {
 		fields: [hrFarewell.employeeId],
 		references: [hrEmployee.employeeId]
@@ -1803,7 +1771,7 @@ export const hrFarewellRelations = relations(hrFarewell, ({one}) => ({
 	}),
 }));
 
-export const hrFinalSettlementRelations = relations(hrFinalSettlement, ({one, many}) => ({
+export const hrFinalSettlementRelations = relations(hrFinalSettlement, ({ one, many }) => ({
 	hrEmployee: one(hrEmployee, {
 		fields: [hrFinalSettlement.employeeId],
 		references: [hrEmployee.employeeId]
@@ -1831,7 +1799,7 @@ export const hrFinalSettlementRelations = relations(hrFinalSettlement, ({one, ma
 	hrFinalSettlementPerformanceStatusProviders: many(hrFinalSettlementPerformanceStatusProviders),
 }));
 
-export const hrFinalSettlementDetailsRelations = relations(hrFinalSettlementDetails, ({one}) => ({
+export const hrFinalSettlementDetailsRelations = relations(hrFinalSettlementDetails, ({ one }) => ({
 	hrFinalSettlement: one(hrFinalSettlement, {
 		fields: [hrFinalSettlementDetails.finalSettlementId],
 		references: [hrFinalSettlement.finalSettlementId]
@@ -1846,7 +1814,7 @@ export const hrFinalSettlementDetailsRelations = relations(hrFinalSettlementDeta
 	}),
 }));
 
-export const hrFinalSettlementHistoryRelations = relations(hrFinalSettlementHistory, ({one}) => ({
+export const hrFinalSettlementHistoryRelations = relations(hrFinalSettlementHistory, ({ one }) => ({
 	hrFinalSettlement: one(hrFinalSettlement, {
 		fields: [hrFinalSettlementHistory.finalSettlementId],
 		references: [hrFinalSettlement.finalSettlementId]
@@ -1857,7 +1825,7 @@ export const hrFinalSettlementHistoryRelations = relations(hrFinalSettlementHist
 	}),
 }));
 
-export const hrFinalSettlementPerformanceStatusProvidersRelations = relations(hrFinalSettlementPerformanceStatusProviders, ({one}) => ({
+export const hrFinalSettlementPerformanceStatusProvidersRelations = relations(hrFinalSettlementPerformanceStatusProviders, ({ one }) => ({
 	hrFinalSettlement: one(hrFinalSettlement, {
 		fields: [hrFinalSettlementPerformanceStatusProviders.idHrFinalSettlement],
 		references: [hrFinalSettlement.finalSettlementId]
@@ -1868,7 +1836,7 @@ export const hrFinalSettlementPerformanceStatusProvidersRelations = relations(hr
 	}),
 }));
 
-export const hrFingerPrintMargeFileImportRelations = relations(hrFingerPrintMargeFileImport, ({one, many}) => ({
+export const hrFingerPrintMargeFileImportRelations = relations(hrFingerPrintMargeFileImport, ({ one, many }) => ({
 	user: one(users, {
 		fields: [hrFingerPrintMargeFileImport.idUsers],
 		references: [users.idUsers]
@@ -1876,7 +1844,7 @@ export const hrFingerPrintMargeFileImportRelations = relations(hrFingerPrintMarg
 	hrFingerPrintMargeRecords: many(hrFingerPrintMargeRecord),
 }));
 
-export const hrFingerPrintMargeRecordRelations = relations(hrFingerPrintMargeRecord, ({one}) => ({
+export const hrFingerPrintMargeRecordRelations = relations(hrFingerPrintMargeRecord, ({ one }) => ({
 	user: one(users, {
 		fields: [hrFingerPrintMargeRecord.idUsers],
 		references: [users.idUsers]
@@ -1891,14 +1859,14 @@ export const hrFingerPrintMargeRecordRelations = relations(hrFingerPrintMargeRec
 	}),
 }));
 
-export const hrFpMachineSyncLogRelations = relations(hrFpMachineSyncLog, ({one}) => ({
+export const hrFpMachineSyncLogRelations = relations(hrFpMachineSyncLog, ({ one }) => ({
 	hrFpMachine: one(hrFpMachines, {
 		fields: [hrFpMachineSyncLog.idHrFpMachines],
 		references: [hrFpMachines.idHrFpMachines]
 	}),
 }));
 
-export const hrFpMachinesRelations = relations(hrFpMachines, ({one, many}) => ({
+export const hrFpMachinesRelations = relations(hrFpMachines, ({ one, many }) => ({
 	hrFpMachineSyncLogs: many(hrFpMachineSyncLog),
 	hrFpMachineUsers: many(hrFpMachineUsers),
 	hrWorkStation: one(hrWorkStation, {
@@ -1907,14 +1875,14 @@ export const hrFpMachinesRelations = relations(hrFpMachines, ({one, many}) => ({
 	}),
 }));
 
-export const hrFpMachineUserTemplatesRelations = relations(hrFpMachineUserTemplates, ({one}) => ({
+export const hrFpMachineUserTemplatesRelations = relations(hrFpMachineUserTemplates, ({ one }) => ({
 	hrFpMachineUser: one(hrFpMachineUsers, {
 		fields: [hrFpMachineUserTemplates.idHrFpMachineUsers],
 		references: [hrFpMachineUsers.idHrFpMachineUsers]
 	}),
 }));
 
-export const hrFpMachineUsersRelations = relations(hrFpMachineUsers, ({one, many}) => ({
+export const hrFpMachineUsersRelations = relations(hrFpMachineUsers, ({ one, many }) => ({
 	hrFpMachineUserTemplates: many(hrFpMachineUserTemplates),
 	hrFpMachine: one(hrFpMachines, {
 		fields: [hrFpMachineUsers.idHrFpMachines],
@@ -1922,7 +1890,7 @@ export const hrFpMachineUsersRelations = relations(hrFpMachineUsers, ({one, many
 	}),
 }));
 
-export const hrWorkStationRelations = relations(hrWorkStation, ({one, many}) => ({
+export const hrWorkStationRelations = relations(hrWorkStation, ({ one, many }) => ({
 	hrFpMachines: many(hrFpMachines),
 	hrOrganizationSetups: many(hrOrganizationSetup),
 	hrPaySlipEmployeeInfos: many(hrPaySlipEmployeeInfo),
@@ -1935,7 +1903,7 @@ export const hrWorkStationRelations = relations(hrWorkStation, ({one, many}) => 
 	hrisWorkStationDetails: many(hrisWorkStationDetails),
 }));
 
-export const hrFpUserPermissionRelations = relations(hrFpUserPermission, ({one}) => ({
+export const hrFpUserPermissionRelations = relations(hrFpUserPermission, ({ one }) => ({
 	hrFpPage: one(hrFpPages, {
 		fields: [hrFpUserPermission.idHrFpPages],
 		references: [hrFpPages.idHrFpPages]
@@ -1946,11 +1914,11 @@ export const hrFpUserPermissionRelations = relations(hrFpUserPermission, ({one})
 	}),
 }));
 
-export const hrFpPagesRelations = relations(hrFpPages, ({many}) => ({
+export const hrFpPagesRelations = relations(hrFpPages, ({ many }) => ({
 	hrFpUserPermissions: many(hrFpUserPermission),
 }));
 
-export const hrGradesRelations = relations(hrGrades, ({one, many}) => ({
+export const hrGradesRelations = relations(hrGrades, ({ one, many }) => ({
 	user: one(users, {
 		fields: [hrGrades.idUser],
 		references: [users.idUsers]
@@ -1961,7 +1929,7 @@ export const hrGradesRelations = relations(hrGrades, ({one, many}) => ({
 	hrisJobRequisitions: many(hrisJobRequisitions),
 }));
 
-export const hrHoldingHeadsRelations = relations(hrHoldingHeads, ({one}) => ({
+export const hrHoldingHeadsRelations = relations(hrHoldingHeads, ({ one }) => ({
 	project: one(projects, {
 		fields: [hrHoldingHeads.idBusinessUnit],
 		references: [projects.idProjects]
@@ -1972,7 +1940,7 @@ export const hrHoldingHeadsRelations = relations(hrHoldingHeads, ({one}) => ({
 	}),
 }));
 
-export const hrHolidayTypeRelations = relations(hrHolidayType, ({one, many}) => ({
+export const hrHolidayTypeRelations = relations(hrHolidayType, ({ one, many }) => ({
 	user: one(users, {
 		fields: [hrHolidayType.idUsers],
 		references: [users.idUsers]
@@ -1980,7 +1948,7 @@ export const hrHolidayTypeRelations = relations(hrHolidayType, ({one, many}) => 
 	hrHolidays: many(hrHolidays),
 }));
 
-export const hrHolidaysRelations = relations(hrHolidays, ({one}) => ({
+export const hrHolidaysRelations = relations(hrHolidays, ({ one }) => ({
 	hrHolidayType: one(hrHolidayType, {
 		fields: [hrHolidays.idHolidayType],
 		references: [hrHolidayType.holidayTypeId]
@@ -1991,7 +1959,7 @@ export const hrHolidaysRelations = relations(hrHolidays, ({one}) => ({
 	}),
 }));
 
-export const hrIncrementFileImportRelations = relations(hrIncrementFileImport, ({one, many}) => ({
+export const hrIncrementFileImportRelations = relations(hrIncrementFileImport, ({ one, many }) => ({
 	user: one(users, {
 		fields: [hrIncrementFileImport.idUser],
 		references: [users.idUsers]
@@ -2007,7 +1975,7 @@ export const hrIncrementFileImportRelations = relations(hrIncrementFileImport, (
 	hrIncrementRecords: many(hrIncrementRecords),
 }));
 
-export const hrIncrementRecordsRelations = relations(hrIncrementRecords, ({one}) => ({
+export const hrIncrementRecordsRelations = relations(hrIncrementRecords, ({ one }) => ({
 	hrEmployee: one(hrEmployee, {
 		fields: [hrIncrementRecords.employeeId],
 		references: [hrEmployee.employeeId]
@@ -2022,7 +1990,7 @@ export const hrIncrementRecordsRelations = relations(hrIncrementRecords, ({one})
 	}),
 }));
 
-export const hrJobDescriptionRelations = relations(hrJobDescription, ({one, many}) => ({
+export const hrJobDescriptionRelations = relations(hrJobDescription, ({ one, many }) => ({
 	user: one(users, {
 		fields: [hrJobDescription.idUsers],
 		references: [users.idUsers]
@@ -2030,7 +1998,7 @@ export const hrJobDescriptionRelations = relations(hrJobDescription, ({one, many
 	hrJobPerformanceAreas: many(hrJobPerformanceArea),
 }));
 
-export const hrJobPerformanceAreaRelations = relations(hrJobPerformanceArea, ({one}) => ({
+export const hrJobPerformanceAreaRelations = relations(hrJobPerformanceArea, ({ one }) => ({
 	hrJobDescription: one(hrJobDescription, {
 		fields: [hrJobPerformanceArea.idJobDescription],
 		references: [hrJobDescription.idJobDescription]
@@ -2041,14 +2009,14 @@ export const hrJobPerformanceAreaRelations = relations(hrJobPerformanceArea, ({o
 	}),
 }));
 
-export const hrLatePresentRelations = relations(hrLatePresent, ({one}) => ({
+export const hrLatePresentRelations = relations(hrLatePresent, ({ one }) => ({
 	user: one(users, {
 		fields: [hrLatePresent.idUsers],
 		references: [users.idUsers]
 	}),
 }));
 
-export const hrLeaveApplicationRelations = relations(hrLeaveApplication, ({one, many}) => ({
+export const hrLeaveApplicationRelations = relations(hrLeaveApplication, ({ one, many }) => ({
 	hrEmployee: one(hrEmployee, {
 		fields: [hrLeaveApplication.idEmployee],
 		references: [hrEmployee.employeeId]
@@ -2072,7 +2040,7 @@ export const hrLeaveApplicationRelations = relations(hrLeaveApplication, ({one, 
 	hrLeavingDates: many(hrLeavingDates),
 }));
 
-export const hrLeavePolicyRelations = relations(hrLeavePolicy, ({one, many}) => ({
+export const hrLeavePolicyRelations = relations(hrLeavePolicy, ({ one, many }) => ({
 	hrLeaveApplications: many(hrLeaveApplication),
 	hrLeaveBalances: many(hrLeaveBalance),
 	hrLeaveType: one(hrLeaveType, {
@@ -2090,7 +2058,7 @@ export const hrLeavePolicyRelations = relations(hrLeavePolicy, ({one, many}) => 
 	hrLeavePolicyUpdateHistories: many(hrLeavePolicyUpdateHistory),
 }));
 
-export const hrLeaveTypeRelations = relations(hrLeaveType, ({one, many}) => ({
+export const hrLeaveTypeRelations = relations(hrLeaveType, ({ one, many }) => ({
 	hrLeaveApplications: many(hrLeaveApplication),
 	hrLeaveEncashments: many(hrLeaveEncashment),
 	hrLeaveEncashmentHistories: many(hrLeaveEncashmentHistory),
@@ -2104,7 +2072,7 @@ export const hrLeaveTypeRelations = relations(hrLeaveType, ({one, many}) => ({
 	porLeaves: many(porLeave),
 }));
 
-export const porLeaveRelations = relations(porLeave, ({one, many}) => ({
+export const porLeaveRelations = relations(porLeave, ({ one, many }) => ({
 	hrLeaveApplications: many(hrLeaveApplication),
 	hrEmployee_idEmployee: one(hrEmployee, {
 		fields: [porLeave.idEmployee],
@@ -2137,7 +2105,7 @@ export const porLeaveRelations = relations(porLeave, ({one, many}) => ({
 	porLeaveDetails: many(porLeaveDetails),
 }));
 
-export const hrLeaveApplicationFileImportRelations = relations(hrLeaveApplicationFileImport, ({one}) => ({
+export const hrLeaveApplicationFileImportRelations = relations(hrLeaveApplicationFileImport, ({ one }) => ({
 	user: one(users, {
 		fields: [hrLeaveApplicationFileImport.idUsers],
 		references: [users.idUsers]
@@ -2148,7 +2116,7 @@ export const hrLeaveApplicationFileImportRelations = relations(hrLeaveApplicatio
 	}),
 }));
 
-export const hrLeaveBalanceRelations = relations(hrLeaveBalance, ({one, many}) => ({
+export const hrLeaveBalanceRelations = relations(hrLeaveBalance, ({ one, many }) => ({
 	hrEmployee: one(hrEmployee, {
 		fields: [hrLeaveBalance.employeeId],
 		references: [hrEmployee.employeeId]
@@ -2164,32 +2132,32 @@ export const hrLeaveBalanceRelations = relations(hrLeaveBalance, ({one, many}) =
 	hrLeaveBalanceDetails: many(hrLeaveBalanceDetails),
 }));
 
-export const hrLeaveBalanceDetailsRelations = relations(hrLeaveBalanceDetails, ({one}) => ({
+export const hrLeaveBalanceDetailsRelations = relations(hrLeaveBalanceDetails, ({ one }) => ({
 	hrLeaveBalance: one(hrLeaveBalance, {
 		fields: [hrLeaveBalanceDetails.idHrLeaveBalance],
 		references: [hrLeaveBalance.idHrLeaveBalance]
 	}),
 }));
 
-export const hrLeaveBalanceFileImportRelations = relations(hrLeaveBalanceFileImport, ({one}) => ({
+export const hrLeaveBalanceFileImportRelations = relations(hrLeaveBalanceFileImport, ({ one }) => ({
 	user: one(users, {
 		fields: [hrLeaveBalanceFileImport.idUser],
 		references: [users.idUsers]
 	}),
 }));
 
-export const hrLeaveCalculationDetailsRelations = relations(hrLeaveCalculationDetails, ({one}) => ({
+export const hrLeaveCalculationDetailsRelations = relations(hrLeaveCalculationDetails, ({ one }) => ({
 	hrLeaveCalculation: one(hrLeaveCalculation, {
 		fields: [hrLeaveCalculationDetails.idLeaveCalculation],
 		references: [hrLeaveCalculation.idLeaveCalculation]
 	}),
 }));
 
-export const hrLeaveCalculationRelations = relations(hrLeaveCalculation, ({many}) => ({
+export const hrLeaveCalculationRelations = relations(hrLeaveCalculation, ({ many }) => ({
 	hrLeaveCalculationDetails: many(hrLeaveCalculationDetails),
 }));
 
-export const hrLeaveEncashmentRelations = relations(hrLeaveEncashment, ({one, many}) => ({
+export const hrLeaveEncashmentRelations = relations(hrLeaveEncashment, ({ one, many }) => ({
 	project: one(projects, {
 		fields: [hrLeaveEncashment.idProjects],
 		references: [projects.idProjects]
@@ -2209,7 +2177,7 @@ export const hrLeaveEncashmentRelations = relations(hrLeaveEncashment, ({one, ma
 	hrLeaveEncashmentDetails: many(hrLeaveEncashmentDetails),
 }));
 
-export const hrLeaveEncashmentDetailsRelations = relations(hrLeaveEncashmentDetails, ({one}) => ({
+export const hrLeaveEncashmentDetailsRelations = relations(hrLeaveEncashmentDetails, ({ one }) => ({
 	hrEmployee: one(hrEmployee, {
 		fields: [hrLeaveEncashmentDetails.employeeId],
 		references: [hrEmployee.employeeId]
@@ -2228,7 +2196,7 @@ export const hrLeaveEncashmentDetailsRelations = relations(hrLeaveEncashmentDeta
 	}),
 }));
 
-export const hrLeaveEncashmentHistoryRelations = relations(hrLeaveEncashmentHistory, ({one}) => ({
+export const hrLeaveEncashmentHistoryRelations = relations(hrLeaveEncashmentHistory, ({ one }) => ({
 	hrEmployee: one(hrEmployee, {
 		fields: [hrLeaveEncashmentHistory.idEmployee],
 		references: [hrEmployee.employeeId]
@@ -2247,7 +2215,7 @@ export const hrLeaveEncashmentHistoryRelations = relations(hrLeaveEncashmentHist
 	}),
 }));
 
-export const hrLeaveEncashmentSetupRelations = relations(hrLeaveEncashmentSetup, ({one}) => ({
+export const hrLeaveEncashmentSetupRelations = relations(hrLeaveEncashmentSetup, ({ one }) => ({
 	project: one(projects, {
 		fields: [hrLeaveEncashmentSetup.idBusinessUnit],
 		references: [projects.idProjects]
@@ -2262,18 +2230,18 @@ export const hrLeaveEncashmentSetupRelations = relations(hrLeaveEncashmentSetup,
 	}),
 }));
 
-export const hrLeavePolicyTemplateRelations = relations(hrLeavePolicyTemplate, ({many}) => ({
+export const hrLeavePolicyTemplateRelations = relations(hrLeavePolicyTemplate, ({ many }) => ({
 	hrLeavePolicies: many(hrLeavePolicy),
 }));
 
-export const hrLeavePolicyUpdateHistoryRelations = relations(hrLeavePolicyUpdateHistory, ({one}) => ({
+export const hrLeavePolicyUpdateHistoryRelations = relations(hrLeavePolicyUpdateHistory, ({ one }) => ({
 	hrLeavePolicy: one(hrLeavePolicy, {
 		fields: [hrLeavePolicyUpdateHistory.idLeavePolicy],
 		references: [hrLeavePolicy.idLeavePolicy]
 	}),
 }));
 
-export const hrLeaveYearRelations = relations(hrLeaveYear, ({one, many}) => ({
+export const hrLeaveYearRelations = relations(hrLeaveYear, ({ one, many }) => ({
 	user: one(users, {
 		fields: [hrLeaveYear.idUser],
 		references: [users.idUsers]
@@ -2281,7 +2249,7 @@ export const hrLeaveYearRelations = relations(hrLeaveYear, ({one, many}) => ({
 	hrLeaveYearHistories: many(hrLeaveYearHistory),
 }));
 
-export const hrLeaveYearHistoryRelations = relations(hrLeaveYearHistory, ({one}) => ({
+export const hrLeaveYearHistoryRelations = relations(hrLeaveYearHistory, ({ one }) => ({
 	hrLeaveYear: one(hrLeaveYear, {
 		fields: [hrLeaveYearHistory.idHrLeaveYear],
 		references: [hrLeaveYear.idLeaveYear]
@@ -2292,7 +2260,7 @@ export const hrLeaveYearHistoryRelations = relations(hrLeaveYearHistory, ({one})
 	}),
 }));
 
-export const hrLeavingDatesRelations = relations(hrLeavingDates, ({one}) => ({
+export const hrLeavingDatesRelations = relations(hrLeavingDates, ({ one }) => ({
 	hrLeaveApplication: one(hrLeaveApplication, {
 		fields: [hrLeavingDates.idLeaveApplication],
 		references: [hrLeaveApplication.idLeaveApplication]
@@ -2307,7 +2275,7 @@ export const hrLeavingDatesRelations = relations(hrLeavingDates, ({one}) => ({
 	}),
 }));
 
-export const hrManPowerBudgetRelations = relations(hrManPowerBudget, ({one}) => ({
+export const hrManPowerBudgetRelations = relations(hrManPowerBudget, ({ one }) => ({
 	user: one(users, {
 		fields: [hrManPowerBudget.idUsers],
 		references: [users.idUsers]
@@ -2326,7 +2294,7 @@ export const hrManPowerBudgetRelations = relations(hrManPowerBudget, ({one}) => 
 	}),
 }));
 
-export const hrManPowerBudgetFileImportRelations = relations(hrManPowerBudgetFileImport, ({one, many}) => ({
+export const hrManPowerBudgetFileImportRelations = relations(hrManPowerBudgetFileImport, ({ one, many }) => ({
 	hrManPowerBudgets: many(hrManPowerBudget),
 	user: one(users, {
 		fields: [hrManPowerBudgetFileImport.idUsers],
@@ -2338,7 +2306,7 @@ export const hrManPowerBudgetFileImportRelations = relations(hrManPowerBudgetFil
 	}),
 }));
 
-export const hrManualOvertimeRelations = relations(hrManualOvertime, ({one, many}) => ({
+export const hrManualOvertimeRelations = relations(hrManualOvertime, ({ one, many }) => ({
 	project: one(projects, {
 		fields: [hrManualOvertime.idBusinessUnit],
 		references: [projects.idProjects]
@@ -2366,7 +2334,7 @@ export const hrManualOvertimeRelations = relations(hrManualOvertime, ({one, many
 	hrManualOvertimeHistories: many(hrManualOvertimeHistory),
 }));
 
-export const hrManualOvertimeEntryRelations = relations(hrManualOvertimeEntry, ({one, many}) => ({
+export const hrManualOvertimeEntryRelations = relations(hrManualOvertimeEntry, ({ one, many }) => ({
 	hrManualOvertimes: many(hrManualOvertime),
 	accVoucher: one(accVoucher, {
 		fields: [hrManualOvertimeEntry.idVoucher],
@@ -2382,7 +2350,7 @@ export const hrManualOvertimeEntryRelations = relations(hrManualOvertimeEntry, (
 	}),
 }));
 
-export const hrOvertimeFileImportRelations = relations(hrOvertimeFileImport, ({one, many}) => ({
+export const hrOvertimeFileImportRelations = relations(hrOvertimeFileImport, ({ one, many }) => ({
 	hrManualOvertimes: many(hrManualOvertime),
 	user: one(users, {
 		fields: [hrOvertimeFileImport.idUser],
@@ -2390,7 +2358,7 @@ export const hrOvertimeFileImportRelations = relations(hrOvertimeFileImport, ({o
 	}),
 }));
 
-export const hrManualOvertimeHistoryRelations = relations(hrManualOvertimeHistory, ({one}) => ({
+export const hrManualOvertimeHistoryRelations = relations(hrManualOvertimeHistory, ({ one }) => ({
 	hrManualOvertime: one(hrManualOvertime, {
 		fields: [hrManualOvertimeHistory.overtimeEntryId],
 		references: [hrManualOvertime.overtimeEntryId]
@@ -2411,7 +2379,7 @@ export const hrManualOvertimeHistoryRelations = relations(hrManualOvertimeHistor
 	}),
 }));
 
-export const hrMenuRelations = relations(hrMenu, ({one, many}) => ({
+export const hrMenuRelations = relations(hrMenu, ({ one, many }) => ({
 	user: one(users, {
 		fields: [hrMenu.idUser],
 		references: [users.idUsers]
@@ -2419,7 +2387,7 @@ export const hrMenuRelations = relations(hrMenu, ({one, many}) => ({
 	hrMenuSubmenus: many(hrMenuSubmenu),
 }));
 
-export const hrMenuSubmenuRelations = relations(hrMenuSubmenu, ({one, many}) => ({
+export const hrMenuSubmenuRelations = relations(hrMenuSubmenu, ({ one, many }) => ({
 	hrMenu: one(hrMenu, {
 		fields: [hrMenuSubmenu.idHrMenu],
 		references: [hrMenu.idHrMenu]
@@ -2427,14 +2395,14 @@ export const hrMenuSubmenuRelations = relations(hrMenuSubmenu, ({one, many}) => 
 	hrPagePermissions: many(hrPagePermission),
 }));
 
-export const hrMobileBankingDetailsRelations = relations(hrMobileBankingDetails, ({one}) => ({
+export const hrMobileBankingDetailsRelations = relations(hrMobileBankingDetails, ({ one }) => ({
 	user: one(users, {
 		fields: [hrMobileBankingDetails.idUsers],
 		references: [users.idUsers]
 	}),
 }));
 
-export const hrProfessionTypeRelations = relations(hrProfessionType, ({one, many}) => ({
+export const hrProfessionTypeRelations = relations(hrProfessionType, ({ one, many }) => ({
 	hrOrganizationSetups: many(hrOrganizationSetup),
 	user: one(users, {
 		fields: [hrProfessionType.idUsers],
@@ -2442,7 +2410,7 @@ export const hrProfessionTypeRelations = relations(hrProfessionType, ({one, many
 	}),
 }));
 
-export const hrShiftMasterRelations = relations(hrShiftMaster, ({one, many}) => ({
+export const hrShiftMasterRelations = relations(hrShiftMaster, ({ one, many }) => ({
 	hrOrganizationSetups: many(hrOrganizationSetup),
 	user: one(users, {
 		fields: [hrShiftMaster.idUsers],
@@ -2450,7 +2418,7 @@ export const hrShiftMasterRelations = relations(hrShiftMaster, ({one, many}) => 
 	}),
 }));
 
-export const hrOrganizationSetupChangeRecordsRelations = relations(hrOrganizationSetupChangeRecords, ({one}) => ({
+export const hrOrganizationSetupChangeRecordsRelations = relations(hrOrganizationSetupChangeRecords, ({ one }) => ({
 	hrOrganizationSetup: one(hrOrganizationSetup, {
 		fields: [hrOrganizationSetupChangeRecords.organizationSetupId],
 		references: [hrOrganizationSetup.organizationSetupId]
@@ -2471,7 +2439,7 @@ export const hrOrganizationSetupChangeRecordsRelations = relations(hrOrganizatio
 	}),
 }));
 
-export const hrOrganizationSetupFileImportRelations = relations(hrOrganizationSetupFileImport, ({one}) => ({
+export const hrOrganizationSetupFileImportRelations = relations(hrOrganizationSetupFileImport, ({ one }) => ({
 	user: one(users, {
 		fields: [hrOrganizationSetupFileImport.idUser],
 		references: [users.idUsers]
@@ -2482,7 +2450,7 @@ export const hrOrganizationSetupFileImportRelations = relations(hrOrganizationSe
 	}),
 }));
 
-export const hrOrganizationSetupHistoryRelations = relations(hrOrganizationSetupHistory, ({one}) => ({
+export const hrOrganizationSetupHistoryRelations = relations(hrOrganizationSetupHistory, ({ one }) => ({
 	hrOrganizationSetup: one(hrOrganizationSetup, {
 		fields: [hrOrganizationSetupHistory.organizationSetupId],
 		references: [hrOrganizationSetup.organizationSetupId]
@@ -2503,7 +2471,7 @@ export const hrOrganizationSetupHistoryRelations = relations(hrOrganizationSetup
 	}),
 }));
 
-export const hrOverStaySetupFileImportRelations = relations(hrOverStaySetupFileImport, ({one}) => ({
+export const hrOverStaySetupFileImportRelations = relations(hrOverStaySetupFileImport, ({ one }) => ({
 	user: one(users, {
 		fields: [hrOverStaySetupFileImport.idUsers],
 		references: [users.idUsers]
@@ -2514,7 +2482,7 @@ export const hrOverStaySetupFileImportRelations = relations(hrOverStaySetupFileI
 	}),
 }));
 
-export const hrOverstayEntryMonthlyRelations = relations(hrOverstayEntryMonthly, ({one, many}) => ({
+export const hrOverstayEntryMonthlyRelations = relations(hrOverstayEntryMonthly, ({ one, many }) => ({
 	hrEmployee: one(hrEmployee, {
 		fields: [hrOverstayEntryMonthly.employeeId],
 		references: [hrEmployee.employeeId]
@@ -2538,7 +2506,7 @@ export const hrOverstayEntryMonthlyRelations = relations(hrOverstayEntryMonthly,
 	hrOverstayEntryMonthlyHistories: many(hrOverstayEntryMonthlyHistory),
 }));
 
-export const hrOverstayFileImportRelations = relations(hrOverstayFileImport, ({one, many}) => ({
+export const hrOverstayFileImportRelations = relations(hrOverstayFileImport, ({ one, many }) => ({
 	hrOverstayEntryMonthlies: many(hrOverstayEntryMonthly),
 	user: one(users, {
 		fields: [hrOverstayFileImport.idUser],
@@ -2546,7 +2514,7 @@ export const hrOverstayFileImportRelations = relations(hrOverstayFileImport, ({o
 	}),
 }));
 
-export const hrOverstayEntryMonthlyHistoryRelations = relations(hrOverstayEntryMonthlyHistory, ({one}) => ({
+export const hrOverstayEntryMonthlyHistoryRelations = relations(hrOverstayEntryMonthlyHistory, ({ one }) => ({
 	hrOverstayEntryMonthly: one(hrOverstayEntryMonthly, {
 		fields: [hrOverstayEntryMonthlyHistory.idOverstayEntryMonthly],
 		references: [hrOverstayEntryMonthly.idOverstayEntryMonthly]
@@ -2567,7 +2535,7 @@ export const hrOverstayEntryMonthlyHistoryRelations = relations(hrOverstayEntryM
 	}),
 }));
 
-export const hrOverstaySetupRelations = relations(hrOverstaySetup, ({one, many}) => ({
+export const hrOverstaySetupRelations = relations(hrOverstaySetup, ({ one, many }) => ({
 	project: one(projects, {
 		fields: [hrOverstaySetup.idProject],
 		references: [projects.idProjects]
@@ -2587,7 +2555,7 @@ export const hrOverstaySetupRelations = relations(hrOverstaySetup, ({one, many})
 	hrOverstaySetupHistories: many(hrOverstaySetupHistory),
 }));
 
-export const hrOverstayTemplateRelations = relations(hrOverstayTemplate, ({one, many}) => ({
+export const hrOverstayTemplateRelations = relations(hrOverstayTemplate, ({ one, many }) => ({
 	hrOverstaySetups: many(hrOverstaySetup),
 	hrOverstaySetupHistories: many(hrOverstaySetupHistory),
 	user: one(users, {
@@ -2596,7 +2564,7 @@ export const hrOverstayTemplateRelations = relations(hrOverstayTemplate, ({one, 
 	}),
 }));
 
-export const hrOverstaySetupHistoryRelations = relations(hrOverstaySetupHistory, ({one}) => ({
+export const hrOverstaySetupHistoryRelations = relations(hrOverstaySetupHistory, ({ one }) => ({
 	hrOverstaySetup: one(hrOverstaySetup, {
 		fields: [hrOverstaySetupHistory.overstaySetupId],
 		references: [hrOverstaySetup.overstaySetupId]
@@ -2615,7 +2583,7 @@ export const hrOverstaySetupHistoryRelations = relations(hrOverstaySetupHistory,
 	}),
 }));
 
-export const hrOvertimeRelations = relations(hrOvertime, ({one, many}) => ({
+export const hrOvertimeRelations = relations(hrOvertime, ({ one, many }) => ({
 	hrEmployee: one(hrEmployee, {
 		fields: [hrOvertime.employeeId],
 		references: [hrEmployee.employeeId]
@@ -2635,7 +2603,7 @@ export const hrOvertimeRelations = relations(hrOvertime, ({one, many}) => ({
 	hrOvertimeHistories: many(hrOvertimeHistory),
 }));
 
-export const hrOvertimeTemplateRelations = relations(hrOvertimeTemplate, ({one, many}) => ({
+export const hrOvertimeTemplateRelations = relations(hrOvertimeTemplate, ({ one, many }) => ({
 	hrOvertimes: many(hrOvertime),
 	hrOvertimeHistories: many(hrOvertimeHistory),
 	user: one(users, {
@@ -2644,7 +2612,7 @@ export const hrOvertimeTemplateRelations = relations(hrOvertimeTemplate, ({one, 
 	}),
 }));
 
-export const hrOvertimeHistoryRelations = relations(hrOvertimeHistory, ({one}) => ({
+export const hrOvertimeHistoryRelations = relations(hrOvertimeHistory, ({ one }) => ({
 	hrOvertime: one(hrOvertime, {
 		fields: [hrOvertimeHistory.overtimeId],
 		references: [hrOvertime.overtimeId]
@@ -2663,7 +2631,7 @@ export const hrOvertimeHistoryRelations = relations(hrOvertimeHistory, ({one}) =
 	}),
 }));
 
-export const hrOvertimeSetupFileImportRelations = relations(hrOvertimeSetupFileImport, ({one}) => ({
+export const hrOvertimeSetupFileImportRelations = relations(hrOvertimeSetupFileImport, ({ one }) => ({
 	user: one(users, {
 		fields: [hrOvertimeSetupFileImport.idUsers],
 		references: [users.idUsers]
@@ -2674,7 +2642,7 @@ export const hrOvertimeSetupFileImportRelations = relations(hrOvertimeSetupFileI
 	}),
 }));
 
-export const hrPagePermissionRelations = relations(hrPagePermission, ({one}) => ({
+export const hrPagePermissionRelations = relations(hrPagePermission, ({ one }) => ({
 	hrMenuSubmenu: one(hrMenuSubmenu, {
 		fields: [hrPagePermission.idMenuSubmenu],
 		references: [hrMenuSubmenu.idMenuSubmenu]
@@ -2695,7 +2663,7 @@ export const hrPagePermissionRelations = relations(hrPagePermission, ({one}) => 
 	}),
 }));
 
-export const hrPaySlipDetailsIndividualHistoryRelations = relations(hrPaySlipDetailsIndividualHistory, ({one}) => ({
+export const hrPaySlipDetailsIndividualHistoryRelations = relations(hrPaySlipDetailsIndividualHistory, ({ one }) => ({
 	hrPaySlipGeneration: one(hrPaySlipGeneration, {
 		fields: [hrPaySlipDetailsIndividualHistory.paySlipGenerationId],
 		references: [hrPaySlipGeneration.paySlipGenerationId]
@@ -2710,7 +2678,7 @@ export const hrPaySlipDetailsIndividualHistoryRelations = relations(hrPaySlipDet
 	}),
 }));
 
-export const hrPaySlipGenerationRelations = relations(hrPaySlipGeneration, ({one, many}) => ({
+export const hrPaySlipGenerationRelations = relations(hrPaySlipGeneration, ({ one, many }) => ({
 	hrPaySlipDetailsIndividualHistories: many(hrPaySlipDetailsIndividualHistory),
 	hrPaySlipEmployeeInfos: many(hrPaySlipEmployeeInfo),
 	project: one(projects, {
@@ -2748,7 +2716,7 @@ export const hrPaySlipGenerationRelations = relations(hrPaySlipGeneration, ({one
 	hrTaxChallanEntries: many(hrTaxChallanEntry),
 }));
 
-export const hrPaySlipEmployeeInfoRelations = relations(hrPaySlipEmployeeInfo, ({one}) => ({
+export const hrPaySlipEmployeeInfoRelations = relations(hrPaySlipEmployeeInfo, ({ one }) => ({
 	hrEmployee: one(hrEmployee, {
 		fields: [hrPaySlipEmployeeInfo.employeeId],
 		references: [hrEmployee.employeeId]
@@ -2775,7 +2743,7 @@ export const hrPaySlipEmployeeInfoRelations = relations(hrPaySlipEmployeeInfo, (
 	}),
 }));
 
-export const hrPaySlipGenerationDetailsRelations = relations(hrPaySlipGenerationDetails, ({one, many}) => ({
+export const hrPaySlipGenerationDetailsRelations = relations(hrPaySlipGenerationDetails, ({ one, many }) => ({
 	hrEmployee: one(hrEmployee, {
 		fields: [hrPaySlipGenerationDetails.employeeId],
 		references: [hrEmployee.employeeId]
@@ -2795,7 +2763,7 @@ export const hrPaySlipGenerationDetailsRelations = relations(hrPaySlipGeneration
 	hrProvidentFundDetails: many(hrProvidentFundDetails),
 }));
 
-export const hrPaySlipGenerationDetailsHistoryRelations = relations(hrPaySlipGenerationDetailsHistory, ({one}) => ({
+export const hrPaySlipGenerationDetailsHistoryRelations = relations(hrPaySlipGenerationDetailsHistory, ({ one }) => ({
 	hrPaySlipGeneration: one(hrPaySlipGeneration, {
 		fields: [hrPaySlipGenerationDetailsHistory.paySlipGenerationId],
 		references: [hrPaySlipGeneration.paySlipGenerationId]
@@ -2806,7 +2774,7 @@ export const hrPaySlipGenerationDetailsHistoryRelations = relations(hrPaySlipGen
 	}),
 }));
 
-export const hrPaySlipGenerationHistoryRelations = relations(hrPaySlipGenerationHistory, ({one}) => ({
+export const hrPaySlipGenerationHistoryRelations = relations(hrPaySlipGenerationHistory, ({ one }) => ({
 	hrPaySlipGeneration: one(hrPaySlipGeneration, {
 		fields: [hrPaySlipGenerationHistory.paySlipGenerationId],
 		references: [hrPaySlipGeneration.paySlipGenerationId]
@@ -2817,7 +2785,7 @@ export const hrPaySlipGenerationHistoryRelations = relations(hrPaySlipGeneration
 	}),
 }));
 
-export const hrPaySlipGenerationInfoRelations = relations(hrPaySlipGenerationInfo, ({one, many}) => ({
+export const hrPaySlipGenerationInfoRelations = relations(hrPaySlipGenerationInfo, ({ one, many }) => ({
 	hrEmployee: one(hrEmployee, {
 		fields: [hrPaySlipGenerationInfo.employeeId],
 		references: [hrEmployee.employeeId]
@@ -2833,7 +2801,7 @@ export const hrPaySlipGenerationInfoRelations = relations(hrPaySlipGenerationInf
 	hrProvidentFundDetails: many(hrProvidentFundDetails),
 }));
 
-export const hrPayStructureAmountUpdateHistoryRelations = relations(hrPayStructureAmountUpdateHistory, ({one}) => ({
+export const hrPayStructureAmountUpdateHistoryRelations = relations(hrPayStructureAmountUpdateHistory, ({ one }) => ({
 	hrPayStructureSetup: one(hrPayStructureSetup, {
 		fields: [hrPayStructureAmountUpdateHistory.payStructureSetupId],
 		references: [hrPayStructureSetup.payStructureSetupId]
@@ -2844,7 +2812,7 @@ export const hrPayStructureAmountUpdateHistoryRelations = relations(hrPayStructu
 	}),
 }));
 
-export const hrPayStructureSetupRelations = relations(hrPayStructureSetup, ({one, many}) => ({
+export const hrPayStructureSetupRelations = relations(hrPayStructureSetup, ({ one, many }) => ({
 	hrPayStructureAmountUpdateHistories: many(hrPayStructureAmountUpdateHistory),
 	hrEmployee: one(hrEmployee, {
 		fields: [hrPayStructureSetup.employeeId],
@@ -2864,7 +2832,7 @@ export const hrPayStructureSetupRelations = relations(hrPayStructureSetup, ({one
 	}),
 }));
 
-export const hrPayStructureRecordsHistoryRelations = relations(hrPayStructureRecordsHistory, ({one}) => ({
+export const hrPayStructureRecordsHistoryRelations = relations(hrPayStructureRecordsHistory, ({ one }) => ({
 	user_previousIdUsers: one(users, {
 		fields: [hrPayStructureRecordsHistory.previousIdUsers],
 		references: [users.idUsers],
@@ -2877,7 +2845,7 @@ export const hrPayStructureRecordsHistoryRelations = relations(hrPayStructureRec
 	}),
 }));
 
-export const hrPayStructureTemplateDetailsRelations = relations(hrPayStructureTemplateDetails, ({one, many}) => ({
+export const hrPayStructureTemplateDetailsRelations = relations(hrPayStructureTemplateDetails, ({ one, many }) => ({
 	hrPayStructureSetups: many(hrPayStructureSetup),
 	hrPayStructureTemplate: one(hrPayStructureTemplate, {
 		fields: [hrPayStructureTemplateDetails.payStructureTemplateId],
@@ -2889,7 +2857,7 @@ export const hrPayStructureTemplateDetailsRelations = relations(hrPayStructureTe
 	}),
 }));
 
-export const hrPayStructureSetupFileImportRelations = relations(hrPayStructureSetupFileImport, ({one}) => ({
+export const hrPayStructureSetupFileImportRelations = relations(hrPayStructureSetupFileImport, ({ one }) => ({
 	user: one(users, {
 		fields: [hrPayStructureSetupFileImport.idUser],
 		references: [users.idUsers]
@@ -2900,7 +2868,7 @@ export const hrPayStructureSetupFileImportRelations = relations(hrPayStructureSe
 	}),
 }));
 
-export const hrPayStructureSetupHistoryRelations = relations(hrPayStructureSetupHistory, ({one}) => ({
+export const hrPayStructureSetupHistoryRelations = relations(hrPayStructureSetupHistory, ({ one }) => ({
 	hrPayStructureSetupRecord: one(hrPayStructureSetupRecords, {
 		fields: [hrPayStructureSetupHistory.payStructureSetupRecordsId],
 		references: [hrPayStructureSetupRecords.payStructureSetupRecordsId]
@@ -2917,7 +2885,7 @@ export const hrPayStructureSetupHistoryRelations = relations(hrPayStructureSetup
 	}),
 }));
 
-export const hrPayStructureTemplateDetailsHistoryRelations = relations(hrPayStructureTemplateDetailsHistory, ({one}) => ({
+export const hrPayStructureTemplateDetailsHistoryRelations = relations(hrPayStructureTemplateDetailsHistory, ({ one }) => ({
 	hrPayStructureTemplate: one(hrPayStructureTemplate, {
 		fields: [hrPayStructureTemplateDetailsHistory.payStructureTemplateId],
 		references: [hrPayStructureTemplate.payStructureTemplateId]
@@ -2934,7 +2902,7 @@ export const hrPayStructureTemplateDetailsHistoryRelations = relations(hrPayStru
 	}),
 }));
 
-export const hrPayStructureTemplateHistoryRelations = relations(hrPayStructureTemplateHistory, ({one}) => ({
+export const hrPayStructureTemplateHistoryRelations = relations(hrPayStructureTemplateHistory, ({ one }) => ({
 	hrPayStructureTemplate: one(hrPayStructureTemplate, {
 		fields: [hrPayStructureTemplateHistory.payStructureTemplateId],
 		references: [hrPayStructureTemplate.payStructureTemplateId]
@@ -2951,7 +2919,7 @@ export const hrPayStructureTemplateHistoryRelations = relations(hrPayStructureTe
 	}),
 }));
 
-export const hrPayStructureVariableInputRelations = relations(hrPayStructureVariableInput, ({one, many}) => ({
+export const hrPayStructureVariableInputRelations = relations(hrPayStructureVariableInput, ({ one, many }) => ({
 	project: one(projects, {
 		fields: [hrPayStructureVariableInput.idBusinessUnit],
 		references: [projects.idProjects]
@@ -2967,7 +2935,7 @@ export const hrPayStructureVariableInputRelations = relations(hrPayStructureVari
 	hrVariableInputHistories: many(hrVariableInputHistory),
 }));
 
-export const hrPaymentRelations = relations(hrPayment, ({one}) => ({
+export const hrPaymentRelations = relations(hrPayment, ({ one }) => ({
 	user: one(users, {
 		fields: [hrPayment.idUsers],
 		references: [users.idUsers]
@@ -2978,7 +2946,7 @@ export const hrPaymentRelations = relations(hrPayment, ({one}) => ({
 	}),
 }));
 
-export const hrPortalAccessRecordsRelations = relations(hrPortalAccessRecords, ({one}) => ({
+export const hrPortalAccessRecordsRelations = relations(hrPortalAccessRecords, ({ one }) => ({
 	user: one(users, {
 		fields: [hrPortalAccessRecords.idUsers],
 		references: [users.idUsers]
@@ -2989,7 +2957,7 @@ export const hrPortalAccessRecordsRelations = relations(hrPortalAccessRecords, (
 	}),
 }));
 
-export const hrPrefixRelations = relations(hrPrefix, ({one}) => ({
+export const hrPrefixRelations = relations(hrPrefix, ({ one }) => ({
 	project: one(projects, {
 		fields: [hrPrefix.projectId],
 		references: [projects.idProjects]
@@ -3000,7 +2968,7 @@ export const hrPrefixRelations = relations(hrPrefix, ({one}) => ({
 	}),
 }));
 
-export const hrPresentCompanyRelations = relations(hrPresentCompany, ({one}) => ({
+export const hrPresentCompanyRelations = relations(hrPresentCompany, ({ one }) => ({
 	hrEmployee: one(hrEmployee, {
 		fields: [hrPresentCompany.idEmployee],
 		references: [hrEmployee.employeeId]
@@ -3027,7 +2995,7 @@ export const hrPresentCompanyRelations = relations(hrPresentCompany, ({one}) => 
 	}),
 }));
 
-export const hrPresentOffdayFileImportRelations = relations(hrPresentOffdayFileImport, ({one, many}) => ({
+export const hrPresentOffdayFileImportRelations = relations(hrPresentOffdayFileImport, ({ one, many }) => ({
 	user: one(users, {
 		fields: [hrPresentOffdayFileImport.idUser],
 		references: [users.idUsers]
@@ -3035,7 +3003,7 @@ export const hrPresentOffdayFileImportRelations = relations(hrPresentOffdayFileI
 	hrPresentOffdayMonthlies: many(hrPresentOffdayMonthly),
 }));
 
-export const hrPresentOffdayMasterRelations = relations(hrPresentOffdayMaster, ({one, many}) => ({
+export const hrPresentOffdayMasterRelations = relations(hrPresentOffdayMaster, ({ one, many }) => ({
 	hrEmployee: one(hrEmployee, {
 		fields: [hrPresentOffdayMaster.employeeId],
 		references: [hrEmployee.employeeId]
@@ -3055,7 +3023,7 @@ export const hrPresentOffdayMasterRelations = relations(hrPresentOffdayMaster, (
 	hrPresentOffdayMasterHistories: many(hrPresentOffdayMasterHistory),
 }));
 
-export const hrPresentOffdayTemplateRelations = relations(hrPresentOffdayTemplate, ({one, many}) => ({
+export const hrPresentOffdayTemplateRelations = relations(hrPresentOffdayTemplate, ({ one, many }) => ({
 	hrPresentOffdayMasters: many(hrPresentOffdayMaster),
 	hrPresentOffdayMasterHistories: many(hrPresentOffdayMasterHistory),
 	user: one(users, {
@@ -3064,7 +3032,7 @@ export const hrPresentOffdayTemplateRelations = relations(hrPresentOffdayTemplat
 	}),
 }));
 
-export const hrPresentOffdayMasterHistoryRelations = relations(hrPresentOffdayMasterHistory, ({one}) => ({
+export const hrPresentOffdayMasterHistoryRelations = relations(hrPresentOffdayMasterHistory, ({ one }) => ({
 	hrPresentOffdayMaster: one(hrPresentOffdayMaster, {
 		fields: [hrPresentOffdayMasterHistory.presentOffdayId],
 		references: [hrPresentOffdayMaster.presentOffdayId]
@@ -3089,7 +3057,7 @@ export const hrPresentOffdayMasterHistoryRelations = relations(hrPresentOffdayMa
 	}),
 }));
 
-export const hrPresentOffdayMonthlyRelations = relations(hrPresentOffdayMonthly, ({one}) => ({
+export const hrPresentOffdayMonthlyRelations = relations(hrPresentOffdayMonthly, ({ one }) => ({
 	hrEmployee: one(hrEmployee, {
 		fields: [hrPresentOffdayMonthly.employeeId],
 		references: [hrEmployee.employeeId]
@@ -3108,7 +3076,7 @@ export const hrPresentOffdayMonthlyRelations = relations(hrPresentOffdayMonthly,
 	}),
 }));
 
-export const hrPresentOffdayMonthlyHistoryRelations = relations(hrPresentOffdayMonthlyHistory, ({one}) => ({
+export const hrPresentOffdayMonthlyHistoryRelations = relations(hrPresentOffdayMonthlyHistory, ({ one }) => ({
 	user_changesBy: one(users, {
 		fields: [hrPresentOffdayMonthlyHistory.changesBy],
 		references: [users.idUsers],
@@ -3125,7 +3093,7 @@ export const hrPresentOffdayMonthlyHistoryRelations = relations(hrPresentOffdayM
 	}),
 }));
 
-export const hrPresentOffdaySetupFileImportRelations = relations(hrPresentOffdaySetupFileImport, ({one}) => ({
+export const hrPresentOffdaySetupFileImportRelations = relations(hrPresentOffdaySetupFileImport, ({ one }) => ({
 	user: one(users, {
 		fields: [hrPresentOffdaySetupFileImport.idUsers],
 		references: [users.idUsers]
@@ -3136,7 +3104,7 @@ export const hrPresentOffdaySetupFileImportRelations = relations(hrPresentOffday
 	}),
 }));
 
-export const hrProjectPermissionRelations = relations(hrProjectPermission, ({one}) => ({
+export const hrProjectPermissionRelations = relations(hrProjectPermission, ({ one }) => ({
 	project: one(projects, {
 		fields: [hrProjectPermission.idProject],
 		references: [projects.idProjects]
@@ -3147,7 +3115,7 @@ export const hrProjectPermissionRelations = relations(hrProjectPermission, ({one
 	}),
 }));
 
-export const hrProjectwiseRoleAssignRelations = relations(hrProjectwiseRoleAssign, ({one}) => ({
+export const hrProjectwiseRoleAssignRelations = relations(hrProjectwiseRoleAssign, ({ one }) => ({
 	project: one(projects, {
 		fields: [hrProjectwiseRoleAssign.idBusinessUnit],
 		references: [projects.idProjects]
@@ -3158,7 +3126,7 @@ export const hrProjectwiseRoleAssignRelations = relations(hrProjectwiseRoleAssig
 	}),
 }));
 
-export const hrProjectwiseTemplateAssignRelations = relations(hrProjectwiseTemplateAssign, ({one}) => ({
+export const hrProjectwiseTemplateAssignRelations = relations(hrProjectwiseTemplateAssign, ({ one }) => ({
 	user: one(users, {
 		fields: [hrProjectwiseTemplateAssign.idUsers],
 		references: [users.idUsers]
@@ -3169,7 +3137,7 @@ export const hrProjectwiseTemplateAssignRelations = relations(hrProjectwiseTempl
 	}),
 }));
 
-export const hrPromotionInfoRelations = relations(hrPromotionInfo, ({one}) => ({
+export const hrPromotionInfoRelations = relations(hrPromotionInfo, ({ one }) => ({
 	hrEmployee: one(hrEmployee, {
 		fields: [hrPromotionInfo.employeeId],
 		references: [hrEmployee.employeeId]
@@ -3206,7 +3174,7 @@ export const hrPromotionInfoRelations = relations(hrPromotionInfo, ({one}) => ({
 	}),
 }));
 
-export const hrProvidentFundDetailsRelations = relations(hrProvidentFundDetails, ({one}) => ({
+export const hrProvidentFundDetailsRelations = relations(hrProvidentFundDetails, ({ one }) => ({
 	hrProvidentFundSetup: one(hrProvidentFundSetup, {
 		fields: [hrProvidentFundDetails.idHrProvidentFundSetup],
 		references: [hrProvidentFundSetup.idHrProvidentFundSetup]
@@ -3241,7 +3209,7 @@ export const hrProvidentFundDetailsRelations = relations(hrProvidentFundDetails,
 	}),
 }));
 
-export const hrProvidentFundSetupRelations = relations(hrProvidentFundSetup, ({one, many}) => ({
+export const hrProvidentFundSetupRelations = relations(hrProvidentFundSetup, ({ one, many }) => ({
 	hrProvidentFundDetails: many(hrProvidentFundDetails),
 	hrProvidentFundTemplate: one(hrProvidentFundTemplate, {
 		fields: [hrProvidentFundSetup.idHrProvidentFundTemplate],
@@ -3261,7 +3229,7 @@ export const hrProvidentFundSetupRelations = relations(hrProvidentFundSetup, ({o
 	}),
 }));
 
-export const hrProvidentFundTemplateRelations = relations(hrProvidentFundTemplate, ({one, many}) => ({
+export const hrProvidentFundTemplateRelations = relations(hrProvidentFundTemplate, ({ one, many }) => ({
 	hrProvidentFundDetails: many(hrProvidentFundDetails),
 	hrProvidentFundSetups: many(hrProvidentFundSetup),
 	project: one(projects, {
@@ -3274,7 +3242,7 @@ export const hrProvidentFundTemplateRelations = relations(hrProvidentFundTemplat
 	}),
 }));
 
-export const hrReferenceRelations = relations(hrReference, ({one}) => ({
+export const hrReferenceRelations = relations(hrReference, ({ one }) => ({
 	hrEmployee: one(hrEmployee, {
 		fields: [hrReference.employeeId],
 		references: [hrEmployee.employeeId]
@@ -3285,7 +3253,7 @@ export const hrReferenceRelations = relations(hrReference, ({one}) => ({
 	}),
 }));
 
-export const hrSalaryBusinessUnitRelations = relations(hrSalaryBusinessUnit, ({one}) => ({
+export const hrSalaryBusinessUnitRelations = relations(hrSalaryBusinessUnit, ({ one }) => ({
 	project: one(projects, {
 		fields: [hrSalaryBusinessUnit.idBusinessUnit],
 		references: [projects.idProjects]
@@ -3304,12 +3272,12 @@ export const hrSalaryBusinessUnitRelations = relations(hrSalaryBusinessUnit, ({o
 	}),
 }));
 
-export const banksOriginalRelations = relations(banksOriginal, ({many}) => ({
+export const banksOriginalRelations = relations(banksOriginal, ({ many }) => ({
 	hrSalaryBusinessUnits: many(hrSalaryBusinessUnit),
 	hrisRentAgreementDetails: many(hrisRentAgreementDetails),
 }));
 
-export const hrTaxAreaRelations = relations(hrTaxArea, ({one}) => ({
+export const hrTaxAreaRelations = relations(hrTaxArea, ({ one }) => ({
 	hrTaxTemplate: one(hrTaxTemplate, {
 		fields: [hrTaxArea.idHrTaxTemplate],
 		references: [hrTaxTemplate.idHrTaxTemplate]
@@ -3324,7 +3292,7 @@ export const hrTaxAreaRelations = relations(hrTaxArea, ({one}) => ({
 	}),
 }));
 
-export const hrTaxTemplateRelations = relations(hrTaxTemplate, ({one, many}) => ({
+export const hrTaxTemplateRelations = relations(hrTaxTemplate, ({ one, many }) => ({
 	hrTaxAreas: many(hrTaxArea),
 	hrTaxBonusSetups: many(hrTaxBonusSetup),
 	hrTaxCalculationRanges: many(hrTaxCalculationRange),
@@ -3343,12 +3311,12 @@ export const hrTaxTemplateRelations = relations(hrTaxTemplate, ({one, many}) => 
 	hrTaxTemplateHistories: many(hrTaxTemplateHistory),
 }));
 
-export const hrTaxAreaTypeRelations = relations(hrTaxAreaType, ({many}) => ({
+export const hrTaxAreaTypeRelations = relations(hrTaxAreaType, ({ many }) => ({
 	hrTaxAreas: many(hrTaxArea),
 	porEmployeeTinInfos: many(porEmployeeTinInfo),
 }));
 
-export const hrTaxBonusSetupRelations = relations(hrTaxBonusSetup, ({one}) => ({
+export const hrTaxBonusSetupRelations = relations(hrTaxBonusSetup, ({ one }) => ({
 	hrTaxTemplate: one(hrTaxTemplate, {
 		fields: [hrTaxBonusSetup.idHrTaxTemplate],
 		references: [hrTaxTemplate.idHrTaxTemplate]
@@ -3363,7 +3331,7 @@ export const hrTaxBonusSetupRelations = relations(hrTaxBonusSetup, ({one}) => ({
 	}),
 }));
 
-export const hrTaxCalculationRangeRelations = relations(hrTaxCalculationRange, ({one}) => ({
+export const hrTaxCalculationRangeRelations = relations(hrTaxCalculationRange, ({ one }) => ({
 	hrTaxTemplate: one(hrTaxTemplate, {
 		fields: [hrTaxCalculationRange.idHrTaxTemplate],
 		references: [hrTaxTemplate.idHrTaxTemplate]
@@ -3374,7 +3342,7 @@ export const hrTaxCalculationRangeRelations = relations(hrTaxCalculationRange, (
 	}),
 }));
 
-export const hrTaxCalculationRangeHistoryRelations = relations(hrTaxCalculationRangeHistory, ({one}) => ({
+export const hrTaxCalculationRangeHistoryRelations = relations(hrTaxCalculationRangeHistory, ({ one }) => ({
 	hrTaxTemplate: one(hrTaxTemplate, {
 		fields: [hrTaxCalculationRangeHistory.idHrTaxTemplate],
 		references: [hrTaxTemplate.idHrTaxTemplate]
@@ -3391,7 +3359,7 @@ export const hrTaxCalculationRangeHistoryRelations = relations(hrTaxCalculationR
 	}),
 }));
 
-export const hrTaxChallanEmployeeRelations = relations(hrTaxChallanEmployee, ({one}) => ({
+export const hrTaxChallanEmployeeRelations = relations(hrTaxChallanEmployee, ({ one }) => ({
 	hrTaxChallanEntry: one(hrTaxChallanEntry, {
 		fields: [hrTaxChallanEmployee.idHrTaxChallanEntry],
 		references: [hrTaxChallanEntry.idHrTaxChallanEntry]
@@ -3406,7 +3374,7 @@ export const hrTaxChallanEmployeeRelations = relations(hrTaxChallanEmployee, ({o
 	}),
 }));
 
-export const hrTaxChallanEntryRelations = relations(hrTaxChallanEntry, ({one, many}) => ({
+export const hrTaxChallanEntryRelations = relations(hrTaxChallanEntry, ({ one, many }) => ({
 	hrTaxChallanEmployees: many(hrTaxChallanEmployee),
 	project: one(projects, {
 		fields: [hrTaxChallanEntry.idBusinessUnit],
@@ -3442,14 +3410,14 @@ export const hrTaxChallanEntryRelations = relations(hrTaxChallanEntry, ({one, ma
 	hrTaxChallanEntryHistories: many(hrTaxChallanEntryHistory),
 }));
 
-export const hrTaxChallanEntryFileImportRelations = relations(hrTaxChallanEntryFileImport, ({one}) => ({
+export const hrTaxChallanEntryFileImportRelations = relations(hrTaxChallanEntryFileImport, ({ one }) => ({
 	user: one(users, {
 		fields: [hrTaxChallanEntryFileImport.idUser],
 		references: [users.idUsers]
 	}),
 }));
 
-export const hrTaxChallanEntryHistoryRelations = relations(hrTaxChallanEntryHistory, ({one}) => ({
+export const hrTaxChallanEntryHistoryRelations = relations(hrTaxChallanEntryHistory, ({ one }) => ({
 	hrTaxChallanEntry: one(hrTaxChallanEntry, {
 		fields: [hrTaxChallanEntryHistory.idHrTaxChallanEntry],
 		references: [hrTaxChallanEntry.idHrTaxChallanEntry]
@@ -3460,7 +3428,7 @@ export const hrTaxChallanEntryHistoryRelations = relations(hrTaxChallanEntryHist
 	}),
 }));
 
-export const hrTaxPolicyEarningHeadWiseRelations = relations(hrTaxPolicyEarningHeadWise, ({one}) => ({
+export const hrTaxPolicyEarningHeadWiseRelations = relations(hrTaxPolicyEarningHeadWise, ({ one }) => ({
 	user: one(users, {
 		fields: [hrTaxPolicyEarningHeadWise.idUsers],
 		references: [users.idUsers]
@@ -3475,7 +3443,7 @@ export const hrTaxPolicyEarningHeadWiseRelations = relations(hrTaxPolicyEarningH
 	}),
 }));
 
-export const hrTaxPolicyEarningHeadWiseHistoryRelations = relations(hrTaxPolicyEarningHeadWiseHistory, ({one}) => ({
+export const hrTaxPolicyEarningHeadWiseHistoryRelations = relations(hrTaxPolicyEarningHeadWiseHistory, ({ one }) => ({
 	hrTaxTemplate: one(hrTaxTemplate, {
 		fields: [hrTaxPolicyEarningHeadWiseHistory.idHrTaxTemplate],
 		references: [hrTaxTemplate.idHrTaxTemplate]
@@ -3492,7 +3460,7 @@ export const hrTaxPolicyEarningHeadWiseHistoryRelations = relations(hrTaxPolicyE
 	}),
 }));
 
-export const hrTaxTemplateHistoryRelations = relations(hrTaxTemplateHistory, ({one}) => ({
+export const hrTaxTemplateHistoryRelations = relations(hrTaxTemplateHistory, ({ one }) => ({
 	hrTaxTemplate: one(hrTaxTemplate, {
 		fields: [hrTaxTemplateHistory.idHrTaxTemplate],
 		references: [hrTaxTemplate.idHrTaxTemplate]
@@ -3509,7 +3477,7 @@ export const hrTaxTemplateHistoryRelations = relations(hrTaxTemplateHistory, ({o
 	}),
 }));
 
-export const hrTrainingCertificationRelations = relations(hrTrainingCertification, ({one}) => ({
+export const hrTrainingCertificationRelations = relations(hrTrainingCertification, ({ one }) => ({
 	hrInstitute: one(hrInstitutes, {
 		fields: [hrTrainingCertification.idHrInstitutes],
 		references: [hrInstitutes.idHrInstitutes]
@@ -3524,11 +3492,11 @@ export const hrTrainingCertificationRelations = relations(hrTrainingCertificatio
 	}),
 }));
 
-export const hrInstitutesRelations = relations(hrInstitutes, ({many}) => ({
+export const hrInstitutesRelations = relations(hrInstitutes, ({ many }) => ({
 	hrTrainingCertifications: many(hrTrainingCertification),
 }));
 
-export const hrTransferredCompanyRelations = relations(hrTransferredCompany, ({one}) => ({
+export const hrTransferredCompanyRelations = relations(hrTransferredCompany, ({ one }) => ({
 	user: one(users, {
 		fields: [hrTransferredCompany.idUser],
 		references: [users.idUsers]
@@ -3555,7 +3523,7 @@ export const hrTransferredCompanyRelations = relations(hrTransferredCompany, ({o
 	}),
 }));
 
-export const hrTransferredEmployeesSalaryRelations = relations(hrTransferredEmployeesSalary, ({one}) => ({
+export const hrTransferredEmployeesSalaryRelations = relations(hrTransferredEmployeesSalary, ({ one }) => ({
 	hrEmployee: one(hrEmployee, {
 		fields: [hrTransferredEmployeesSalary.employeeId],
 		references: [hrEmployee.employeeId]
@@ -3578,7 +3546,7 @@ export const hrTransferredEmployeesSalaryRelations = relations(hrTransferredEmpl
 	}),
 }));
 
-export const hrVariableInputFileImportRelations = relations(hrVariableInputFileImport, ({one}) => ({
+export const hrVariableInputFileImportRelations = relations(hrVariableInputFileImport, ({ one }) => ({
 	user: one(users, {
 		fields: [hrVariableInputFileImport.idUser],
 		references: [users.idUsers]
@@ -3589,7 +3557,7 @@ export const hrVariableInputFileImportRelations = relations(hrVariableInputFileI
 	}),
 }));
 
-export const hrVariableInputHistoryRelations = relations(hrVariableInputHistory, ({one}) => ({
+export const hrVariableInputHistoryRelations = relations(hrVariableInputHistory, ({ one }) => ({
 	hrPayStructureVariableInput: one(hrPayStructureVariableInput, {
 		fields: [hrVariableInputHistory.payStructureVariableInputId],
 		references: [hrPayStructureVariableInput.payStructureVariableInputId]
@@ -3600,14 +3568,14 @@ export const hrVariableInputHistoryRelations = relations(hrVariableInputHistory,
 	}),
 }));
 
-export const hrisCandidateUserAddressesRelations = relations(hrisCandidateUserAddresses, ({one}) => ({
+export const hrisCandidateUserAddressesRelations = relations(hrisCandidateUserAddresses, ({ one }) => ({
 	hrisCandidateUser: one(hrisCandidateUsers, {
 		fields: [hrisCandidateUserAddresses.idCandidateUser],
 		references: [hrisCandidateUsers.idCandidateUser]
 	}),
 }));
 
-export const hrisCandidateUsersRelations = relations(hrisCandidateUsers, ({many}) => ({
+export const hrisCandidateUsersRelations = relations(hrisCandidateUsers, ({ many }) => ({
 	hrisCandidateUserAddresses: many(hrisCandidateUserAddresses),
 	hrisCandidateUserEducations: many(hrisCandidateUserEducations),
 	hrisCandidateUserExperiences: many(hrisCandidateUserExperiences),
@@ -3618,35 +3586,35 @@ export const hrisCandidateUsersRelations = relations(hrisCandidateUsers, ({many}
 	hrisTalentAcquisitionJoiningDetails: many(hrisTalentAcquisitionJoiningDetails),
 }));
 
-export const hrisCandidateUserEducationsRelations = relations(hrisCandidateUserEducations, ({one}) => ({
+export const hrisCandidateUserEducationsRelations = relations(hrisCandidateUserEducations, ({ one }) => ({
 	hrisCandidateUser: one(hrisCandidateUsers, {
 		fields: [hrisCandidateUserEducations.idCandidateUser],
 		references: [hrisCandidateUsers.idCandidateUser]
 	}),
 }));
 
-export const hrisCandidateUserExperiencesRelations = relations(hrisCandidateUserExperiences, ({one}) => ({
+export const hrisCandidateUserExperiencesRelations = relations(hrisCandidateUserExperiences, ({ one }) => ({
 	hrisCandidateUser: one(hrisCandidateUsers, {
 		fields: [hrisCandidateUserExperiences.idCandidateUser],
 		references: [hrisCandidateUsers.idCandidateUser]
 	}),
 }));
 
-export const hrisCandidateUserReferencesRelations = relations(hrisCandidateUserReferences, ({one}) => ({
+export const hrisCandidateUserReferencesRelations = relations(hrisCandidateUserReferences, ({ one }) => ({
 	hrisCandidateUser: one(hrisCandidateUsers, {
 		fields: [hrisCandidateUserReferences.idCandidateUser],
 		references: [hrisCandidateUsers.idCandidateUser]
 	}),
 }));
 
-export const hrisCandidateUserTrainingsRelations = relations(hrisCandidateUserTrainings, ({one}) => ({
+export const hrisCandidateUserTrainingsRelations = relations(hrisCandidateUserTrainings, ({ one }) => ({
 	hrisCandidateUser: one(hrisCandidateUsers, {
 		fields: [hrisCandidateUserTrainings.idCandidateUser],
 		references: [hrisCandidateUsers.idCandidateUser]
 	}),
 }));
 
-export const hrisCiteriaMasterRelations = relations(hrisCiteriaMaster, ({one}) => ({
+export const hrisCiteriaMasterRelations = relations(hrisCiteriaMaster, ({ one }) => ({
 	project: one(projects, {
 		fields: [hrisCiteriaMaster.idProject],
 		references: [projects.idProjects]
@@ -3657,7 +3625,7 @@ export const hrisCiteriaMasterRelations = relations(hrisCiteriaMaster, ({one}) =
 	}),
 }));
 
-export const hrisDepartmentalBudgetRelations = relations(hrisDepartmentalBudget, ({one, many}) => ({
+export const hrisDepartmentalBudgetRelations = relations(hrisDepartmentalBudget, ({ one, many }) => ({
 	project: one(projects, {
 		fields: [hrisDepartmentalBudget.idBusinessUnit],
 		references: [projects.idProjects]
@@ -3677,7 +3645,7 @@ export const hrisDepartmentalBudgetRelations = relations(hrisDepartmentalBudget,
 	hrisDepartmentalBudgetDetails: many(hrisDepartmentalBudgetDetails),
 }));
 
-export const hrisDepartmentalBudgetDetailsRelations = relations(hrisDepartmentalBudgetDetails, ({one}) => ({
+export const hrisDepartmentalBudgetDetailsRelations = relations(hrisDepartmentalBudgetDetails, ({ one }) => ({
 	hrisDepartmentalBudget: one(hrisDepartmentalBudget, {
 		fields: [hrisDepartmentalBudgetDetails.idHrisDepartmentalBudget],
 		references: [hrisDepartmentalBudget.idHrisDepartmentalBudget]
@@ -3688,7 +3656,7 @@ export const hrisDepartmentalBudgetDetailsRelations = relations(hrisDepartmental
 	}),
 }));
 
-export const hrisJobCreateDetailsRelations = relations(hrisJobCreateDetails, ({one, many}) => ({
+export const hrisJobCreateDetailsRelations = relations(hrisJobCreateDetails, ({ one, many }) => ({
 	hrisDepartmentalBudgetDetails: many(hrisDepartmentalBudgetDetails),
 	hrisJobCreate: one(hrisJobCreate, {
 		fields: [hrisJobCreateDetails.idHrisJobCreate],
@@ -3696,7 +3664,7 @@ export const hrisJobCreateDetailsRelations = relations(hrisJobCreateDetails, ({o
 	}),
 }));
 
-export const hrisDocumentMasterRelations = relations(hrisDocumentMaster, ({one, many}) => ({
+export const hrisDocumentMasterRelations = relations(hrisDocumentMaster, ({ one, many }) => ({
 	project: one(projects, {
 		fields: [hrisDocumentMaster.idProject],
 		references: [projects.idProjects]
@@ -3709,7 +3677,7 @@ export const hrisDocumentMasterRelations = relations(hrisDocumentMaster, ({one, 
 	hrisTalentAcquisitionJoiningReceiveDocumentsDetails: many(hrisTalentAcquisitionJoiningReceiveDocumentsDetails),
 }));
 
-export const hrisEmployeeSittingArragementDetailsRelations = relations(hrisEmployeeSittingArragementDetails, ({one}) => ({
+export const hrisEmployeeSittingArragementDetailsRelations = relations(hrisEmployeeSittingArragementDetails, ({ one }) => ({
 	project: one(projects, {
 		fields: [hrisEmployeeSittingArragementDetails.idProject],
 		references: [projects.idProjects]
@@ -3740,7 +3708,7 @@ export const hrisEmployeeSittingArragementDetailsRelations = relations(hrisEmplo
 	}),
 }));
 
-export const hrisWorkStationFlatRoomDetailsRelations = relations(hrisWorkStationFlatRoomDetails, ({one, many}) => ({
+export const hrisWorkStationFlatRoomDetailsRelations = relations(hrisWorkStationFlatRoomDetails, ({ one, many }) => ({
 	hrisEmployeeSittingArragementDetails: many(hrisEmployeeSittingArragementDetails),
 	hrisWorkStationFlatDetail: one(hrisWorkStationFlatDetails, {
 		fields: [hrisWorkStationFlatRoomDetails.idHrisWorkStationFlatDetails],
@@ -3752,7 +3720,7 @@ export const hrisWorkStationFlatRoomDetailsRelations = relations(hrisWorkStation
 	}),
 }));
 
-export const hrisWorkStationFlatDetailsRelations = relations(hrisWorkStationFlatDetails, ({one, many}) => ({
+export const hrisWorkStationFlatDetailsRelations = relations(hrisWorkStationFlatDetails, ({ one, many }) => ({
 	hrisEmployeeSittingArragementDetails: many(hrisEmployeeSittingArragementDetails),
 	hrisWorkStationFloorDetail: one(hrisWorkStationFloorDetails, {
 		fields: [hrisWorkStationFlatDetails.idHrisWorkStationFloorDetails],
@@ -3765,7 +3733,7 @@ export const hrisWorkStationFlatDetailsRelations = relations(hrisWorkStationFlat
 	hrisWorkStationFlatRoomDetails: many(hrisWorkStationFlatRoomDetails),
 }));
 
-export const hrisEmployeeStationaryRequisitionDetailsRelations = relations(hrisEmployeeStationaryRequisitionDetails, ({one, many}) => ({
+export const hrisEmployeeStationaryRequisitionDetailsRelations = relations(hrisEmployeeStationaryRequisitionDetails, ({ one, many }) => ({
 	project: one(projects, {
 		fields: [hrisEmployeeStationaryRequisitionDetails.idProject],
 		references: [projects.idProjects]
@@ -3792,73 +3760,9 @@ export const hrisEmployeeStationaryRequisitionDetailsRelations = relations(hrisE
 		references: [hrEmployee.employeeId],
 		relationName: "hrisEmployeeStationaryRequisitionDetails_stationaryProductConcernEmployeeId_hrEmployee_employeeId"
 	}),
-	hrisEmployeeStationaryRequisitionItemsDetails: many(hrisEmployeeStationaryRequisitionItemsDetails),
 }));
 
-export const hrisEmployeeStationaryRequisitionItemsDetailsRelations = relations(hrisEmployeeStationaryRequisitionItemsDetails, ({one}) => ({
-	project: one(projects, {
-		fields: [hrisEmployeeStationaryRequisitionItemsDetails.idProject],
-		references: [projects.idProjects]
-	}),
-	user: one(users, {
-		fields: [hrisEmployeeStationaryRequisitionItemsDetails.idUsers],
-		references: [users.idUsers]
-	}),
-	hrisEmployeeStationaryRequisitionDetail: one(hrisEmployeeStationaryRequisitionDetails, {
-		fields: [hrisEmployeeStationaryRequisitionItemsDetails.idHrisEmployeeStationaryRequisitionDetails],
-		references: [hrisEmployeeStationaryRequisitionDetails.idHrisEmployeeStationaryRequisitionDetails]
-	}),
-	invItem: one(invItems, {
-		fields: [hrisEmployeeStationaryRequisitionItemsDetails.idInvItems],
-		references: [invItems.idInvItems]
-	}),
-}));
-
-export const invItemsRelations = relations(invItems, ({one, many}) => ({
-	hrisEmployeeStationaryRequisitionItemsDetails: many(hrisEmployeeStationaryRequisitionItemsDetails),
-	hrisItGoodsItemsDetails: many(hrisItGoodsItemsDetails),
-	category: one(categories, {
-		fields: [invItems.idCategories],
-		references: [categories.idCategories]
-	}),
-	unit_idSecondaryUnit: one(unit, {
-		fields: [invItems.idSecondaryUnit],
-		references: [unit.idUnit],
-		relationName: "invItems_idSecondaryUnit_unit_idUnit"
-	}),
-	unit_idUnit: one(unit, {
-		fields: [invItems.idUnit],
-		references: [unit.idUnit],
-		relationName: "invItems_idUnit_unit_idUnit"
-	}),
-	size: one(size, {
-		fields: [invItems.idSize],
-		references: [size.idSize]
-	}),
-	color: one(color, {
-		fields: [invItems.idColor],
-		references: [color.idColor]
-	}),
-	specification: one(specifications, {
-		fields: [invItems.idSpecifications],
-		references: [specifications.idSpecifications]
-	}),
-	model: one(models, {
-		fields: [invItems.idModels],
-		references: [models.idModels]
-	}),
-	product: one(products, {
-		fields: [invItems.idProducts],
-		references: [products.idProducts]
-	}),
-	invItemImage: one(invItemImages, {
-		fields: [invItems.idDefaultImage],
-		references: [invItemImages.idInvItemImages]
-	}),
-	porItGoodsItemsDetails: many(porItGoodsItemsDetails),
-}));
-
-export const hrisEvaluationScoreMasterRelations = relations(hrisEvaluationScoreMaster, ({one}) => ({
+export const hrisEvaluationScoreMasterRelations = relations(hrisEvaluationScoreMaster, ({ one }) => ({
 	project: one(projects, {
 		fields: [hrisEvaluationScoreMaster.idProject],
 		references: [projects.idProjects]
@@ -3869,7 +3773,7 @@ export const hrisEvaluationScoreMasterRelations = relations(hrisEvaluationScoreM
 	}),
 }));
 
-export const hrisFileArchiveDocumentForRelations = relations(hrisFileArchiveDocumentFor, ({one}) => ({
+export const hrisFileArchiveDocumentForRelations = relations(hrisFileArchiveDocumentFor, ({ one }) => ({
 	hrisFileArchiveDocumentType: one(hrisFileArchiveDocumentType, {
 		fields: [hrisFileArchiveDocumentFor.idHrisFileArchiveDocumentType],
 		references: [hrisFileArchiveDocumentType.idHrisFileArchiveDocumentType]
@@ -3880,7 +3784,7 @@ export const hrisFileArchiveDocumentForRelations = relations(hrisFileArchiveDocu
 	}),
 }));
 
-export const hrisFileArchiveDocumentTypeRelations = relations(hrisFileArchiveDocumentType, ({one, many}) => ({
+export const hrisFileArchiveDocumentTypeRelations = relations(hrisFileArchiveDocumentType, ({ one, many }) => ({
 	hrisFileArchiveDocumentFors: many(hrisFileArchiveDocumentFor),
 	user: one(users, {
 		fields: [hrisFileArchiveDocumentType.idUsers],
@@ -3888,7 +3792,7 @@ export const hrisFileArchiveDocumentTypeRelations = relations(hrisFileArchiveDoc
 	}),
 }));
 
-export const hrisFileArchiveEntryRelations = relations(hrisFileArchiveEntry, ({one}) => ({
+export const hrisFileArchiveEntryRelations = relations(hrisFileArchiveEntry, ({ one }) => ({
 	hrEmployee: one(hrEmployee, {
 		fields: [hrisFileArchiveEntry.employeeId],
 		references: [hrEmployee.employeeId]
@@ -3899,14 +3803,14 @@ export const hrisFileArchiveEntryRelations = relations(hrisFileArchiveEntry, ({o
 	}),
 }));
 
-export const hrisFileArchiveEntryDetailsRelations = relations(hrisFileArchiveEntryDetails, ({one}) => ({
+export const hrisFileArchiveEntryDetailsRelations = relations(hrisFileArchiveEntryDetails, ({ one }) => ({
 	user: one(users, {
 		fields: [hrisFileArchiveEntryDetails.idUsers],
 		references: [users.idUsers]
 	}),
 }));
 
-export const hrisGuestInterViewerDetailsRelations = relations(hrisGuestInterViewerDetails, ({one}) => ({
+export const hrisGuestInterViewerDetailsRelations = relations(hrisGuestInterViewerDetails, ({ one }) => ({
 	project: one(projects, {
 		fields: [hrisGuestInterViewerDetails.idProject],
 		references: [projects.idProjects]
@@ -3921,7 +3825,7 @@ export const hrisGuestInterViewerDetailsRelations = relations(hrisGuestInterView
 	}),
 }));
 
-export const hrisInterViewBoardRelations = relations(hrisInterViewBoard, ({one, many}) => ({
+export const hrisInterViewBoardRelations = relations(hrisInterViewBoard, ({ one, many }) => ({
 	hrisGuestInterViewerDetails: many(hrisGuestInterViewerDetails),
 	project: one(projects, {
 		fields: [hrisInterViewBoard.idProject],
@@ -3939,7 +3843,7 @@ export const hrisInterViewBoardRelations = relations(hrisInterViewBoard, ({one, 
 	hrisInterViewerDetails: many(hrisInterViewerDetails),
 }));
 
-export const hrisJobRequisitionsRelations = relations(hrisJobRequisitions, ({one, many}) => ({
+export const hrisJobRequisitionsRelations = relations(hrisJobRequisitions, ({ one, many }) => ({
 	hrisInterViewBoards: many(hrisInterViewBoard),
 	hrisInterViewSetupDetails: many(hrisInterViewSetupDetails),
 	hrisJobAdvertisements: many(hrisJobAdvertisements),
@@ -4020,7 +3924,7 @@ export const hrisJobRequisitionsRelations = relations(hrisJobRequisitions, ({one
 	hrisSpecialNotes: many(hrisSpecialNotes),
 }));
 
-export const hrisInterViewSetupDetailsRelations = relations(hrisInterViewSetupDetails, ({one, many}) => ({
+export const hrisInterViewSetupDetailsRelations = relations(hrisInterViewSetupDetails, ({ one, many }) => ({
 	project: one(projects, {
 		fields: [hrisInterViewSetupDetails.idProject],
 		references: [projects.idProjects]
@@ -4045,7 +3949,7 @@ export const hrisInterViewSetupDetailsRelations = relations(hrisInterViewSetupDe
 	hrisInterviewAppraisedCandidates: many(hrisInterviewAppraisedCandidates),
 }));
 
-export const hrisInterViewTimeScheduleDetailsRelations = relations(hrisInterViewTimeScheduleDetails, ({one, many}) => ({
+export const hrisInterViewTimeScheduleDetailsRelations = relations(hrisInterViewTimeScheduleDetails, ({ one, many }) => ({
 	hrisInterViewSetupDetails: many(hrisInterViewSetupDetails),
 	project: one(projects, {
 		fields: [hrisInterViewTimeScheduleDetails.idProject],
@@ -4061,7 +3965,7 @@ export const hrisInterViewTimeScheduleDetailsRelations = relations(hrisInterView
 	}),
 }));
 
-export const hrisInterViewerDetailsRelations = relations(hrisInterViewerDetails, ({one}) => ({
+export const hrisInterViewerDetailsRelations = relations(hrisInterViewerDetails, ({ one }) => ({
 	project: one(projects, {
 		fields: [hrisInterViewerDetails.idProject],
 		references: [projects.idProjects]
@@ -4080,7 +3984,7 @@ export const hrisInterViewerDetailsRelations = relations(hrisInterViewerDetails,
 	}),
 }));
 
-export const hrisInterviewAppraiseRelations = relations(hrisInterviewAppraise, ({one, many}) => ({
+export const hrisInterviewAppraiseRelations = relations(hrisInterviewAppraise, ({ one, many }) => ({
 	hrisInterViewSetupDetail: one(hrisInterViewSetupDetails, {
 		fields: [hrisInterviewAppraise.idInterViewSetupDetails],
 		references: [hrisInterViewSetupDetails.idHrisInterViewSetupDetails]
@@ -4100,15 +4004,15 @@ export const hrisInterviewAppraiseRelations = relations(hrisInterviewAppraise, (
 	hrisInterviewAppraisedReferences: many(hrisInterviewAppraisedReferences),
 }));
 
-export const hrisInterviewAppraisedRatingsRelations = relations(hrisInterviewAppraisedRatings, ({many}) => ({
+export const hrisInterviewAppraisedRatingsRelations = relations(hrisInterviewAppraisedRatings, ({ many }) => ({
 	hrisInterviewAppraises: many(hrisInterviewAppraise),
 }));
 
-export const hrisInterviewAppraisedCharacteristicsRelations = relations(hrisInterviewAppraisedCharacteristics, ({many}) => ({
+export const hrisInterviewAppraisedCharacteristicsRelations = relations(hrisInterviewAppraisedCharacteristics, ({ many }) => ({
 	hrisInterviewAppraises: many(hrisInterviewAppraise),
 }));
 
-export const hrisInterviewAppraisedCandidatesRelations = relations(hrisInterviewAppraisedCandidates, ({one, many}) => ({
+export const hrisInterviewAppraisedCandidatesRelations = relations(hrisInterviewAppraisedCandidates, ({ one, many }) => ({
 	hrisInterViewSetupDetail: one(hrisInterViewSetupDetails, {
 		fields: [hrisInterviewAppraisedCandidates.idInterViewSetupDetails],
 		references: [hrisInterViewSetupDetails.idHrisInterViewSetupDetails]
@@ -4116,14 +4020,14 @@ export const hrisInterviewAppraisedCandidatesRelations = relations(hrisInterview
 	hrisTalentAcquisitionJoiningDetails: many(hrisTalentAcquisitionJoiningDetails),
 }));
 
-export const hrisInterviewAppraisedReferencesRelations = relations(hrisInterviewAppraisedReferences, ({one}) => ({
+export const hrisInterviewAppraisedReferencesRelations = relations(hrisInterviewAppraisedReferences, ({ one }) => ({
 	hrisInterviewAppraise: one(hrisInterviewAppraise, {
 		fields: [hrisInterviewAppraisedReferences.idInterviewAppraise],
 		references: [hrisInterviewAppraise.idInterviewAppraise]
 	}),
 }));
 
-export const hrisInterviewBoardMasterRelations = relations(hrisInterviewBoardMaster, ({one, many}) => ({
+export const hrisInterviewBoardMasterRelations = relations(hrisInterviewBoardMaster, ({ one, many }) => ({
 	project: one(projects, {
 		fields: [hrisInterviewBoardMaster.idProject],
 		references: [projects.idProjects]
@@ -4139,7 +4043,7 @@ export const hrisInterviewBoardMasterRelations = relations(hrisInterviewBoardMas
 	hrisInterviewBoardMasterInterviewerDetails: many(hrisInterviewBoardMasterInterviewerDetails),
 }));
 
-export const hrisInterviewBoardMasterInterviewerDetailsRelations = relations(hrisInterviewBoardMasterInterviewerDetails, ({one}) => ({
+export const hrisInterviewBoardMasterInterviewerDetailsRelations = relations(hrisInterviewBoardMasterInterviewerDetails, ({ one }) => ({
 	project: one(projects, {
 		fields: [hrisInterviewBoardMasterInterviewerDetails.idProject],
 		references: [projects.idProjects]
@@ -4158,7 +4062,7 @@ export const hrisInterviewBoardMasterInterviewerDetailsRelations = relations(hri
 	}),
 }));
 
-export const hrisItGoodsDetailsRelations = relations(hrisItGoodsDetails, ({one, many}) => ({
+export const hrisItGoodsDetailsRelations = relations(hrisItGoodsDetails, ({ one, many }) => ({
 	project: one(projects, {
 		fields: [hrisItGoodsDetails.idProject],
 		references: [projects.idProjects]
@@ -4193,124 +4097,7 @@ export const hrisItGoodsDetailsRelations = relations(hrisItGoodsDetails, ({one, 
 	hrisItGoodsItemsDetails: many(hrisItGoodsItemsDetails),
 }));
 
-export const hrisItGoodsItemsDetailsRelations = relations(hrisItGoodsItemsDetails, ({one}) => ({
-	project: one(projects, {
-		fields: [hrisItGoodsItemsDetails.idProject],
-		references: [projects.idProjects]
-	}),
-	user: one(users, {
-		fields: [hrisItGoodsItemsDetails.idUsers],
-		references: [users.idUsers]
-	}),
-	hrisItGoodsDetail: one(hrisItGoodsDetails, {
-		fields: [hrisItGoodsItemsDetails.idHrisItGoodsDetails],
-		references: [hrisItGoodsDetails.idHrisItGoodsDetails]
-	}),
-	invItem: one(invItems, {
-		fields: [hrisItGoodsItemsDetails.idInvItems],
-		references: [invItems.idInvItems]
-	}),
-}));
-
-export const hrisJobAdvertisementBillEntryRelations = relations(hrisJobAdvertisementBillEntry, ({one}) => ({
-	hrisJobAdvertisement: one(hrisJobAdvertisements, {
-		fields: [hrisJobAdvertisementBillEntry.idJobAdvertisements],
-		references: [hrisJobAdvertisements.idJobAdvertisements]
-	}),
-	project: one(projects, {
-		fields: [hrisJobAdvertisementBillEntry.idBusinessUnit],
-		references: [projects.idProjects]
-	}),
-	hrEmployee_approver1: one(hrEmployee, {
-		fields: [hrisJobAdvertisementBillEntry.approver1],
-		references: [hrEmployee.employeeId],
-		relationName: "hrisJobAdvertisementBillEntry_approver1_hrEmployee_employeeId"
-	}),
-	hrEmployee_approver2: one(hrEmployee, {
-		fields: [hrisJobAdvertisementBillEntry.approver2],
-		references: [hrEmployee.employeeId],
-		relationName: "hrisJobAdvertisementBillEntry_approver2_hrEmployee_employeeId"
-	}),
-	hrEmployee_accountPayable: one(hrEmployee, {
-		fields: [hrisJobAdvertisementBillEntry.accountPayable],
-		references: [hrEmployee.employeeId],
-		relationName: "hrisJobAdvertisementBillEntry_accountPayable_hrEmployee_employeeId"
-	}),
-	vendor: one(vendors, {
-		fields: [hrisJobAdvertisementBillEntry.idVendors],
-		references: [vendors.idVendors]
-	}),
-	accVoucher: one(accVoucher, {
-		fields: [hrisJobAdvertisementBillEntry.idVoucher],
-		references: [accVoucher.idVoucher]
-	}),
-	hrEmployee_idUser: one(hrEmployee, {
-		fields: [hrisJobAdvertisementBillEntry.idUser],
-		references: [hrEmployee.employeeId],
-		relationName: "hrisJobAdvertisementBillEntry_idUser_hrEmployee_employeeId"
-	}),
-}));
-
-export const hrisJobAdvertisementsRelations = relations(hrisJobAdvertisements, ({one, many}) => ({
-	hrisJobAdvertisementBillEntries: many(hrisJobAdvertisementBillEntry),
-	hrisJobAdvertisementMediaMasters: many(hrisJobAdvertisementMediaMasters),
-	hrisJobRequisition: one(hrisJobRequisitions, {
-		fields: [hrisJobAdvertisements.idJobRequisition],
-		references: [hrisJobRequisitions.idJobRequisition]
-	}),
-}));
-
-export const vendorsRelations = relations(vendors, ({many}) => ({
-	hrisJobAdvertisementBillEntries: many(hrisJobAdvertisementBillEntry),
-	hrisJobAdvertisementMediaMasters: many(hrisJobAdvertisementMediaMasters),
-	hrisRentAgreementDetails: many(hrisRentAgreementDetails),
-}));
-
-export const hrisJobAdvertisementMediaMastersRelations = relations(hrisJobAdvertisementMediaMasters, ({one}) => ({
-	hrisJobAdvertisement: one(hrisJobAdvertisements, {
-		fields: [hrisJobAdvertisementMediaMasters.idJobAdvertisement],
-		references: [hrisJobAdvertisements.idJobAdvertisements]
-	}),
-	vendor: one(vendors, {
-		fields: [hrisJobAdvertisementMediaMasters.idVendors],
-		references: [vendors.idVendors]
-	}),
-}));
-
-export const hrisJobApplicationHistoryRelations = relations(hrisJobApplicationHistory, ({one}) => ({
-	hrisJobApplication: one(hrisJobApplications, {
-		fields: [hrisJobApplicationHistory.idJobApplication],
-		references: [hrisJobApplications.idJobApplication]
-	}),
-	hrisJobRequisition_previousJobRequisitionId: one(hrisJobRequisitions, {
-		fields: [hrisJobApplicationHistory.previousJobRequisitionId],
-		references: [hrisJobRequisitions.idJobRequisition],
-		relationName: "hrisJobApplicationHistory_previousJobRequisitionId_hrisJobRequisitions_idJobRequisition"
-	}),
-	hrisJobRequisition_currentJobRequisitionId: one(hrisJobRequisitions, {
-		fields: [hrisJobApplicationHistory.currentJobRequisitionId],
-		references: [hrisJobRequisitions.idJobRequisition],
-		relationName: "hrisJobApplicationHistory_currentJobRequisitionId_hrisJobRequisitions_idJobRequisition"
-	}),
-	hrEmployee: one(hrEmployee, {
-		fields: [hrisJobApplicationHistory.idUser],
-		references: [hrEmployee.employeeId]
-	}),
-}));
-
-export const hrisJobApplicationsRelations = relations(hrisJobApplications, ({one, many}) => ({
-	hrisJobApplicationHistories: many(hrisJobApplicationHistory),
-	hrisJobRequisition: one(hrisJobRequisitions, {
-		fields: [hrisJobApplications.idJobRequisition],
-		references: [hrisJobRequisitions.idJobRequisition]
-	}),
-	hrisCandidateUser: one(hrisCandidateUsers, {
-		fields: [hrisJobApplications.idCandidateUser],
-		references: [hrisCandidateUsers.idCandidateUser]
-	}),
-}));
-
-export const hrisJobCreateRelations = relations(hrisJobCreate, ({one, many}) => ({
+export const hrisJobCreateRelations = relations(hrisJobCreate, ({ one, many }) => ({
 	project: one(projects, {
 		fields: [hrisJobCreate.idBusinessUnit],
 		references: [projects.idProjects]
@@ -4330,7 +4117,7 @@ export const hrisJobCreateRelations = relations(hrisJobCreate, ({one, many}) => 
 	hrisJobCreateDetails: many(hrisJobCreateDetails),
 }));
 
-export const hrisJobDescriptionRelations = relations(hrisJobDescription, ({one, many}) => ({
+export const hrisJobDescriptionRelations = relations(hrisJobDescription, ({ one, many }) => ({
 	hrEmployee_reportingTo: one(hrEmployee, {
 		fields: [hrisJobDescription.reportingTo],
 		references: [hrEmployee.employeeId],
@@ -4373,35 +4160,35 @@ export const hrisJobDescriptionRelations = relations(hrisJobDescription, ({one, 
 	hrisJobDescriptionTechnicalSkills: many(hrisJobDescriptionTechnicalSkill),
 }));
 
-export const hrisJobDescriptionDimensionRelations = relations(hrisJobDescriptionDimension, ({one}) => ({
+export const hrisJobDescriptionDimensionRelations = relations(hrisJobDescriptionDimension, ({ one }) => ({
 	hrisJobDescription: one(hrisJobDescription, {
 		fields: [hrisJobDescriptionDimension.idHrisJobDescription],
 		references: [hrisJobDescription.idHrisJobDescription]
 	}),
 }));
 
-export const hrisJobDescriptionExperienceRelations = relations(hrisJobDescriptionExperience, ({one}) => ({
+export const hrisJobDescriptionExperienceRelations = relations(hrisJobDescriptionExperience, ({ one }) => ({
 	hrisJobDescription: one(hrisJobDescription, {
 		fields: [hrisJobDescriptionExperience.idHrisJobDescription],
 		references: [hrisJobDescription.idHrisJobDescription]
 	}),
 }));
 
-export const hrisJobDescriptionExternalCustomerRelations = relations(hrisJobDescriptionExternalCustomer, ({one}) => ({
+export const hrisJobDescriptionExternalCustomerRelations = relations(hrisJobDescriptionExternalCustomer, ({ one }) => ({
 	hrisJobDescription: one(hrisJobDescription, {
 		fields: [hrisJobDescriptionExternalCustomer.idHrisJobDescription],
 		references: [hrisJobDescription.idHrisJobDescription]
 	}),
 }));
 
-export const hrisJobDescriptionInternalCustomerRelations = relations(hrisJobDescriptionInternalCustomer, ({one}) => ({
+export const hrisJobDescriptionInternalCustomerRelations = relations(hrisJobDescriptionInternalCustomer, ({ one }) => ({
 	hrisJobDescription: one(hrisJobDescription, {
 		fields: [hrisJobDescriptionInternalCustomer.idHrisJobDescription],
 		references: [hrisJobDescription.idHrisJobDescription]
 	}),
 }));
 
-export const hrisJobDescriptionNonPerformingAreasRelations = relations(hrisJobDescriptionNonPerformingAreas, ({one}) => ({
+export const hrisJobDescriptionNonPerformingAreasRelations = relations(hrisJobDescriptionNonPerformingAreas, ({ one }) => ({
 	hrEmployee: one(hrEmployee, {
 		fields: [hrisJobDescriptionNonPerformingAreas.employeeId],
 		references: [hrEmployee.employeeId]
@@ -4412,7 +4199,7 @@ export const hrisJobDescriptionNonPerformingAreasRelations = relations(hrisJobDe
 	}),
 }));
 
-export const hrisJobDescriptionPerformingAreaRelations = relations(hrisJobDescriptionPerformingArea, ({one, many}) => ({
+export const hrisJobDescriptionPerformingAreaRelations = relations(hrisJobDescriptionPerformingArea, ({ one, many }) => ({
 	hrisJobDescriptionNonPerformingAreas: many(hrisJobDescriptionNonPerformingAreas),
 	hrisJobDescription: one(hrisJobDescription, {
 		fields: [hrisJobDescriptionPerformingArea.idHrisJobDescription],
@@ -4420,49 +4207,49 @@ export const hrisJobDescriptionPerformingAreaRelations = relations(hrisJobDescri
 	}),
 }));
 
-export const hrisJobDescriptionQualificationRelations = relations(hrisJobDescriptionQualification, ({one}) => ({
+export const hrisJobDescriptionQualificationRelations = relations(hrisJobDescriptionQualification, ({ one }) => ({
 	hrisJobDescription: one(hrisJobDescription, {
 		fields: [hrisJobDescriptionQualification.idHrisJobDescription],
 		references: [hrisJobDescription.idHrisJobDescription]
 	}),
 }));
 
-export const hrisJobDescriptionQualityParameterRelations = relations(hrisJobDescriptionQualityParameter, ({one}) => ({
+export const hrisJobDescriptionQualityParameterRelations = relations(hrisJobDescriptionQualityParameter, ({ one }) => ({
 	hrisJobDescription: one(hrisJobDescription, {
 		fields: [hrisJobDescriptionQualityParameter.idHrisJobDescription],
 		references: [hrisJobDescription.idHrisJobDescription]
 	}),
 }));
 
-export const hrisJobDescriptionSoftSkillRelations = relations(hrisJobDescriptionSoftSkill, ({one}) => ({
+export const hrisJobDescriptionSoftSkillRelations = relations(hrisJobDescriptionSoftSkill, ({ one }) => ({
 	hrisJobDescription: one(hrisJobDescription, {
 		fields: [hrisJobDescriptionSoftSkill.idHrisJobDescription],
 		references: [hrisJobDescription.idHrisJobDescription]
 	}),
 }));
 
-export const hrisJobDescriptionSpecialRequirementRelations = relations(hrisJobDescriptionSpecialRequirement, ({one}) => ({
+export const hrisJobDescriptionSpecialRequirementRelations = relations(hrisJobDescriptionSpecialRequirement, ({ one }) => ({
 	hrisJobDescription: one(hrisJobDescription, {
 		fields: [hrisJobDescriptionSpecialRequirement.idHrisJobDescription],
 		references: [hrisJobDescription.idHrisJobDescription]
 	}),
 }));
 
-export const hrisJobDescriptionTechnicalSkillRelations = relations(hrisJobDescriptionTechnicalSkill, ({one}) => ({
+export const hrisJobDescriptionTechnicalSkillRelations = relations(hrisJobDescriptionTechnicalSkill, ({ one }) => ({
 	hrisJobDescription: one(hrisJobDescription, {
 		fields: [hrisJobDescriptionTechnicalSkill.idHrisJobDescription],
 		references: [hrisJobDescription.idHrisJobDescription]
 	}),
 }));
 
-export const hrisJobRequisitionApprovalActivitiesRelations = relations(hrisJobRequisitionApprovalActivities, ({one}) => ({
+export const hrisJobRequisitionApprovalActivitiesRelations = relations(hrisJobRequisitionApprovalActivities, ({ one }) => ({
 	hrisJobRequisition: one(hrisJobRequisitions, {
 		fields: [hrisJobRequisitionApprovalActivities.idJobRequisition],
 		references: [hrisJobRequisitions.idJobRequisition]
 	}),
 }));
 
-export const hrisJobRequisitionSummeryRelations = relations(hrisJobRequisitionSummery, ({one, many}) => ({
+export const hrisJobRequisitionSummeryRelations = relations(hrisJobRequisitionSummery, ({ one, many }) => ({
 	project: one(projects, {
 		fields: [hrisJobRequisitionSummery.idProjects],
 		references: [projects.idProjects]
@@ -4486,7 +4273,7 @@ export const hrisJobRequisitionSummeryRelations = relations(hrisJobRequisitionSu
 	hrisJobRequisitionSummeryPotentialCandidateCvs: many(hrisJobRequisitionSummeryPotentialCandidateCv),
 }));
 
-export const hrisJobRequisitionSummeryPotentialCandidateCvRelations = relations(hrisJobRequisitionSummeryPotentialCandidateCv, ({one}) => ({
+export const hrisJobRequisitionSummeryPotentialCandidateCvRelations = relations(hrisJobRequisitionSummeryPotentialCandidateCv, ({ one }) => ({
 	hrisJobRequisitionSummery: one(hrisJobRequisitionSummery, {
 		fields: [hrisJobRequisitionSummeryPotentialCandidateCv.idHrisJobRequisitionSummery],
 		references: [hrisJobRequisitionSummery.idHrisJobRequisitionSummery]
@@ -4497,14 +4284,14 @@ export const hrisJobRequisitionSummeryPotentialCandidateCvRelations = relations(
 	}),
 }));
 
-export const hrisJobResponsibilitiesRelations = relations(hrisJobResponsibilities, ({one}) => ({
+export const hrisJobResponsibilitiesRelations = relations(hrisJobResponsibilities, ({ one }) => ({
 	hrisJobRequisition: one(hrisJobRequisitions, {
 		fields: [hrisJobResponsibilities.idJobRequisition],
 		references: [hrisJobRequisitions.idJobRequisition]
 	}),
 }));
 
-export const hrisManPowerPlanningRelations = relations(hrisManPowerPlanning, ({one, many}) => ({
+export const hrisManPowerPlanningRelations = relations(hrisManPowerPlanning, ({ one, many }) => ({
 	project: one(projects, {
 		fields: [hrisManPowerPlanning.idBusinessUnit],
 		references: [projects.idProjects]
@@ -4520,7 +4307,7 @@ export const hrisManPowerPlanningRelations = relations(hrisManPowerPlanning, ({o
 	hrisManPowerPlanningDetails: many(hrisManPowerPlanningDetails),
 }));
 
-export const hrisManPowerPlanningDetailsRelations = relations(hrisManPowerPlanningDetails, ({one}) => ({
+export const hrisManPowerPlanningDetailsRelations = relations(hrisManPowerPlanningDetails, ({ one }) => ({
 	hrDesignationMaster: one(hrDesignationMaster, {
 		fields: [hrisManPowerPlanningDetails.idDesignation],
 		references: [hrDesignationMaster.designationId]
@@ -4531,7 +4318,7 @@ export const hrisManPowerPlanningDetailsRelations = relations(hrisManPowerPlanni
 	}),
 }));
 
-export const hrisMarkingSystemMasterRelations = relations(hrisMarkingSystemMaster, ({one}) => ({
+export const hrisMarkingSystemMasterRelations = relations(hrisMarkingSystemMaster, ({ one }) => ({
 	project: one(projects, {
 		fields: [hrisMarkingSystemMaster.idProject],
 		references: [projects.idProjects]
@@ -4542,18 +4329,18 @@ export const hrisMarkingSystemMasterRelations = relations(hrisMarkingSystemMaste
 	}),
 }));
 
-export const hrisMediaMasterRelations = relations(hrisMediaMaster, ({one}) => ({
+export const hrisMediaMasterRelations = relations(hrisMediaMaster, ({ one }) => ({
 	hrisMediaType: one(hrisMediaType, {
 		fields: [hrisMediaMaster.idMediaType],
 		references: [hrisMediaType.idMediaType]
 	}),
 }));
 
-export const hrisMediaTypeRelations = relations(hrisMediaType, ({many}) => ({
+export const hrisMediaTypeRelations = relations(hrisMediaType, ({ many }) => ({
 	hrisMediaMasters: many(hrisMediaMaster),
 }));
 
-export const hrisPerformanceAppraisalDateRangesRelations = relations(hrisPerformanceAppraisalDateRanges, ({one, many}) => ({
+export const hrisPerformanceAppraisalDateRangesRelations = relations(hrisPerformanceAppraisalDateRanges, ({ one, many }) => ({
 	hrisPerformanceAppraisalSetup: one(hrisPerformanceAppraisalSetup, {
 		fields: [hrisPerformanceAppraisalDateRanges.idPerformanceAppraisalSetup],
 		references: [hrisPerformanceAppraisalSetup.idPerformanceAppraisalSetup]
@@ -4566,7 +4353,7 @@ export const hrisPerformanceAppraisalDateRangesRelations = relations(hrisPerform
 	}),
 }));
 
-export const hrisPerformanceAppraisalSetupRelations = relations(hrisPerformanceAppraisalSetup, ({one, many}) => ({
+export const hrisPerformanceAppraisalSetupRelations = relations(hrisPerformanceAppraisalSetup, ({ one, many }) => ({
 	hrisPerformanceAppraisalDateRanges: many(hrisPerformanceAppraisalDateRanges),
 	accFiscalYear: one(accFiscalYear, {
 		fields: [hrisPerformanceAppraisalSetup.idFiscalYear],
@@ -4576,7 +4363,7 @@ export const hrisPerformanceAppraisalSetupRelations = relations(hrisPerformanceA
 	porPerformanceAppraises: many(porPerformanceAppraise),
 }));
 
-export const hrisPmsScoreMasterRelations = relations(hrisPmsScoreMaster, ({one, many}) => ({
+export const hrisPmsScoreMasterRelations = relations(hrisPmsScoreMaster, ({ one, many }) => ({
 	project: one(projects, {
 		fields: [hrisPmsScoreMaster.idProject],
 		references: [projects.idProjects]
@@ -4588,7 +4375,7 @@ export const hrisPmsScoreMasterRelations = relations(hrisPmsScoreMaster, ({one, 
 	porPerformanceAppraises: many(porPerformanceAppraise),
 }));
 
-export const hrisRentAgreementBenificiaryDetailsRelations = relations(hrisRentAgreementBenificiaryDetails, ({one}) => ({
+export const hrisRentAgreementBenificiaryDetailsRelations = relations(hrisRentAgreementBenificiaryDetails, ({ one }) => ({
 	hrisRentAgreementDetail: one(hrisRentAgreementDetails, {
 		fields: [hrisRentAgreementBenificiaryDetails.idHrisRentAgreementDetails],
 		references: [hrisRentAgreementDetails.idHrisRentAgreementDetails]
@@ -4607,55 +4394,7 @@ export const hrisRentAgreementBenificiaryDetailsRelations = relations(hrisRentAg
 	}),
 }));
 
-export const hrisRentAgreementDetailsRelations = relations(hrisRentAgreementDetails, ({one, many}) => ({
-	hrisRentAgreementBenificiaryDetails: many(hrisRentAgreementBenificiaryDetails),
-	project: one(projects, {
-		fields: [hrisRentAgreementDetails.businessUnitIdLesses],
-		references: [projects.idProjects]
-	}),
-	hrEmployee_representorEmployeeId: one(hrEmployee, {
-		fields: [hrisRentAgreementDetails.representorEmployeeId],
-		references: [hrEmployee.employeeId],
-		relationName: "hrisRentAgreementDetails_representorEmployeeId_hrEmployee_employeeId"
-	}),
-	vendor: one(vendors, {
-		fields: [hrisRentAgreementDetails.representorVendorId],
-		references: [vendors.idVendors]
-	}),
-	banksOriginal: one(banksOriginal, {
-		fields: [hrisRentAgreementDetails.bankId],
-		references: [banksOriginal.idBanks]
-	}),
-	hrBankBranchMaster: one(hrBankBranchMaster, {
-		fields: [hrisRentAgreementDetails.branchId],
-		references: [hrBankBranchMaster.branchId]
-	}),
-	hrEmployee_apEmployeeId: one(hrEmployee, {
-		fields: [hrisRentAgreementDetails.apEmployeeId],
-		references: [hrEmployee.employeeId],
-		relationName: "hrisRentAgreementDetails_apEmployeeId_hrEmployee_employeeId"
-	}),
-	hrEmployee_accountantEmployeeId: one(hrEmployee, {
-		fields: [hrisRentAgreementDetails.accountantEmployeeId],
-		references: [hrEmployee.employeeId],
-		relationName: "hrisRentAgreementDetails_accountantEmployeeId_hrEmployee_employeeId"
-	}),
-	user: one(users, {
-		fields: [hrisRentAgreementDetails.idUsers],
-		references: [users.idUsers]
-	}),
-	accVoucher: one(accVoucher, {
-		fields: [hrisRentAgreementDetails.idVoucher],
-		references: [accVoucher.idVoucher]
-	}),
-	hrisRentAgreementLessorsDetails: many(hrisRentAgreementLessorsDetails),
-	hrisRentAgreementPaymentDetails: many(hrisRentAgreementPaymentDetails),
-	hrisRentAgreementRentDetails: many(hrisRentAgreementRentDetails),
-	hrisRentGenerationDetails: many(hrisRentGenerationDetails),
-	hrisUtilityGenerationDetails: many(hrisUtilityGenerationDetails),
-}));
-
-export const hrisRentAgreementLessorsDetailsRelations = relations(hrisRentAgreementLessorsDetails, ({one}) => ({
+export const hrisRentAgreementLessorsDetailsRelations = relations(hrisRentAgreementLessorsDetails, ({ one }) => ({
 	hrisRentAgreementDetail: one(hrisRentAgreementDetails, {
 		fields: [hrisRentAgreementLessorsDetails.idHrisRentAgreementDetails],
 		references: [hrisRentAgreementDetails.idHrisRentAgreementDetails]
@@ -4666,7 +4405,7 @@ export const hrisRentAgreementLessorsDetailsRelations = relations(hrisRentAgreem
 	}),
 }));
 
-export const hrisRentAgreementPaymentDetailsRelations = relations(hrisRentAgreementPaymentDetails, ({one}) => ({
+export const hrisRentAgreementPaymentDetailsRelations = relations(hrisRentAgreementPaymentDetails, ({ one }) => ({
 	user: one(users, {
 		fields: [hrisRentAgreementPaymentDetails.idUsers],
 		references: [users.idUsers]
@@ -4681,7 +4420,7 @@ export const hrisRentAgreementPaymentDetailsRelations = relations(hrisRentAgreem
 	}),
 }));
 
-export const hrisRentAgreementRentDetailsRelations = relations(hrisRentAgreementRentDetails, ({one}) => ({
+export const hrisRentAgreementRentDetailsRelations = relations(hrisRentAgreementRentDetails, ({ one }) => ({
 	hrisRentAgreementDetail: one(hrisRentAgreementDetails, {
 		fields: [hrisRentAgreementRentDetails.idHrisRentAgreementDetails],
 		references: [hrisRentAgreementDetails.idHrisRentAgreementDetails]
@@ -4692,7 +4431,7 @@ export const hrisRentAgreementRentDetailsRelations = relations(hrisRentAgreement
 	}),
 }));
 
-export const hrisRentGenerationAttachmentsDetailsRelations = relations(hrisRentGenerationAttachmentsDetails, ({one}) => ({
+export const hrisRentGenerationAttachmentsDetailsRelations = relations(hrisRentGenerationAttachmentsDetails, ({ one }) => ({
 	hrisRentGenerationDetail: one(hrisRentGenerationDetails, {
 		fields: [hrisRentGenerationAttachmentsDetails.idHrisRentGenerationDetails],
 		references: [hrisRentGenerationDetails.idHrisRentGenerationDetails]
@@ -4703,7 +4442,7 @@ export const hrisRentGenerationAttachmentsDetailsRelations = relations(hrisRentG
 	}),
 }));
 
-export const hrisRentGenerationDetailsRelations = relations(hrisRentGenerationDetails, ({one, many}) => ({
+export const hrisRentGenerationDetailsRelations = relations(hrisRentGenerationDetails, ({ one, many }) => ({
 	hrisRentGenerationAttachmentsDetails: many(hrisRentGenerationAttachmentsDetails),
 	hrisRentAgreementDetail: one(hrisRentAgreementDetails, {
 		fields: [hrisRentGenerationDetails.idHrisRentAgreementDetails],
@@ -4742,7 +4481,7 @@ export const hrisRentGenerationDetailsRelations = relations(hrisRentGenerationDe
 	hrisRentGenerationPaymentDetails: many(hrisRentGenerationPaymentDetails),
 }));
 
-export const hrisRentGenerationPaymentDetailsRelations = relations(hrisRentGenerationPaymentDetails, ({one}) => ({
+export const hrisRentGenerationPaymentDetailsRelations = relations(hrisRentGenerationPaymentDetails, ({ one }) => ({
 	user: one(users, {
 		fields: [hrisRentGenerationPaymentDetails.idUsers],
 		references: [users.idUsers]
@@ -4757,7 +4496,7 @@ export const hrisRentGenerationPaymentDetailsRelations = relations(hrisRentGener
 	}),
 }));
 
-export const hrisResidentDetailsRelations = relations(hrisResidentDetails, ({one, many}) => ({
+export const hrisResidentDetailsRelations = relations(hrisResidentDetails, ({ one, many }) => ({
 	user: one(users, {
 		fields: [hrisResidentDetails.idUsers],
 		references: [users.idUsers]
@@ -4765,7 +4504,7 @@ export const hrisResidentDetailsRelations = relations(hrisResidentDetails, ({one
 	hrisResidentFloorDetails: many(hrisResidentFloorDetails),
 }));
 
-export const hrisResidentFlatDetailsRelations = relations(hrisResidentFlatDetails, ({one, many}) => ({
+export const hrisResidentFlatDetailsRelations = relations(hrisResidentFlatDetails, ({ one, many }) => ({
 	hrisResidentFloorDetail: one(hrisResidentFloorDetails, {
 		fields: [hrisResidentFlatDetails.idHrisResidentFloorDetails],
 		references: [hrisResidentFloorDetails.idHrisResidentFloorDetails]
@@ -4777,7 +4516,7 @@ export const hrisResidentFlatDetailsRelations = relations(hrisResidentFlatDetail
 	hrisResidentFlatRoomDetails: many(hrisResidentFlatRoomDetails),
 }));
 
-export const hrisResidentFloorDetailsRelations = relations(hrisResidentFloorDetails, ({one, many}) => ({
+export const hrisResidentFloorDetailsRelations = relations(hrisResidentFloorDetails, ({ one, many }) => ({
 	hrisResidentFlatDetails: many(hrisResidentFlatDetails),
 	hrisResidentDetail: one(hrisResidentDetails, {
 		fields: [hrisResidentFloorDetails.idHrisResidentDetails],
@@ -4789,7 +4528,7 @@ export const hrisResidentFloorDetailsRelations = relations(hrisResidentFloorDeta
 	}),
 }));
 
-export const hrisResidentFlatRoomDetailsRelations = relations(hrisResidentFlatRoomDetails, ({one}) => ({
+export const hrisResidentFlatRoomDetailsRelations = relations(hrisResidentFlatRoomDetails, ({ one }) => ({
 	hrisResidentFlatDetail: one(hrisResidentFlatDetails, {
 		fields: [hrisResidentFlatRoomDetails.idHrisResidentFlatDetails],
 		references: [hrisResidentFlatDetails.idHrisResidentFlatDetails]
@@ -4800,7 +4539,7 @@ export const hrisResidentFlatRoomDetailsRelations = relations(hrisResidentFlatRo
 	}),
 }));
 
-export const hrisResponsibilityMatrixFunctionRelations = relations(hrisResponsibilityMatrixFunction, ({one, many}) => ({
+export const hrisResponsibilityMatrixFunctionRelations = relations(hrisResponsibilityMatrixFunction, ({ one, many }) => ({
 	user: one(users, {
 		fields: [hrisResponsibilityMatrixFunction.idUsers],
 		references: [users.idUsers]
@@ -4808,7 +4547,7 @@ export const hrisResponsibilityMatrixFunctionRelations = relations(hrisResponsib
 	hrisResponsibilityMatrixSubFunctions: many(hrisResponsibilityMatrixSubFunction),
 }));
 
-export const hrisResponsibilityMatrixInchargeRelations = relations(hrisResponsibilityMatrixIncharge, ({one}) => ({
+export const hrisResponsibilityMatrixInchargeRelations = relations(hrisResponsibilityMatrixIncharge, ({ one }) => ({
 	user: one(users, {
 		fields: [hrisResponsibilityMatrixIncharge.idUsers],
 		references: [users.idUsers]
@@ -4819,7 +4558,7 @@ export const hrisResponsibilityMatrixInchargeRelations = relations(hrisResponsib
 	}),
 }));
 
-export const hrisResponsibilityMatrixSubFunctionRelations = relations(hrisResponsibilityMatrixSubFunction, ({one, many}) => ({
+export const hrisResponsibilityMatrixSubFunctionRelations = relations(hrisResponsibilityMatrixSubFunction, ({ one, many }) => ({
 	hrisResponsibilityMatrixIncharges: many(hrisResponsibilityMatrixIncharge),
 	hrisResponsibilityMatrixFunction: one(hrisResponsibilityMatrixFunction, {
 		fields: [hrisResponsibilityMatrixSubFunction.idHrisResponsibilityMatrixFunction],
@@ -4828,7 +4567,7 @@ export const hrisResponsibilityMatrixSubFunctionRelations = relations(hrisRespon
 	hrisResponsibilitySubFunctionDetails: many(hrisResponsibilitySubFunctionDetails),
 }));
 
-export const hrisResponsibilitySubFunctionDetailsRelations = relations(hrisResponsibilitySubFunctionDetails, ({one}) => ({
+export const hrisResponsibilitySubFunctionDetailsRelations = relations(hrisResponsibilitySubFunctionDetails, ({ one }) => ({
 	user: one(users, {
 		fields: [hrisResponsibilitySubFunctionDetails.idUsers],
 		references: [users.idUsers]
@@ -4839,14 +4578,14 @@ export const hrisResponsibilitySubFunctionDetailsRelations = relations(hrisRespo
 	}),
 }));
 
-export const hrisSpecialNotesRelations = relations(hrisSpecialNotes, ({one}) => ({
+export const hrisSpecialNotesRelations = relations(hrisSpecialNotes, ({ one }) => ({
 	hrisJobRequisition: one(hrisJobRequisitions, {
 		fields: [hrisSpecialNotes.idJobRequisition],
 		references: [hrisJobRequisitions.idJobRequisition]
 	}),
 }));
 
-export const hrisTalentAcquisitionJoiningDetailsRelations = relations(hrisTalentAcquisitionJoiningDetails, ({one, many}) => ({
+export const hrisTalentAcquisitionJoiningDetailsRelations = relations(hrisTalentAcquisitionJoiningDetails, ({ one, many }) => ({
 	project: one(projects, {
 		fields: [hrisTalentAcquisitionJoiningDetails.idProject],
 		references: [projects.idProjects]
@@ -4877,7 +4616,7 @@ export const hrisTalentAcquisitionJoiningDetailsRelations = relations(hrisTalent
 	hrisTalentAcquisitionJoiningReceiveDocumentsDetails: many(hrisTalentAcquisitionJoiningReceiveDocumentsDetails),
 }));
 
-export const hrisTalentAcquisitionJoiningHandoverDocumentsDetailsRelations = relations(hrisTalentAcquisitionJoiningHandoverDocumentsDetails, ({one}) => ({
+export const hrisTalentAcquisitionJoiningHandoverDocumentsDetailsRelations = relations(hrisTalentAcquisitionJoiningHandoverDocumentsDetails, ({ one }) => ({
 	project: one(projects, {
 		fields: [hrisTalentAcquisitionJoiningHandoverDocumentsDetails.idProject],
 		references: [projects.idProjects]
@@ -4896,7 +4635,7 @@ export const hrisTalentAcquisitionJoiningHandoverDocumentsDetailsRelations = rel
 	}),
 }));
 
-export const hrisTalentAcquisitionJoiningReceiveDocumentsDetailsRelations = relations(hrisTalentAcquisitionJoiningReceiveDocumentsDetails, ({one}) => ({
+export const hrisTalentAcquisitionJoiningReceiveDocumentsDetailsRelations = relations(hrisTalentAcquisitionJoiningReceiveDocumentsDetails, ({ one }) => ({
 	project: one(projects, {
 		fields: [hrisTalentAcquisitionJoiningReceiveDocumentsDetails.idProject],
 		references: [projects.idProjects]
@@ -4915,7 +4654,7 @@ export const hrisTalentAcquisitionJoiningReceiveDocumentsDetailsRelations = rela
 	}),
 }));
 
-export const hrisTraitsMasterRelations = relations(hrisTraitsMaster, ({one, many}) => ({
+export const hrisTraitsMasterRelations = relations(hrisTraitsMaster, ({ one, many }) => ({
 	project: one(projects, {
 		fields: [hrisTraitsMaster.idProject],
 		references: [projects.idProjects]
@@ -4928,7 +4667,7 @@ export const hrisTraitsMasterRelations = relations(hrisTraitsMaster, ({one, many
 	porPerformanceAppraiseTraits: many(porPerformanceAppraiseTraits),
 }));
 
-export const hrisTraitsSetupDetailsRelations = relations(hrisTraitsSetupDetails, ({one}) => ({
+export const hrisTraitsSetupDetailsRelations = relations(hrisTraitsSetupDetails, ({ one }) => ({
 	project: one(projects, {
 		fields: [hrisTraitsSetupDetails.idProject],
 		references: [projects.idProjects]
@@ -4947,7 +4686,7 @@ export const hrisTraitsSetupDetailsRelations = relations(hrisTraitsSetupDetails,
 	}),
 }));
 
-export const hrisUtilityGenerationAttachmentsDetailsRelations = relations(hrisUtilityGenerationAttachmentsDetails, ({one}) => ({
+export const hrisUtilityGenerationAttachmentsDetailsRelations = relations(hrisUtilityGenerationAttachmentsDetails, ({ one }) => ({
 	hrisUtilityGenerationDetail: one(hrisUtilityGenerationDetails, {
 		fields: [hrisUtilityGenerationAttachmentsDetails.idHrisUtilityGenerationDetails],
 		references: [hrisUtilityGenerationDetails.idHrisUtilityGenerationDetails]
@@ -4958,7 +4697,7 @@ export const hrisUtilityGenerationAttachmentsDetailsRelations = relations(hrisUt
 	}),
 }));
 
-export const hrisUtilityGenerationDetailsRelations = relations(hrisUtilityGenerationDetails, ({one, many}) => ({
+export const hrisUtilityGenerationDetailsRelations = relations(hrisUtilityGenerationDetails, ({ one, many }) => ({
 	hrisUtilityGenerationAttachmentsDetails: many(hrisUtilityGenerationAttachmentsDetails),
 	hrisUtilityGenerationChargeDetails: many(hrisUtilityGenerationChargeDetails),
 	hrisRentAgreementDetail: one(hrisRentAgreementDetails, {
@@ -4998,7 +4737,7 @@ export const hrisUtilityGenerationDetailsRelations = relations(hrisUtilityGenera
 	hrisUtilityGenerationPaymentDetails: many(hrisUtilityGenerationPaymentDetails),
 }));
 
-export const hrisUtilityGenerationChargeDetailsRelations = relations(hrisUtilityGenerationChargeDetails, ({one}) => ({
+export const hrisUtilityGenerationChargeDetailsRelations = relations(hrisUtilityGenerationChargeDetails, ({ one }) => ({
 	hrisUtilityGenerationDetail: one(hrisUtilityGenerationDetails, {
 		fields: [hrisUtilityGenerationChargeDetails.idHrisUtilityGenerationDetails],
 		references: [hrisUtilityGenerationDetails.idHrisUtilityGenerationDetails]
@@ -5013,7 +4752,7 @@ export const hrisUtilityGenerationChargeDetailsRelations = relations(hrisUtility
 	}),
 }));
 
-export const hrisUtilityServiceRelations = relations(hrisUtilityService, ({one, many}) => ({
+export const hrisUtilityServiceRelations = relations(hrisUtilityService, ({ one, many }) => ({
 	hrisUtilityGenerationChargeDetails: many(hrisUtilityGenerationChargeDetails),
 	user: one(users, {
 		fields: [hrisUtilityService.idUsers],
@@ -5021,7 +4760,7 @@ export const hrisUtilityServiceRelations = relations(hrisUtilityService, ({one, 
 	}),
 }));
 
-export const hrisUtilityGenerationPaymentDetailsRelations = relations(hrisUtilityGenerationPaymentDetails, ({one}) => ({
+export const hrisUtilityGenerationPaymentDetailsRelations = relations(hrisUtilityGenerationPaymentDetails, ({ one }) => ({
 	user: one(users, {
 		fields: [hrisUtilityGenerationPaymentDetails.idUsers],
 		references: [users.idUsers]
@@ -5036,7 +4775,7 @@ export const hrisUtilityGenerationPaymentDetailsRelations = relations(hrisUtilit
 	}),
 }));
 
-export const hrisWorkStationDetailsRelations = relations(hrisWorkStationDetails, ({one, many}) => ({
+export const hrisWorkStationDetailsRelations = relations(hrisWorkStationDetails, ({ one, many }) => ({
 	hrWorkStation: one(hrWorkStation, {
 		fields: [hrisWorkStationDetails.workStationId],
 		references: [hrWorkStation.workStationId]
@@ -5048,7 +4787,7 @@ export const hrisWorkStationDetailsRelations = relations(hrisWorkStationDetails,
 	hrisWorkStationFloorDetails: many(hrisWorkStationFloorDetails),
 }));
 
-export const hrisWorkStationFloorDetailsRelations = relations(hrisWorkStationFloorDetails, ({one, many}) => ({
+export const hrisWorkStationFloorDetailsRelations = relations(hrisWorkStationFloorDetails, ({ one, many }) => ({
 	hrisWorkStationFlatDetails: many(hrisWorkStationFlatDetails),
 	hrisWorkStationDetail: one(hrisWorkStationDetails, {
 		fields: [hrisWorkStationFloorDetails.idHrisWorkStationDetails],
@@ -5060,51 +4799,7 @@ export const hrisWorkStationFloorDetailsRelations = relations(hrisWorkStationFlo
 	}),
 }));
 
-export const categoriesRelations = relations(categories, ({many}) => ({
-	invItems: many(invItems),
-}));
-
-export const unitRelations = relations(unit, ({many}) => ({
-	invItems_idSecondaryUnit: many(invItems, {
-		relationName: "invItems_idSecondaryUnit_unit_idUnit"
-	}),
-	invItems_idUnit: many(invItems, {
-		relationName: "invItems_idUnit_unit_idUnit"
-	}),
-}));
-
-export const sizeRelations = relations(size, ({many}) => ({
-	invItems: many(invItems),
-}));
-
-export const colorRelations = relations(color, ({many}) => ({
-	invItems: many(invItems),
-}));
-
-export const specificationsRelations = relations(specifications, ({many}) => ({
-	invItems: many(invItems),
-}));
-
-export const modelsRelations = relations(models, ({many}) => ({
-	invItems: many(invItems),
-}));
-
-export const productsRelations = relations(products, ({many}) => ({
-	invItems: many(invItems),
-}));
-
-export const invItemImagesRelations = relations(invItemImages, ({many}) => ({
-	invItems: many(invItems),
-}));
-
-export const porAppFcmTokensRelations = relations(porAppFcmTokens, ({one}) => ({
-	hrEmployee: one(hrEmployee, {
-		fields: [porAppFcmTokens.employeeId],
-		references: [hrEmployee.employeeId]
-	}),
-}));
-
-export const porAttendanceRelations = relations(porAttendance, ({one}) => ({
+export const porAttendanceRelations = relations(porAttendance, ({ one }) => ({
 	hrEmployee_lineSupervisorId: one(hrEmployee, {
 		fields: [porAttendance.lineSupervisorId],
 		references: [hrEmployee.employeeId],
@@ -5117,7 +4812,7 @@ export const porAttendanceRelations = relations(porAttendance, ({one}) => ({
 	}),
 }));
 
-export const porCertificateMasterRelations = relations(porCertificateMaster, ({one, many}) => ({
+export const porCertificateMasterRelations = relations(porCertificateMaster, ({ one, many }) => ({
 	project: one(projects, {
 		fields: [porCertificateMaster.idProject],
 		references: [projects.idProjects]
@@ -5129,7 +4824,7 @@ export const porCertificateMasterRelations = relations(porCertificateMaster, ({o
 	porCertificateRequests: many(porCertificateRequest),
 }));
 
-export const porCertificateRequestRelations = relations(porCertificateRequest, ({one}) => ({
+export const porCertificateRequestRelations = relations(porCertificateRequest, ({ one }) => ({
 	hrEmployee: one(hrEmployee, {
 		fields: [porCertificateRequest.requestedBy],
 		references: [hrEmployee.employeeId]
@@ -5140,7 +4835,7 @@ export const porCertificateRequestRelations = relations(porCertificateRequest, (
 	}),
 }));
 
-export const porCompensatoryLeavesRelations = relations(porCompensatoryLeaves, ({one}) => ({
+export const porCompensatoryLeavesRelations = relations(porCompensatoryLeaves, ({ one }) => ({
 	hrEmployee_lineSupervisorId: one(hrEmployee, {
 		fields: [porCompensatoryLeaves.lineSupervisorId],
 		references: [hrEmployee.employeeId],
@@ -5158,14 +4853,14 @@ export const porCompensatoryLeavesRelations = relations(porCompensatoryLeaves, (
 	}),
 }));
 
-export const porEmployeeRelations = relations(porEmployee, ({one}) => ({
+export const porEmployeeRelations = relations(porEmployee, ({ one }) => ({
 	hrEmployee: one(hrEmployee, {
 		fields: [porEmployee.employeeId],
 		references: [hrEmployee.employeeId]
 	}),
 }));
 
-export const porEmployeeAppraisalDetailsRelations = relations(porEmployeeAppraisalDetails, ({one, many}) => ({
+export const porEmployeeAppraisalDetailsRelations = relations(porEmployeeAppraisalDetails, ({ one, many }) => ({
 	project: one(projects, {
 		fields: [porEmployeeAppraisalDetails.idProject],
 		references: [projects.idProjects]
@@ -5187,7 +4882,7 @@ export const porEmployeeAppraisalDetailsRelations = relations(porEmployeeApprais
 	porEmployeeAppraisalTargetDetails: many(porEmployeeAppraisalTargetDetails),
 }));
 
-export const porEmployeeAppraisalTargetDetailsRelations = relations(porEmployeeAppraisalTargetDetails, ({one}) => ({
+export const porEmployeeAppraisalTargetDetailsRelations = relations(porEmployeeAppraisalTargetDetails, ({ one }) => ({
 	project: one(projects, {
 		fields: [porEmployeeAppraisalTargetDetails.idProject],
 		references: [projects.idProjects]
@@ -5202,7 +4897,7 @@ export const porEmployeeAppraisalTargetDetailsRelations = relations(porEmployeeA
 	}),
 }));
 
-export const porEmployeeCarAitRelations = relations(porEmployeeCarAit, ({one}) => ({
+export const porEmployeeCarAitRelations = relations(porEmployeeCarAit, ({ one }) => ({
 	hrEmployee_employeeId: one(hrEmployee, {
 		fields: [porEmployeeCarAit.employeeId],
 		references: [hrEmployee.employeeId],
@@ -5219,7 +4914,7 @@ export const porEmployeeCarAitRelations = relations(porEmployeeCarAit, ({one}) =
 	}),
 }));
 
-export const porEmployeeHrRelations = relations(porEmployeeHr, ({one, many}) => ({
+export const porEmployeeHrRelations = relations(porEmployeeHr, ({ one, many }) => ({
 	hrEmployee: one(hrEmployee, {
 		fields: [porEmployeeHr.employeeId],
 		references: [hrEmployee.employeeId]
@@ -5227,7 +4922,7 @@ export const porEmployeeHrRelations = relations(porEmployeeHr, ({one, many}) => 
 	porEmployeeHrDetails: many(porEmployeeHrDetails),
 }));
 
-export const porEmployeeHrDetailsRelations = relations(porEmployeeHrDetails, ({one}) => ({
+export const porEmployeeHrDetailsRelations = relations(porEmployeeHrDetails, ({ one }) => ({
 	hrEmployee: one(hrEmployee, {
 		fields: [porEmployeeHrDetails.hrId],
 		references: [hrEmployee.employeeId]
@@ -5248,7 +4943,7 @@ export const porEmployeeHrDetailsRelations = relations(porEmployeeHrDetails, ({o
 	}),
 }));
 
-export const porEmployeeReviewRelations = relations(porEmployeeReview, ({one}) => ({
+export const porEmployeeReviewRelations = relations(porEmployeeReview, ({ one }) => ({
 	hrEmployee_employeeId: one(hrEmployee, {
 		fields: [porEmployeeReview.employeeId],
 		references: [hrEmployee.employeeId],
@@ -5261,7 +4956,7 @@ export const porEmployeeReviewRelations = relations(porEmployeeReview, ({one}) =
 	}),
 }));
 
-export const porEmployeeSupervisorRelations = relations(porEmployeeSupervisor, ({one}) => ({
+export const porEmployeeSupervisorRelations = relations(porEmployeeSupervisor, ({ one }) => ({
 	hrEmployee_employeeId: one(hrEmployee, {
 		fields: [porEmployeeSupervisor.employeeId],
 		references: [hrEmployee.employeeId],
@@ -5274,7 +4969,7 @@ export const porEmployeeSupervisorRelations = relations(porEmployeeSupervisor, (
 	}),
 }));
 
-export const porEmployeeTinInfoRelations = relations(porEmployeeTinInfo, ({one}) => ({
+export const porEmployeeTinInfoRelations = relations(porEmployeeTinInfo, ({ one }) => ({
 	hrEmployee: one(hrEmployee, {
 		fields: [porEmployeeTinInfo.employeeId],
 		references: [hrEmployee.employeeId]
@@ -5285,132 +4980,14 @@ export const porEmployeeTinInfoRelations = relations(porEmployeeTinInfo, ({one})
 	}),
 }));
 
-export const porItGoodsDetailsRelations = relations(porItGoodsDetails, ({one, many}) => ({
-	project: one(projects, {
-		fields: [porItGoodsDetails.idProject],
-		references: [projects.idProjects]
-	}),
-	hrEmployee_idUsers: one(hrEmployee, {
-		fields: [porItGoodsDetails.idUsers],
-		references: [hrEmployee.employeeId],
-		relationName: "porItGoodsDetails_idUsers_hrEmployee_employeeId"
-	}),
-	hrEmployee_employeeId: one(hrEmployee, {
-		fields: [porItGoodsDetails.employeeId],
-		references: [hrEmployee.employeeId],
-		relationName: "porItGoodsDetails_employeeId_hrEmployee_employeeId"
-	}),
-	hrDesignationMaster: one(hrDesignationMaster, {
-		fields: [porItGoodsDetails.designationId],
-		references: [hrDesignationMaster.designationId]
-	}),
-	hrDepartment: one(hrDepartments, {
-		fields: [porItGoodsDetails.idDepartment],
-		references: [hrDepartments.idDepartment]
-	}),
-	hrEmployee_concernItPersonId: one(hrEmployee, {
-		fields: [porItGoodsDetails.concernItPersonId],
-		references: [hrEmployee.employeeId],
-		relationName: "porItGoodsDetails_concernItPersonId_hrEmployee_employeeId"
-	}),
-	porItGoodsItemsDetails: many(porItGoodsItemsDetails),
-}));
-
-export const porItGoodsItemsDetailsRelations = relations(porItGoodsItemsDetails, ({one}) => ({
-	project: one(projects, {
-		fields: [porItGoodsItemsDetails.idProject],
-		references: [projects.idProjects]
-	}),
-	hrEmployee: one(hrEmployee, {
-		fields: [porItGoodsItemsDetails.idUsers],
-		references: [hrEmployee.employeeId]
-	}),
-	porItGoodsDetail: one(porItGoodsDetails, {
-		fields: [porItGoodsItemsDetails.idPorItGoodsDetails],
-		references: [porItGoodsDetails.idPorItGoodsDetails]
-	}),
-	invItem: one(invItems, {
-		fields: [porItGoodsItemsDetails.idInvItems],
-		references: [invItems.idInvItems]
-	}),
-}));
-
-export const porJobDescriptionAdditionalDimensionsRelations = relations(porJobDescriptionAdditionalDimensions, ({one, many}) => ({
-	hrEmployee: one(hrEmployee, {
-		fields: [porJobDescriptionAdditionalDimensions.employeeId],
-		references: [hrEmployee.employeeId]
-	}),
-	porJobDescriptionAdditionalDimensionsHistories: many(porJobDescriptionAdditionalDimensionsHistory),
-}));
-
-export const porJobDescriptionAdditionalDimensionsHistoryRelations = relations(porJobDescriptionAdditionalDimensionsHistory, ({one}) => ({
-	porJobDescriptionAdditionalDimension: one(porJobDescriptionAdditionalDimensions, {
-		fields: [porJobDescriptionAdditionalDimensionsHistory.idJobDescriptionAdditionalDimension],
-		references: [porJobDescriptionAdditionalDimensions.idJobDescriptionAdditionalDimension]
-	}),
-}));
-
-export const porJobDescriptionAdditionalExperiencesRelations = relations(porJobDescriptionAdditionalExperiences, ({one, many}) => ({
-	hrEmployee: one(hrEmployee, {
-		fields: [porJobDescriptionAdditionalExperiences.employeeId],
-		references: [hrEmployee.employeeId]
-	}),
-	porJobDescriptionAdditionalExperiencesHistories: many(porJobDescriptionAdditionalExperiencesHistory),
-}));
-
-export const porJobDescriptionAdditionalExperiencesHistoryRelations = relations(porJobDescriptionAdditionalExperiencesHistory, ({one}) => ({
-	porJobDescriptionAdditionalExperience: one(porJobDescriptionAdditionalExperiences, {
-		fields: [porJobDescriptionAdditionalExperiencesHistory.idJobDescriptionAdditionalExperience],
-		references: [porJobDescriptionAdditionalExperiences.idJobDescriptionAdditionalExperience]
-	}),
-}));
-
-export const porJobDescriptionAdditionalExternalCustomersRelations = relations(porJobDescriptionAdditionalExternalCustomers, ({one, many}) => ({
-	hrEmployee: one(hrEmployee, {
-		fields: [porJobDescriptionAdditionalExternalCustomers.employeeId],
-		references: [hrEmployee.employeeId]
-	}),
-	porJobDescriptionAdditionalExternalCustomersHistories: many(porJobDescriptionAdditionalExternalCustomersHistory),
-}));
-
-export const porJobDescriptionAdditionalExternalCustomersHistoryRelations = relations(porJobDescriptionAdditionalExternalCustomersHistory, ({one}) => ({
-	porJobDescriptionAdditionalExternalCustomer: one(porJobDescriptionAdditionalExternalCustomers, {
-		fields: [porJobDescriptionAdditionalExternalCustomersHistory.idJobDescriptionAdditionalExternalCustomer],
-		references: [porJobDescriptionAdditionalExternalCustomers.idJobDescriptionAdditionalExternalCustomer]
-	}),
-}));
-
-export const porJobDescriptionAdditionalInternalCustomersRelations = relations(porJobDescriptionAdditionalInternalCustomers, ({one, many}) => ({
-	hrEmployee: one(hrEmployee, {
-		fields: [porJobDescriptionAdditionalInternalCustomers.employeeId],
-		references: [hrEmployee.employeeId]
-	}),
-	porJobDescriptionAdditionalInternalCustomersHistories: many(porJobDescriptionAdditionalInternalCustomersHistory),
-}));
-
-export const porJobDescriptionAdditionalInternalCustomersHistoryRelations = relations(porJobDescriptionAdditionalInternalCustomersHistory, ({one}) => ({
-	porJobDescriptionAdditionalInternalCustomer: one(porJobDescriptionAdditionalInternalCustomers, {
-		fields: [porJobDescriptionAdditionalInternalCustomersHistory.idJobDescriptionAdditionalInternalCustomer],
-		references: [porJobDescriptionAdditionalInternalCustomers.idJobDescriptionAdditionalInternalCustomer]
-	}),
-}));
-
-export const porJobDescriptionAdditionalPerformingAreasRelations = relations(porJobDescriptionAdditionalPerformingAreas, ({one, many}) => ({
-	hrEmployee: one(hrEmployee, {
-		fields: [porJobDescriptionAdditionalPerformingAreas.employeeId],
-		references: [hrEmployee.employeeId]
-	}),
-	porJobDescriptionAdditionalPerformingAreasHistories: many(porJobDescriptionAdditionalPerformingAreasHistory),
-}));
-
-export const porJobDescriptionAdditionalPerformingAreasHistoryRelations = relations(porJobDescriptionAdditionalPerformingAreasHistory, ({one}) => ({
+export const porJobDescriptionAdditionalPerformingAreasHistoryRelations = relations(porJobDescriptionAdditionalPerformingAreasHistory, ({ one }) => ({
 	porJobDescriptionAdditionalPerformingArea: one(porJobDescriptionAdditionalPerformingAreas, {
 		fields: [porJobDescriptionAdditionalPerformingAreasHistory.idJobDescriptionAdditionalPerformingArea],
 		references: [porJobDescriptionAdditionalPerformingAreas.idJobDescriptionAdditionalPerformingArea]
 	}),
 }));
 
-export const porJobDescriptionAdditionalQualificationsRelations = relations(porJobDescriptionAdditionalQualifications, ({one, many}) => ({
+export const porJobDescriptionAdditionalQualificationsRelations = relations(porJobDescriptionAdditionalQualifications, ({ one, many }) => ({
 	hrEmployee: one(hrEmployee, {
 		fields: [porJobDescriptionAdditionalQualifications.employeeId],
 		references: [hrEmployee.employeeId]
@@ -5418,14 +4995,14 @@ export const porJobDescriptionAdditionalQualificationsRelations = relations(porJ
 	porJobDescriptionAdditionalQualificationsHistories: many(porJobDescriptionAdditionalQualificationsHistory),
 }));
 
-export const porJobDescriptionAdditionalQualificationsHistoryRelations = relations(porJobDescriptionAdditionalQualificationsHistory, ({one}) => ({
+export const porJobDescriptionAdditionalQualificationsHistoryRelations = relations(porJobDescriptionAdditionalQualificationsHistory, ({ one }) => ({
 	porJobDescriptionAdditionalQualification: one(porJobDescriptionAdditionalQualifications, {
 		fields: [porJobDescriptionAdditionalQualificationsHistory.idJobDescriptionAdditionalQualification],
 		references: [porJobDescriptionAdditionalQualifications.idJobDescriptionAdditionalQualification]
 	}),
 }));
 
-export const porJobDescriptionAdditionalQualityParametersRelations = relations(porJobDescriptionAdditionalQualityParameters, ({one, many}) => ({
+export const porJobDescriptionAdditionalQualityParametersRelations = relations(porJobDescriptionAdditionalQualityParameters, ({ one, many }) => ({
 	hrEmployee: one(hrEmployee, {
 		fields: [porJobDescriptionAdditionalQualityParameters.employeeId],
 		references: [hrEmployee.employeeId]
@@ -5433,14 +5010,14 @@ export const porJobDescriptionAdditionalQualityParametersRelations = relations(p
 	porJobDescriptionAdditionalQualityParametersHistories: many(porJobDescriptionAdditionalQualityParametersHistory),
 }));
 
-export const porJobDescriptionAdditionalQualityParametersHistoryRelations = relations(porJobDescriptionAdditionalQualityParametersHistory, ({one}) => ({
+export const porJobDescriptionAdditionalQualityParametersHistoryRelations = relations(porJobDescriptionAdditionalQualityParametersHistory, ({ one }) => ({
 	porJobDescriptionAdditionalQualityParameter: one(porJobDescriptionAdditionalQualityParameters, {
 		fields: [porJobDescriptionAdditionalQualityParametersHistory.idJobDescriptionAdditionalQualityParameter],
 		references: [porJobDescriptionAdditionalQualityParameters.idJobDescriptionAdditionalQualityParameter]
 	}),
 }));
 
-export const porJobDescriptionAdditionalSoftSkillsRelations = relations(porJobDescriptionAdditionalSoftSkills, ({one, many}) => ({
+export const porJobDescriptionAdditionalSoftSkillsRelations = relations(porJobDescriptionAdditionalSoftSkills, ({ one, many }) => ({
 	hrEmployee: one(hrEmployee, {
 		fields: [porJobDescriptionAdditionalSoftSkills.employeeId],
 		references: [hrEmployee.employeeId]
@@ -5448,14 +5025,14 @@ export const porJobDescriptionAdditionalSoftSkillsRelations = relations(porJobDe
 	porJobDescriptionAdditionalSoftSkillsHistories: many(porJobDescriptionAdditionalSoftSkillsHistory),
 }));
 
-export const porJobDescriptionAdditionalSoftSkillsHistoryRelations = relations(porJobDescriptionAdditionalSoftSkillsHistory, ({one}) => ({
+export const porJobDescriptionAdditionalSoftSkillsHistoryRelations = relations(porJobDescriptionAdditionalSoftSkillsHistory, ({ one }) => ({
 	porJobDescriptionAdditionalSoftSkill: one(porJobDescriptionAdditionalSoftSkills, {
 		fields: [porJobDescriptionAdditionalSoftSkillsHistory.idJobDescriptionAdditionalSoftSkill],
 		references: [porJobDescriptionAdditionalSoftSkills.idJobDescriptionAdditionalSoftSkill]
 	}),
 }));
 
-export const porJobDescriptionAdditionalSpecialRequirementsRelations = relations(porJobDescriptionAdditionalSpecialRequirements, ({one, many}) => ({
+export const porJobDescriptionAdditionalSpecialRequirementsRelations = relations(porJobDescriptionAdditionalSpecialRequirements, ({ one, many }) => ({
 	hrEmployee: one(hrEmployee, {
 		fields: [porJobDescriptionAdditionalSpecialRequirements.employeeId],
 		references: [hrEmployee.employeeId]
@@ -5463,14 +5040,14 @@ export const porJobDescriptionAdditionalSpecialRequirementsRelations = relations
 	porJobDescriptionAdditionalSpecialRequirementsHistories: many(porJobDescriptionAdditionalSpecialRequirementsHistory),
 }));
 
-export const porJobDescriptionAdditionalSpecialRequirementsHistoryRelations = relations(porJobDescriptionAdditionalSpecialRequirementsHistory, ({one}) => ({
+export const porJobDescriptionAdditionalSpecialRequirementsHistoryRelations = relations(porJobDescriptionAdditionalSpecialRequirementsHistory, ({ one }) => ({
 	porJobDescriptionAdditionalSpecialRequirement: one(porJobDescriptionAdditionalSpecialRequirements, {
 		fields: [porJobDescriptionAdditionalSpecialRequirementsHistory.idJobDescriptionAdditionalSpecialRequirement],
 		references: [porJobDescriptionAdditionalSpecialRequirements.idJobDescriptionAdditionalSpecialRequirement]
 	}),
 }));
 
-export const porJobDescriptionAdditionalTechSkillsRelations = relations(porJobDescriptionAdditionalTechSkills, ({one, many}) => ({
+export const porJobDescriptionAdditionalTechSkillsRelations = relations(porJobDescriptionAdditionalTechSkills, ({ one, many }) => ({
 	hrEmployee: one(hrEmployee, {
 		fields: [porJobDescriptionAdditionalTechSkills.employeeId],
 		references: [hrEmployee.employeeId]
@@ -5478,14 +5055,14 @@ export const porJobDescriptionAdditionalTechSkillsRelations = relations(porJobDe
 	porJobDescriptionAdditionalTechSkillsHistories: many(porJobDescriptionAdditionalTechSkillsHistory),
 }));
 
-export const porJobDescriptionAdditionalTechSkillsHistoryRelations = relations(porJobDescriptionAdditionalTechSkillsHistory, ({one}) => ({
+export const porJobDescriptionAdditionalTechSkillsHistoryRelations = relations(porJobDescriptionAdditionalTechSkillsHistory, ({ one }) => ({
 	porJobDescriptionAdditionalTechSkill: one(porJobDescriptionAdditionalTechSkills, {
 		fields: [porJobDescriptionAdditionalTechSkillsHistory.idJobDescriptionAdditionalTechSkill],
 		references: [porJobDescriptionAdditionalTechSkills.idJobDescriptionAdditionalTechSkill]
 	}),
 }));
 
-export const porJobRequisitionsRelations = relations(porJobRequisitions, ({one}) => ({
+export const porJobRequisitionsRelations = relations(porJobRequisitions, ({ one }) => ({
 	project: one(projects, {
 		fields: [porJobRequisitions.idBusinessUnit],
 		references: [projects.idProjects]
@@ -5496,14 +5073,14 @@ export const porJobRequisitionsRelations = relations(porJobRequisitions, ({one})
 	}),
 }));
 
-export const porLeaveDetailsRelations = relations(porLeaveDetails, ({one}) => ({
+export const porLeaveDetailsRelations = relations(porLeaveDetails, ({ one }) => ({
 	porLeave: one(porLeave, {
 		fields: [porLeaveDetails.idPorLeave],
 		references: [porLeave.idPorLeave]
 	}),
 }));
 
-export const porPerformanceAppraiseRelations = relations(porPerformanceAppraise, ({one, many}) => ({
+export const porPerformanceAppraiseRelations = relations(porPerformanceAppraise, ({ one, many }) => ({
 	hrEmployee: one(hrEmployee, {
 		fields: [porPerformanceAppraise.employeeId],
 		references: [hrEmployee.employeeId]
@@ -5521,41 +5098,23 @@ export const porPerformanceAppraiseRelations = relations(porPerformanceAppraise,
 	porPerformanceAppraiseTraits: many(porPerformanceAppraiseTraits),
 }));
 
-export const porPerformanceAppraiseAchievementsRelations = relations(porPerformanceAppraiseAchievements, ({one}) => ({
+export const porPerformanceAppraiseAchievementsRelations = relations(porPerformanceAppraiseAchievements, ({ one }) => ({
 	porPerformanceAppraise: one(porPerformanceAppraise, {
 		fields: [porPerformanceAppraiseAchievements.idPerformanceAppraise],
 		references: [porPerformanceAppraise.idPerformanceAppraise]
 	}),
 }));
 
-export const porPerformanceAppraiseDetailsRelations = relations(porPerformanceAppraiseDetails, ({one}) => ({
-	hrisPerformanceAppraisalDateRange_idPerformanceAppraisalDateRange: one(hrisPerformanceAppraisalDateRanges, {
-		fields: [porPerformanceAppraiseDetails.idPerformanceAppraisalDateRange],
-		references: [hrisPerformanceAppraisalDateRanges.idPerformanceAppraisalDateRange],
-		relationName: "porPerformanceAppraiseDetails_idPerformanceAppraisalDateRange_hrisPerformanceAppraisalDateRanges_idPerformanceAppraisalDateRange"
-	}),
-	hrEmployee: one(hrEmployee, {
-		fields: [porPerformanceAppraiseDetails.idAppraiser],
-		references: [hrEmployee.employeeId]
-	}),
-	porPerformanceAppraise: one(porPerformanceAppraise, {
-		fields: [porPerformanceAppraiseDetails.idPerformanceAppraise],
-		references: [porPerformanceAppraise.idPerformanceAppraise]
-	}),
-	hrisPerformanceAppraisalDateRange_idPerformanceAppraisalDateRange: one(hrisPerformanceAppraisalDateRanges, {
-		fields: [porPerformanceAppraiseDetails.idPerformanceAppraisalDateRange],
-		references: [hrisPerformanceAppraisalDateRanges.idPerformanceAppraisalDateRange],
-		relationName: "porPerformanceAppraiseDetails_idPerformanceAppraisalDateRange_hrisPerformanceAppraisalDateRanges_idPerformanceAppraisalDateRange"
+export const filesRelations = relations(files, ({ one }) => ({
+	user: one(users, {
+		fields: [files.idUsers],
+		references: [users.idUsers]
 	}),
 }));
 
-export const porPerformanceAppraiseTraitsRelations = relations(porPerformanceAppraiseTraits, ({one}) => ({
-	hrisTraitsMaster: one(hrisTraitsMaster, {
-		fields: [porPerformanceAppraiseTraits.idHrisTraitsMaster],
-		references: [hrisTraitsMaster.idHrisTraitsMaster]
-	}),
-	porPerformanceAppraise: one(porPerformanceAppraise, {
-		fields: [porPerformanceAppraiseTraits.idPerformanceAppraise],
-		references: [porPerformanceAppraise.idPerformanceAppraise]
+export const personalInfoRelations = relations(personalInfo, ({ one }) => ({
+	user: one(users, {
+		fields: [personalInfo.idUsers],
+		references: [users.idUsers]
 	}),
 }));

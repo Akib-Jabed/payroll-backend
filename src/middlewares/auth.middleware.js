@@ -17,8 +17,7 @@ const verifyToken = catchAsync(async (req, res, next) => {
     }
 
     try {
-        const decoded = jwt.verify(token.trim(), config.jwt.secret);
-        req.user = decoded.data;
+        req.user = jwt.verify(token.trim(), config.jwt.secret);
         next();
     } catch (error) {
         throw new ApiError(STATUS_CODES.FORBIDDEN, 'Authorization failed');
