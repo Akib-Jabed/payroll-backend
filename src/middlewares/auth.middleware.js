@@ -17,7 +17,7 @@ const verifyToken = catchAsync(async (req, res, next) => {
     }
 
     try {
-        const decoded = jwt.decode(token, config.jwt.secret);
+        const decoded = jwt.verify(token.trim(), config.jwt.secret);
         req.user = decoded.data;
         next();
     } catch (error) {
